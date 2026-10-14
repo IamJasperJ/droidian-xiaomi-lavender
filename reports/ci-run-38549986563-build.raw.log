@@ -1,0 +1,1371 @@
+﻿2026-10-14T10:30:03.3043663Z Current runner version: '2.337.0'
+2026-10-14T10:30:03.3070546Z ##[group]Runner Image Provisioner
+2026-10-14T10:30:03.3071481Z Hosted Compute Agent
+2026-10-14T10:30:03.3072556Z Version: 20261002.596
+2026-10-14T10:30:03.3073301Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-14T10:30:03.3074268Z Build Date: 2026-10-02T22:28:27Z
+2026-10-14T10:30:03.3075147Z Worker ID: {6c99a4a3-1f87-4dff-8708-6a1b464ae2f3}
+2026-10-14T10:30:03.3075886Z Region: westus3
+2026-10-14T10:30:03.3076480Z Cloud: Azure
+2026-10-14T10:30:03.3077123Z ##[endgroup]
+2026-10-14T10:30:03.3078909Z ##[group]Operating System
+2026-10-14T10:30:03.3079651Z Ubuntu
+2026-10-14T10:30:03.3080200Z 24.04.5
+2026-10-14T10:30:03.3080805Z LTS
+2026-10-14T10:30:03.3081357Z ##[endgroup]
+2026-10-14T10:30:03.3081967Z ##[group]Runner Image
+2026-10-14T10:30:03.3082861Z Image: ubuntu-24.04
+2026-10-14T10:30:03.3083448Z Version: 20261004.327.1
+2026-10-14T10:30:03.3084802Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T10:30:03.3086405Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-14T10:30:03.3087442Z ##[endgroup]
+2026-10-14T10:30:03.3088594Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T10:30:03.3090844Z Contents: read
+2026-10-14T10:30:03.3091467Z Metadata: read
+2026-10-14T10:30:03.3092764Z ##[endgroup]
+2026-10-14T10:30:03.3095235Z Secret source: Actions
+2026-10-14T10:30:03.3096374Z Cache mode: write
+2026-10-14T10:30:03.3097153Z Prepare workflow directory
+2026-10-14T10:30:03.3455954Z Prepare all required actions
+2026-10-14T10:30:03.3506328Z Getting action download info
+2026-10-14T10:30:03.6815662Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T10:30:04.2043651Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-14T10:30:04.9081458Z Complete job name: build
+2026-10-14T10:30:05.0131098Z ##[group]Run actions/checkout@v4
+2026-10-14T10:30:05.0132414Z with:
+2026-10-14T10:30:05.0133023Z   repository: IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:30:05.0137747Z   token: ***
+2026-10-14T10:30:05.0138242Z   ssh-strict: true
+2026-10-14T10:30:05.0138730Z   ssh-user: git
+2026-10-14T10:30:05.0139240Z   persist-credentials: true
+2026-10-14T10:30:05.0139798Z   clean: true
+2026-10-14T10:30:05.0140292Z   sparse-checkout-cone-mode: true
+2026-10-14T10:30:05.0140879Z   fetch-depth: 1
+2026-10-14T10:30:05.0141358Z   fetch-tags: false
+2026-10-14T10:30:05.0141854Z   show-progress: true
+2026-10-14T10:30:05.0142507Z   lfs: false
+2026-10-14T10:30:05.0142983Z   submodules: false
+2026-10-14T10:30:05.0143488Z   set-safe-directory: true
+2026-10-14T10:30:05.0144039Z   allow-unsafe-pr-checkout: false
+2026-10-14T10:30:05.0144925Z ##[endgroup]
+2026-10-14T10:30:05.1193135Z Syncing repository: IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:30:05.1195435Z ##[group]Getting Git version info
+2026-10-14T10:30:05.1196596Z Working directory is '/home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender'
+2026-10-14T10:30:05.1198016Z [command]/usr/bin/git version
+2026-10-14T10:30:05.3982796Z git version 2.55.0
+2026-10-14T10:30:05.4020313Z ##[endgroup]
+2026-10-14T10:30:05.4041235Z Temporarily overriding HOME='/home/runner/work/_temp/9873be00-f442-48fd-ac02-e3a682380c34' before making global git config changes
+2026-10-14T10:30:05.4044000Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T10:30:05.4049971Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:30:05.4115753Z Deleting the contents of '/home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender'
+2026-10-14T10:30:05.4120648Z ##[group]Initializing the repository
+2026-10-14T10:30:05.4126693Z [command]/usr/bin/git init /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:30:05.4259166Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-14T10:30:05.4261119Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-14T10:30:05.4262948Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-14T10:30:05.4264367Z hint: call:
+2026-10-14T10:30:05.4265137Z hint:
+2026-10-14T10:30:05.4266153Z hint: 	git config --global init.defaultBranch <name>
+2026-10-14T10:30:05.4267304Z hint:
+2026-10-14T10:30:05.4268345Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-14T10:30:05.4270005Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-14T10:30:05.4271378Z hint:
+2026-10-14T10:30:05.4272092Z hint: 	git branch -m <name>
+2026-10-14T10:30:05.4273290Z hint:
+2026-10-14T10:30:05.4274405Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-14T10:30:05.4276699Z Initialized empty Git repository in /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender/.git/
+2026-10-14T10:30:05.4280370Z [command]/usr/bin/git remote add origin https://github.com/IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:30:05.4340541Z ##[endgroup]
+2026-10-14T10:30:05.4341920Z ##[group]Disabling automatic garbage collection
+2026-10-14T10:30:05.4346229Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-14T10:30:05.4386386Z ##[endgroup]
+2026-10-14T10:30:05.4387749Z ##[group]Setting up auth
+2026-10-14T10:30:05.4395232Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T10:30:05.4436997Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T10:30:05.4850396Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T10:30:05.4890738Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T10:30:05.5134793Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T10:30:05.5176534Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T10:30:05.5419386Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-14T10:30:05.5467810Z ##[endgroup]
+2026-10-14T10:30:05.5469244Z ##[group]Fetching the repository
+2026-10-14T10:30:05.5480825Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9597f83de37ee957bbb1e22d4fdf1e2d08c3c7c1:refs/remotes/origin/main
+2026-10-14T10:30:06.0409458Z From https://github.com/IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:30:06.0411546Z  * [new ref]         9597f83de37ee957bbb1e22d4fdf1e2d08c3c7c1 -> origin/main
+2026-10-14T10:30:06.0417069Z ##[endgroup]
+2026-10-14T10:30:06.0419154Z ##[group]Determining the checkout info
+2026-10-14T10:30:06.0424421Z ##[endgroup]
+2026-10-14T10:30:06.0425975Z [command]/usr/bin/git sparse-checkout disable
+2026-10-14T10:30:06.0488451Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-14T10:30:06.0526282Z ##[group]Checking out the ref
+2026-10-14T10:30:06.0530842Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-14T10:30:06.0635901Z Switched to a new branch 'main'
+2026-10-14T10:30:06.0655708Z branch 'main' set up to track 'origin/main'.
+2026-10-14T10:30:06.0664820Z ##[endgroup]
+2026-10-14T10:30:06.0717394Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T10:30:06.0751347Z 9597f83de37ee957bbb1e22d4fdf1e2d08c3c7c1
+2026-10-14T10:30:06.1051339Z ##[group]Run mkdir -p "$RUNNER_TEMP/buildd/artifacts"
+2026-10-14T10:30:06.1053537Z [36;1mmkdir -p "$RUNNER_TEMP/buildd/artifacts"[0m
+2026-10-14T10:30:06.1055272Z [36;1mtouch "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:30:06.1057388Z [36;1mdf -h | tee "$RUNNER_TEMP/buildd/artifacts/runner-disk.txt"[0m
+2026-10-14T10:30:06.1059553Z [36;1mtest "$(df -PB1 "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 20000000000[0m
+2026-10-14T10:30:06.1365542Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:30:06.1366898Z ##[endgroup]
+2026-10-14T10:30:06.1785965Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-14T10:30:06.1787806Z /dev/root       145G   60G   86G  41% /
+2026-10-14T10:30:06.1789196Z tmpfs           7.9G   84K  7.9G   1% /dev/shm
+2026-10-14T10:30:06.1791505Z tmpfs           3.2G  984K  3.2G   1% /run
+2026-10-14T10:30:06.1793865Z tmpfs           5.0M     0  5.0M   0% /run/lock
+2026-10-14T10:30:06.1796651Z efivarfs        128M   32K  128M   1% /sys/firmware/efi/efivars
+2026-10-14T10:30:06.1799178Z /dev/sda16      881M   64M  756M   8% /boot
+2026-10-14T10:30:06.1801318Z /dev/sda15      105M  6.2M   99M   6% /boot/efi
+2026-10-14T10:30:06.1803785Z tmpfs           1.6G   12K  1.6G   1% /run/user/1001
+2026-10-14T10:30:06.1906593Z ##[group]Run set -o pipefail
+2026-10-14T10:30:06.1907869Z [36;1mset -o pipefail[0m
+2026-10-14T10:30:06.1910298Z [36;1mbash scripts/prepare-source.sh "$RUNNER_TEMP/buildd/sources" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:30:06.1982688Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:30:06.1983845Z ##[endgroup]
+2026-10-14T10:30:06.2138077Z Cloning into '/home/runner/work/_temp/buildd/sources'...
+2026-10-14T10:30:40.0913720Z HEAD is now at 9a2af00e debian: add initramfs hooks
+2026-10-14T10:30:40.1024572Z Switched to a new branch 'feature/docker-kernel'
+2026-10-14T10:30:40.2404706Z  arch/arm64/configs/lavender_halium_defconfig | 8 +++++---
+2026-10-14T10:30:40.2405557Z  debian/kernel-info.mk                        | 9 ++++++---
+2026-10-14T10:30:40.2406208Z  2 files changed, 11 insertions(+), 6 deletions(-)
+2026-10-14T10:30:40.2537483Z ##[group]Run set -o pipefail
+2026-10-14T10:30:40.2537846Z [36;1mset -o pipefail[0m
+2026-10-14T10:30:40.2538111Z [36;1msource config/source.lock[0m
+2026-10-14T10:30:40.2538539Z [36;1mdocker pull "$BUILD_IMAGE" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:30:40.2539204Z [36;1mdocker image inspect "$BUILD_IMAGE" > "$RUNNER_TEMP/buildd/artifacts/container-inspect.json"[0m
+2026-10-14T10:30:40.2539751Z [36;1mdocker run --rm --name lavender-kernel-build \[0m
+2026-10-14T10:30:40.2540084Z [36;1m  -e BUILD_JOBS \[0m
+2026-10-14T10:30:40.2540377Z [36;1m  -v "$GITHUB_WORKSPACE:/project:ro" \[0m
+2026-10-14T10:30:40.2540714Z [36;1m  -v "$RUNNER_TEMP/buildd:/buildd" \[0m
+2026-10-14T10:30:40.2541044Z [36;1m  -w /buildd/sources "$BUILD_IMAGE" \[0m
+2026-10-14T10:30:40.2541583Z [36;1m  bash /project/scripts/build-in-container.sh 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:30:40.2542494Z [36;1mtest -f "$RUNNER_TEMP/buildd/artifacts/BUILD_SUCCESS"[0m
+2026-10-14T10:30:40.2605395Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:30:40.2605660Z env:
+2026-10-14T10:30:40.2605857Z   BUILD_JOBS: 2
+2026-10-14T10:30:40.2606064Z ##[endgroup]
+2026-10-14T10:30:41.1330489Z quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49: Pulling from droidian/build-essential
+2026-10-14T10:30:41.1343235Z 0e07e2723f97: Pulling fs layer
+2026-10-14T10:30:41.1344136Z ce9e9d6c6ffc: Pulling fs layer
+2026-10-14T10:30:41.1344577Z af9978e4e2dc: Pulling fs layer
+2026-10-14T10:30:41.1345259Z 4f4fb700ef54: Pulling fs layer
+2026-10-14T10:30:41.1345682Z 2a4bc7b89995: Pulling fs layer
+2026-10-14T10:30:41.1346331Z 9082a80d1b91: Pulling fs layer
+2026-10-14T10:30:41.1346736Z 46a09269e8cc: Pulling fs layer
+2026-10-14T10:30:41.1348253Z 8bad49ffa11f: Pulling fs layer
+2026-10-14T10:30:41.1349038Z 4f4fb700ef54: Waiting
+2026-10-14T10:30:41.1349394Z 46a09269e8cc: Waiting
+2026-10-14T10:30:41.1350010Z 2a4bc7b89995: Waiting
+2026-10-14T10:30:41.1350380Z 9082a80d1b91: Waiting
+2026-10-14T10:30:41.1395531Z 3399423e70cc: Pulling fs layer
+2026-10-14T10:30:41.1396014Z 2b9c05b75be9: Pulling fs layer
+2026-10-14T10:30:41.1396729Z 225aee35e6ad: Pulling fs layer
+2026-10-14T10:30:41.1396977Z 3a1e89ee1205: Pulling fs layer
+2026-10-14T10:30:41.1397219Z 39d06586c438: Pulling fs layer
+2026-10-14T10:30:41.1397454Z 3399423e70cc: Waiting
+2026-10-14T10:30:41.1397669Z 2b9c05b75be9: Waiting
+2026-10-14T10:30:41.1397866Z 225aee35e6ad: Waiting
+2026-10-14T10:30:41.1398059Z 39d06586c438: Waiting
+2026-10-14T10:30:41.1398252Z 3a1e89ee1205: Waiting
+2026-10-14T10:30:41.5891993Z af9978e4e2dc: Verifying Checksum
+2026-10-14T10:30:41.5893412Z af9978e4e2dc: Download complete
+2026-10-14T10:30:41.8936176Z 4f4fb700ef54: Download complete
+2026-10-14T10:30:42.4440213Z 2a4bc7b89995: Download complete
+2026-10-14T10:30:42.9877656Z 9082a80d1b91: Download complete
+2026-10-14T10:30:43.4831815Z ce9e9d6c6ffc: Verifying Checksum
+2026-10-14T10:30:43.4838129Z ce9e9d6c6ffc: Download complete
+2026-10-14T10:30:43.5130610Z 46a09269e8cc: Verifying Checksum
+2026-10-14T10:30:43.5132503Z 46a09269e8cc: Download complete
+2026-10-14T10:30:43.9875960Z 8bad49ffa11f: Verifying Checksum
+2026-10-14T10:30:43.9876697Z 8bad49ffa11f: Download complete
+2026-10-14T10:30:44.0345201Z 3399423e70cc: Verifying Checksum
+2026-10-14T10:30:44.0346080Z 3399423e70cc: Download complete
+2026-10-14T10:30:44.4881914Z 2b9c05b75be9: Download complete
+2026-10-14T10:30:45.5936165Z 0e07e2723f97: Download complete
+2026-10-14T10:30:45.7623590Z 3a1e89ee1205: Verifying Checksum
+2026-10-14T10:30:45.7624662Z 3a1e89ee1205: Download complete
+2026-10-14T10:30:46.2976235Z 39d06586c438: Verifying Checksum
+2026-10-14T10:30:46.2976770Z 39d06586c438: Download complete
+2026-10-14T10:30:47.5095823Z 0e07e2723f97: Pull complete
+2026-10-14T10:30:48.5976426Z ce9e9d6c6ffc: Pull complete
+2026-10-14T10:30:48.6100916Z af9978e4e2dc: Pull complete
+2026-10-14T10:30:48.6234163Z 4f4fb700ef54: Pull complete
+2026-10-14T10:30:48.6363254Z 2a4bc7b89995: Pull complete
+2026-10-14T10:30:48.6443976Z 9082a80d1b91: Pull complete
+2026-10-14T10:30:48.6619433Z 46a09269e8cc: Pull complete
+2026-10-14T10:30:48.6696379Z 8bad49ffa11f: Pull complete
+2026-10-14T10:30:48.6774071Z 3399423e70cc: Pull complete
+2026-10-14T10:30:48.6873405Z 2b9c05b75be9: Pull complete
+2026-10-14T10:31:00.2721714Z 225aee35e6ad: Verifying Checksum
+2026-10-14T10:31:00.2722914Z 225aee35e6ad: Download complete
+2026-10-14T10:31:09.1083651Z 225aee35e6ad: Pull complete
+2026-10-14T10:31:09.2627248Z 3a1e89ee1205: Pull complete
+2026-10-14T10:31:09.2801274Z 39d06586c438: Pull complete
+2026-10-14T10:31:09.2830632Z Digest: sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:31:09.2838038Z Status: Downloaded newer image for quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:31:09.2845026Z quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:31:09.5030653Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-14T10:31:09.5031173Z /dev/root       145G   61G   84G  43% /buildd
+2026-10-14T10:31:09.5040867Z /usr/bin/releng-build-package
+2026-10-14T10:31:09.5098175Z /project/config/droidian-archive-keyring.gpg: OK
+2026-10-14T10:31:09.5380873Z Disabled optional expired Mobian deb822 source: mobian.sources
+2026-10-14T10:31:09.6557747Z Get:1 http://security.debian.org/debian-security trixie-security InRelease [43.4 kB]
+2026-10-14T10:31:09.6632616Z Get:2 https://deb.debian.org/debian trixie InRelease [140 kB]
+2026-10-14T10:31:09.6688265Z Get:3 https://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+2026-10-14T10:31:09.7180931Z Get:4 http://security.debian.org/debian-security trixie-security/main i386 Packages [241 kB]
+2026-10-14T10:31:09.7318924Z Get:5 http://security.debian.org/debian-security trixie-security/non-free-firmware i386 Packages [540 B]
+2026-10-14T10:31:09.7329251Z Get:6 http://security.debian.org/debian-security trixie-security/non-free-firmware amd64 Packages [544 B]
+2026-10-14T10:31:09.7338966Z Get:7 http://security.debian.org/debian-security trixie-security/contrib arm64 Packages [3152 B]
+2026-10-14T10:31:09.7348465Z Get:8 http://security.debian.org/debian-security trixie-security/contrib i386 Packages [3156 B]
+2026-10-14T10:31:09.7371917Z Get:9 http://security.debian.org/debian-security trixie-security/main armhf Packages [248 kB]
+2026-10-14T10:31:09.7414310Z Get:10 http://security.debian.org/debian-security trixie-security/main arm64 Packages [268 kB]
+2026-10-14T10:31:09.7427732Z Get:11 http://security.debian.org/debian-security trixie-security/contrib amd64 Packages [3152 B]
+2026-10-14T10:31:09.7444657Z Get:12 http://security.debian.org/debian-security trixie-security/main amd64 Packages [267 kB]
+2026-10-14T10:31:09.7460557Z Get:13 http://security.debian.org/debian-security trixie-security/contrib armhf Packages [3148 B]
+2026-10-14T10:31:09.7864284Z Get:14 https://deb.debian.org/debian trixie/main i386 Packages [9437 kB]
+2026-10-14T10:31:09.8022434Z Get:15 http://deb.debian.org/debian unstable InRelease [193 kB]
+2026-10-14T10:31:09.8992074Z Get:16 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie InRelease [14.1 kB]
+2026-10-14T10:31:09.9120499Z Get:17 http://deb.debian.org/debian unstable/main arm64 Packages [10.7 MB]
+2026-10-14T10:31:09.9647165Z Get:18 https://deb.debian.org/debian trixie/non-free-firmware i386 Packages [6548 B]
+2026-10-14T10:31:09.9654849Z Get:19 https://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+2026-10-14T10:31:10.0175799Z Get:20 http://deb.debian.org/debian unstable/main armhf Packages [10.2 MB]
+2026-10-14T10:31:10.0620224Z Get:21 http://deb.debian.org/debian unstable/main i386 Packages [10.4 MB]
+2026-10-14T10:31:10.0871173Z Get:22 https://deb.debian.org/debian trixie/contrib i386 Packages [44.1 kB]
+2026-10-14T10:31:10.0904348Z Get:23 https://deb.debian.org/debian trixie/main armhf Packages [9246 kB]
+2026-10-14T10:31:10.1189709Z Get:24 http://deb.debian.org/debian unstable/main amd64 Packages [10.8 MB]
+2026-10-14T10:31:10.1248745Z Get:25 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie InRelease [14.1 kB]
+2026-10-14T10:31:10.1813229Z Get:26 https://deb.debian.org/debian trixie/non-free arm64 Packages [74.4 kB]
+2026-10-14T10:31:10.1814888Z Get:27 https://deb.debian.org/debian trixie/contrib armhf Packages [42.6 kB]
+2026-10-14T10:31:10.1819798Z Get:28 https://deb.debian.org/debian trixie/non-free-firmware armhf Packages [6132 B]
+2026-10-14T10:31:10.1844799Z Get:29 https://deb.debian.org/debian trixie/non-free amd64 Packages [100 kB]
+2026-10-14T10:31:10.1852252Z Get:30 https://deb.debian.org/debian trixie/contrib arm64 Packages [48.4 kB]
+2026-10-14T10:31:10.1859433Z Get:31 https://deb.debian.org/debian trixie/non-free armhf Packages [57.1 kB]
+2026-10-14T10:31:10.1867362Z Get:32 https://deb.debian.org/debian trixie/non-free i386 Packages [72.6 kB]
+2026-10-14T10:31:10.1879447Z Get:33 https://deb.debian.org/debian trixie/main arm64 Packages [9614 kB]
+2026-10-14T10:31:10.2552676Z Get:34 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie InRelease [15.6 kB]
+2026-10-14T10:31:10.2569348Z Get:35 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie InRelease [14.1 kB]
+2026-10-14T10:31:10.2571184Z Get:36 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie InRelease [12.5 kB]
+2026-10-14T10:31:10.2735102Z Get:37 https://deb.debian.org/debian trixie/contrib amd64 Packages [53.9 kB]
+2026-10-14T10:31:10.2742134Z Get:38 https://deb.debian.org/debian trixie/non-free-firmware amd64 Packages [6884 B]
+2026-10-14T10:31:10.2747465Z Get:39 https://deb.debian.org/debian trixie/non-free-firmware arm64 Packages [6484 B]
+2026-10-14T10:31:10.2760590Z Get:40 https://deb.debian.org/debian trixie-updates/main i386 Packages [4412 B]
+2026-10-14T10:31:10.2769463Z Get:41 https://deb.debian.org/debian trixie-updates/main amd64 Packages [4412 B]
+2026-10-14T10:31:10.2779797Z Get:42 https://deb.debian.org/debian trixie-updates/main armhf Packages [4408 B]
+2026-10-14T10:31:10.2780900Z Get:43 https://deb.debian.org/debian trixie-updates/main arm64 Packages [4424 B]
+2026-10-14T10:31:10.3168021Z Get:44 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main amd64 Packages [1280 B]
+2026-10-14T10:31:10.4521124Z Get:45 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main arm64 Packages [1274 B]
+2026-10-14T10:31:10.4525786Z Get:46 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main armhf Packages [1274 B]
+2026-10-14T10:31:10.4884840Z Get:47 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie/main armhf Packages [2459 B]
+2026-10-14T10:31:10.5764766Z Get:48 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main armhf Packages [13.0 kB]
+2026-10-14T10:31:10.5918367Z Get:49 https://production.repo.droidian.org trixie InRelease [28.2 kB]
+2026-10-14T10:31:10.6226574Z Get:50 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie/main arm64 Packages [2466 B]
+2026-10-14T10:31:10.6668982Z Get:51 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main amd64 Packages [1823 B]
+2026-10-14T10:31:10.7120054Z Get:52 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main amd64 Packages [13.0 kB]
+2026-10-14T10:31:10.7125222Z Get:53 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main arm64 Packages [13.0 kB]
+2026-10-14T10:31:10.7573035Z Get:54 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main armhf Packages [1891 B]
+2026-10-14T10:31:10.8023515Z Get:55 https://production.repo.droidian.org trixie/main armhf Packages [436 kB]
+2026-10-14T10:31:10.8034006Z Get:56 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main i386 Packages [764 B]
+2026-10-14T10:31:10.8042001Z Get:57 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main arm64 Packages [1814 B]
+2026-10-14T10:31:10.8043820Z Get:58 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main armhf Packages [1836 B]
+2026-10-14T10:31:10.8933710Z Get:59 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main arm64 Packages [1906 B]
+2026-10-14T10:31:10.8939555Z Get:60 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main amd64 Packages [1881 B]
+2026-10-14T10:31:11.4743919Z Get:61 https://production.repo.droidian.org trixie/main amd64 Packages [427 kB]
+2026-10-14T10:31:11.6100421Z Get:62 https://production.repo.droidian.org trixie/main arm64 Packages [527 kB]
+2026-10-14T10:31:17.2061144Z Fetched 83.6 MB in 8s (11.0 MB/s)
+2026-10-14T10:31:20.7664891Z Reading package lists...
+2026-10-14T10:31:24.3519510Z Reading package lists...
+2026-10-14T10:31:25.3586616Z Building dependency tree...
+2026-10-14T10:31:25.3587700Z Reading state information...
+2026-10-14T10:31:26.4354219Z The following packages were automatically installed and are no longer required:
+2026-10-14T10:31:26.4405242Z   libpython3.11-minimal libpython3.11-stdlib python3.11 python3.11-minimal
+2026-10-14T10:31:26.4405929Z Use 'apt autoremove' to remove them.
+2026-10-14T10:31:26.4455939Z The following additional packages will be installed:
+2026-10-14T10:31:26.4460843Z   libmagic-mgc libmagic1t64 libpython3-stdlib libpython3.13-minimal
+2026-10-14T10:31:26.4495193Z   libpython3.13-stdlib libssl3t64 openssl openssl-provider-legacy
+2026-10-14T10:31:26.4501405Z   python3-minimal python3.13 python3.13-minimal
+2026-10-14T10:31:26.4557135Z Suggested packages:
+2026-10-14T10:31:26.4557751Z   python3.13-venv python3.13-doc binfmt-support
+2026-10-14T10:31:26.6090935Z The following NEW packages will be installed:
+2026-10-14T10:31:26.6119187Z   libpython3.13-minimal libpython3.13-stdlib linux-packaging-snippets
+2026-10-14T10:31:26.6129547Z   openssl-provider-legacy python3.13 python3.13-minimal
+2026-10-14T10:31:26.6159163Z The following packages will be upgraded:
+2026-10-14T10:31:26.6210866Z   file libmagic-mgc libmagic1t64 libpython3-stdlib libssl3t64 openssl python3
+2026-10-14T10:31:26.6217633Z   python3-minimal
+2026-10-14T10:31:26.7493756Z 8 upgraded, 6 newly installed, 0 to remove and 233 not upgraded.
+2026-10-14T10:31:26.7494186Z Need to get 10.7 MB of archives.
+2026-10-14T10:31:26.7494553Z After this operation, 25.9 MB of additional disk space will be used.
+2026-10-14T10:31:26.7495468Z Get:1 http://security.debian.org/debian-security trixie-security/main amd64 openssl-provider-legacy amd64 3.5.7-1~deb13u3 [316 kB]
+2026-10-14T10:31:26.7597328Z Get:2 http://security.debian.org/debian-security trixie-security/main amd64 libssl3t64 amd64 3.5.7-1~deb13u3 [2458 kB]
+2026-10-14T10:31:26.7619212Z Get:3 https://deb.debian.org/debian trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2+deb13u5 [863 kB]
+2026-10-14T10:31:26.7747854Z Get:4 http://security.debian.org/debian-security trixie-security/main amd64 openssl amd64 3.5.7-1~deb13u3 [1508 kB]
+2026-10-14T10:31:26.8189422Z Get:5 https://deb.debian.org/debian trixie/main amd64 python3.13-minimal amd64 3.13.5-2+deb13u5 [2225 kB]
+2026-10-14T10:31:26.8485469Z Get:6 https://deb.debian.org/debian trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+2026-10-14T10:31:26.8486659Z Get:7 https://deb.debian.org/debian trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+2026-10-14T10:31:26.8487832Z Get:8 https://deb.debian.org/debian trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2+deb13u5 [1959 kB]
+2026-10-14T10:31:26.8645747Z Get:9 https://deb.debian.org/debian trixie/main amd64 python3.13 amd64 3.13.5-2+deb13u5 [757 kB]
+2026-10-14T10:31:26.8733423Z Get:10 https://deb.debian.org/debian trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+2026-10-14T10:31:26.8738160Z Get:11 https://deb.debian.org/debian trixie/main amd64 file amd64 1:5.46-5 [43.6 kB]
+2026-10-14T10:31:26.8804793Z Get:12 https://deb.debian.org/debian trixie/main amd64 libmagic1t64 amd64 1:5.46-5 [109 kB]
+2026-10-14T10:31:26.8900627Z Get:13 https://deb.debian.org/debian trixie/main amd64 libmagic-mgc amd64 1:5.46-5 [338 kB]
+2026-10-14T10:31:27.4594776Z Get:14 https://production.repo.droidian.org trixie/main amd64 linux-packaging-snippets all 49+git20260824222026.46633f1.next.production [13.7 kB]
+2026-10-14T10:31:27.9817490Z Fetched 10.7 MB in 1s (13.6 MB/s)
+2026-10-14T10:31:28.0007962Z (Reading database ... 
+2026-10-14T10:31:28.0008997Z (Reading database ... 5%
+2026-10-14T10:31:28.0009741Z (Reading database ... 10%
+2026-10-14T10:31:28.0010405Z (Reading database ... 15%
+2026-10-14T10:31:28.0011025Z (Reading database ... 20%
+2026-10-14T10:31:28.0011636Z (Reading database ... 25%
+2026-10-14T10:31:28.0012548Z (Reading database ... 30%
+2026-10-14T10:31:28.0013169Z (Reading database ... 35%
+2026-10-14T10:31:28.0013690Z (Reading database ... 40%
+2026-10-14T10:31:28.0014301Z (Reading database ... 45%
+2026-10-14T10:31:28.0014894Z (Reading database ... 50%
+2026-10-14T10:31:28.0015424Z (Reading database ... 55%
+2026-10-14T10:31:28.0016095Z (Reading database ... 60%
+2026-10-14T10:31:28.0016695Z (Reading database ... 65%
+2026-10-14T10:31:28.0038364Z (Reading database ... 70%
+2026-10-14T10:31:28.0057012Z (Reading database ... 75%
+2026-10-14T10:31:28.0072186Z (Reading database ... 80%
+2026-10-14T10:31:28.0084269Z (Reading database ... 85%
+2026-10-14T10:31:28.0097106Z (Reading database ... 90%
+2026-10-14T10:31:28.0108323Z (Reading database ... 95%
+2026-10-14T10:31:28.0108770Z (Reading database ... 100%
+2026-10-14T10:31:28.0109305Z (Reading database ... 20787 files and directories currently installed.)
+2026-10-14T10:31:28.0115122Z Preparing to unpack .../libssl3t64_3.5.7-1~deb13u3_amd64.deb ...
+2026-10-14T10:31:28.0142680Z Unpacking libssl3t64:amd64 (3.5.7-1~deb13u3) over (3.2.1-3) ...
+2026-10-14T10:31:28.1590747Z Selecting previously unselected package openssl-provider-legacy.
+2026-10-14T10:31:28.1611440Z Preparing to unpack .../openssl-provider-legacy_3.5.7-1~deb13u3_amd64.deb ...
+2026-10-14T10:31:28.1620051Z Unpacking openssl-provider-legacy (3.5.7-1~deb13u3) ...
+2026-10-14T10:31:28.1846175Z Setting up libssl3t64:amd64 (3.5.7-1~deb13u3) ...
+2026-10-14T10:31:28.1867346Z Setting up openssl-provider-legacy (3.5.7-1~deb13u3) ...
+2026-10-14T10:31:28.2027553Z Selecting previously unselected package libpython3.13-minimal:amd64.
+2026-10-14T10:31:28.2054222Z (Reading database ... 
+2026-10-14T10:31:28.2054657Z (Reading database ... 5%
+2026-10-14T10:31:28.2055074Z (Reading database ... 10%
+2026-10-14T10:31:28.2055491Z (Reading database ... 15%
+2026-10-14T10:31:28.2055900Z (Reading database ... 20%
+2026-10-14T10:31:28.2056318Z (Reading database ... 25%
+2026-10-14T10:31:28.2056727Z (Reading database ... 30%
+2026-10-14T10:31:28.2057138Z (Reading database ... 35%
+2026-10-14T10:31:28.2057560Z (Reading database ... 40%
+2026-10-14T10:31:28.2057957Z (Reading database ... 45%
+2026-10-14T10:31:28.2058359Z (Reading database ... 50%
+2026-10-14T10:31:28.2058759Z (Reading database ... 55%
+2026-10-14T10:31:28.2059169Z (Reading database ... 60%
+2026-10-14T10:31:28.2059575Z (Reading database ... 65%
+2026-10-14T10:31:28.2064277Z (Reading database ... 70%
+2026-10-14T10:31:28.2081566Z (Reading database ... 75%
+2026-10-14T10:31:28.2097593Z (Reading database ... 80%
+2026-10-14T10:31:28.2109969Z (Reading database ... 85%
+2026-10-14T10:31:28.2123204Z (Reading database ... 90%
+2026-10-14T10:31:28.2134695Z (Reading database ... 95%
+2026-10-14T10:31:28.2135076Z (Reading database ... 100%
+2026-10-14T10:31:28.2135611Z (Reading database ... 20790 files and directories currently installed.)
+2026-10-14T10:31:28.2142709Z Preparing to unpack .../libpython3.13-minimal_3.13.5-2+deb13u5_amd64.deb ...
+2026-10-14T10:31:28.2150887Z Unpacking libpython3.13-minimal:amd64 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:28.2991482Z Selecting previously unselected package python3.13-minimal.
+2026-10-14T10:31:28.3012593Z Preparing to unpack .../python3.13-minimal_3.13.5-2+deb13u5_amd64.deb ...
+2026-10-14T10:31:28.3047093Z Unpacking python3.13-minimal (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:28.4504042Z Setting up libpython3.13-minimal:amd64 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:28.4536000Z Setting up python3.13-minimal (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:29.0989646Z (Reading database ... 
+2026-10-14T10:31:29.0990364Z (Reading database ... 5%
+2026-10-14T10:31:29.0990846Z (Reading database ... 10%
+2026-10-14T10:31:29.0991267Z (Reading database ... 15%
+2026-10-14T10:31:29.0991658Z (Reading database ... 20%
+2026-10-14T10:31:29.0992043Z (Reading database ... 25%
+2026-10-14T10:31:29.0992626Z (Reading database ... 30%
+2026-10-14T10:31:29.0993014Z (Reading database ... 35%
+2026-10-14T10:31:29.0993396Z (Reading database ... 40%
+2026-10-14T10:31:29.0993775Z (Reading database ... 45%
+2026-10-14T10:31:29.0994158Z (Reading database ... 50%
+2026-10-14T10:31:29.0994548Z (Reading database ... 55%
+2026-10-14T10:31:29.0994939Z (Reading database ... 60%
+2026-10-14T10:31:29.0995322Z (Reading database ... 65%
+2026-10-14T10:31:29.1007119Z (Reading database ... 70%
+2026-10-14T10:31:29.1024611Z (Reading database ... 75%
+2026-10-14T10:31:29.1040812Z (Reading database ... 80%
+2026-10-14T10:31:29.1052903Z (Reading database ... 85%
+2026-10-14T10:31:29.1066412Z (Reading database ... 90%
+2026-10-14T10:31:29.1078235Z (Reading database ... 95%
+2026-10-14T10:31:29.1078861Z (Reading database ... 100%
+2026-10-14T10:31:29.1079358Z (Reading database ... 21113 files and directories currently installed.)
+2026-10-14T10:31:29.1085474Z Preparing to unpack .../python3-minimal_3.13.5-1_amd64.deb ...
+2026-10-14T10:31:29.1144946Z Unpacking python3-minimal (3.13.5-1) over (3.11.8-1) ...
+2026-10-14T10:31:29.1452785Z Setting up python3-minimal (3.13.5-1) ...
+2026-10-14T10:31:29.2531108Z (Reading database ... 
+2026-10-14T10:31:29.2531619Z (Reading database ... 5%
+2026-10-14T10:31:29.2532109Z (Reading database ... 10%
+2026-10-14T10:31:29.2532854Z (Reading database ... 15%
+2026-10-14T10:31:29.2533284Z (Reading database ... 20%
+2026-10-14T10:31:29.2533585Z (Reading database ... 25%
+2026-10-14T10:31:29.2533886Z (Reading database ... 30%
+2026-10-14T10:31:29.2534179Z (Reading database ... 35%
+2026-10-14T10:31:29.2534513Z (Reading database ... 40%
+2026-10-14T10:31:29.2534798Z (Reading database ... 45%
+2026-10-14T10:31:29.2535084Z (Reading database ... 50%
+2026-10-14T10:31:29.2535634Z (Reading database ... 55%
+2026-10-14T10:31:29.2535918Z (Reading database ... 60%
+2026-10-14T10:31:29.2536213Z (Reading database ... 65%
+2026-10-14T10:31:29.2547589Z (Reading database ... 70%
+2026-10-14T10:31:29.2565433Z (Reading database ... 75%
+2026-10-14T10:31:29.2584046Z (Reading database ... 80%
+2026-10-14T10:31:29.2597148Z (Reading database ... 85%
+2026-10-14T10:31:29.2611301Z (Reading database ... 90%
+2026-10-14T10:31:29.2623537Z (Reading database ... 95%
+2026-10-14T10:31:29.2624008Z (Reading database ... 100%
+2026-10-14T10:31:29.2624459Z (Reading database ... 21113 files and directories currently installed.)
+2026-10-14T10:31:29.2632122Z Preparing to unpack .../0-python3_3.13.5-1_amd64.deb ...
+2026-10-14T10:31:29.3138685Z Unpacking python3 (3.13.5-1) over (3.11.8-1) ...
+2026-10-14T10:31:29.3392282Z Selecting previously unselected package libpython3.13-stdlib:amd64.
+2026-10-14T10:31:29.3412536Z Preparing to unpack .../1-libpython3.13-stdlib_3.13.5-2+deb13u5_amd64.deb ...
+2026-10-14T10:31:29.3459373Z Unpacking libpython3.13-stdlib:amd64 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:29.4982412Z Selecting previously unselected package python3.13.
+2026-10-14T10:31:29.5002743Z Preparing to unpack .../2-python3.13_3.13.5-2+deb13u5_amd64.deb ...
+2026-10-14T10:31:29.5011951Z Unpacking python3.13 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:29.5263635Z Preparing to unpack .../3-libpython3-stdlib_3.13.5-1_amd64.deb ...
+2026-10-14T10:31:29.5283414Z Unpacking libpython3-stdlib:amd64 (3.13.5-1) over (3.11.8-1) ...
+2026-10-14T10:31:29.5442443Z Preparing to unpack .../4-file_1%3a5.46-5_amd64.deb ...
+2026-10-14T10:31:29.5462949Z Unpacking file (1:5.46-5) over (1:5.45-3) ...
+2026-10-14T10:31:29.5689973Z Preparing to unpack .../5-libmagic1t64_1%3a5.46-5_amd64.deb ...
+2026-10-14T10:31:29.5711688Z Unpacking libmagic1t64:amd64 (1:5.46-5) over (1:5.45-3) ...
+2026-10-14T10:31:29.5975182Z Preparing to unpack .../6-libmagic-mgc_1%3a5.46-5_amd64.deb ...
+2026-10-14T10:31:29.5992805Z Unpacking libmagic-mgc (1:5.46-5) over (1:5.45-3) ...
+2026-10-14T10:31:29.6515830Z Selecting previously unselected package linux-packaging-snippets.
+2026-10-14T10:31:29.6536119Z Preparing to unpack .../7-linux-packaging-snippets_49+git20260824222026.46633f1.next.production_all.deb ...
+2026-10-14T10:31:29.6544089Z Unpacking linux-packaging-snippets (49+git20260824222026.46633f1.next.production) ...
+2026-10-14T10:31:29.6711367Z Preparing to unpack .../8-openssl_3.5.7-1~deb13u3_amd64.deb ...
+2026-10-14T10:31:29.6754757Z Unpacking openssl (3.5.7-1~deb13u3) over (3.2.1-3) ...
+2026-10-14T10:31:29.9235080Z Setting up libmagic-mgc (1:5.46-5) ...
+2026-10-14T10:31:29.9253836Z Setting up libmagic1t64:amd64 (1:5.46-5) ...
+2026-10-14T10:31:29.9287022Z Setting up file (1:5.46-5) ...
+2026-10-14T10:31:29.9306011Z Setting up linux-packaging-snippets (49+git20260824222026.46633f1.next.production) ...
+2026-10-14T10:31:29.9324010Z Setting up openssl (3.5.7-1~deb13u3) ...
+2026-10-14T10:31:29.9331476Z Installing new version of config file /etc/ssl/openssl.cnf ...
+2026-10-14T10:31:29.9359140Z Setting up libpython3.13-stdlib:amd64 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:29.9379174Z Setting up libpython3-stdlib:amd64 (3.13.5-1) ...
+2026-10-14T10:31:29.9401481Z Setting up python3.13 (3.13.5-2+deb13u5) ...
+2026-10-14T10:31:30.6512113Z Setting up python3 (3.13.5-1) ...
+2026-10-14T10:31:30.8829104Z /usr/lib/releng-tools/build_changelog.py:94: SyntaxWarning: invalid escape sequence '\-'
+2026-10-14T10:31:30.8829747Z   sign, hours, minutes = re.match('([+\-]?)(\d{2})(\d{2})', str(offset)).groups()
+2026-10-14T10:31:30.9669403Z Processing triggers for libc-bin (2.38-7) ...
+2026-10-14T10:31:30.9809437Z Processing triggers for man-db (2.12.1-1) ...
+2026-10-14T10:31:31.3741629Z sed -e "s|@KERNEL_BASE_VERSION@|4.4.192|g" \
+2026-10-14T10:31:31.3742457Z 	-e "s|@VARIANT@|android|g" \
+2026-10-14T10:31:31.3742955Z 	-e "s|@DEVICE_VENDOR@|xiaomi|g" \
+2026-10-14T10:31:31.3743428Z 	-e "s|@DEVICE_MODEL@|lavender|g" \
+2026-10-14T10:31:31.3743933Z 	-e "s|@DEVICE_FULL_NAME@|Xiaomi Redmi Note 7|g" \
+2026-10-14T10:31:31.3745594Z 	-e "s|@DEB_TOOLCHAIN@|linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross|g" \
+2026-10-14T10:31:31.3746484Z 	-e "s|@DEB_BUILD_ON@|amd64|g" \
+2026-10-14T10:31:31.3746762Z 	-e "s|@DEB_BUILD_FOR@|arm64|g" \
+2026-10-14T10:31:31.3747121Z 	/usr/share/linux-packaging-snippets/control.in > debian/control
+2026-10-14T10:31:31.6491904Z dpkg-buildpackage: info: source package linux-android-xiaomi-lavender-cross-build-deps
+2026-10-14T10:31:31.6493161Z dpkg-buildpackage: info: source version 0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0
+2026-10-14T10:31:31.6493798Z dpkg-buildpackage: info: source distribution unstable
+2026-10-14T10:31:31.6494340Z dpkg-buildpackage: info: source changed by Equivs Dummy Package Generator <root@fd929aeb76ad>
+2026-10-14T10:31:31.6640494Z dpkg-architecture: warning: specified GNU system type aarch64-linux-gnu does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+2026-10-14T10:31:31.6686017Z  dpkg-source --before-build .
+2026-10-14T10:31:31.6686571Z dpkg-buildpackage: info: host architecture arm64
+2026-10-14T10:31:31.7505051Z  debian/rules clean
+2026-10-14T10:31:31.7521437Z dh clean
+2026-10-14T10:31:31.8001934Z dh: warning: Running tests during cross-builds is not supported in the general case (except for special cases or by
+2026-10-14T10:31:31.8003346Z dh: warning: using emulation)
+2026-10-14T10:31:31.8004224Z dh: warning: If the build fails, please consider rebuilding with DEB_BUILD_OPTIONS=nocheck.
+2026-10-14T10:31:31.8005635Z dh: warning: Additionally, you might have to set the "cross" profile.  For dpkg-buildpackage, you do this by
+2026-10-14T10:31:31.8007072Z dh: warning: passing the -Pcross option. Check the documentation of your build tool for how to set
+2026-10-14T10:31:31.8008021Z dh: warning: DEB_BUILD_PROFILES if you use another build tool that does not auto-configure cross-building for you
+2026-10-14T10:31:31.8008955Z dh: warning: If you have setup the relevant support for running cross-compiled binaries and want to silence this
+2026-10-14T10:31:31.8009799Z dh: warning: warning, please use DEB_BUILD_OPTIONS=crossbuildcanrunhostbinaries
+2026-10-14T10:31:31.8138014Z    dh_clean
+2026-10-14T10:31:31.8482991Z  debian/rules binary
+2026-10-14T10:31:31.8498263Z dh binary
+2026-10-14T10:31:31.8977245Z dh: warning: Running tests during cross-builds is not supported in the general case (except for special cases or by
+2026-10-14T10:31:31.8978228Z dh: warning: using emulation)
+2026-10-14T10:31:31.8978773Z dh: warning: If the build fails, please consider rebuilding with DEB_BUILD_OPTIONS=nocheck.
+2026-10-14T10:31:31.8979488Z dh: warning: Additionally, you might have to set the "cross" profile.  For dpkg-buildpackage, you do this by
+2026-10-14T10:31:31.8980180Z dh: warning: passing the -Pcross option. Check the documentation of your build tool for how to set
+2026-10-14T10:31:31.8980896Z dh: warning: DEB_BUILD_PROFILES if you use another build tool that does not auto-configure cross-building for you
+2026-10-14T10:31:31.8981610Z dh: warning: If you have setup the relevant support for running cross-compiled binaries and want to silence this
+2026-10-14T10:31:31.8982534Z dh: warning: warning, please use DEB_BUILD_OPTIONS=crossbuildcanrunhostbinaries
+2026-10-14T10:31:31.9007738Z    dh_update_autotools_config
+2026-10-14T10:31:31.9311162Z    dh_autoreconf
+2026-10-14T10:31:31.9737189Z    create-stamp debian/debhelper-build-stamp
+2026-10-14T10:31:31.9737796Z    dh_prep
+2026-10-14T10:31:32.0035449Z    dh_auto_install --destdir=debian/linux-android-xiaomi-lavender-cross-build-deps/
+2026-10-14T10:31:32.0530365Z    dh_install
+2026-10-14T10:31:32.0874335Z    dh_installdocs
+2026-10-14T10:31:32.1253323Z    dh_installchangelogs
+2026-10-14T10:31:32.1946061Z    dh_perl
+2026-10-14T10:31:32.2307225Z    dh_link
+2026-10-14T10:31:32.2652980Z    dh_strip_nondeterminism
+2026-10-14T10:31:32.3262740Z    dh_compress
+2026-10-14T10:31:32.3677965Z    dh_fixperms
+2026-10-14T10:31:32.4093542Z    dh_missing
+2026-10-14T10:31:32.4373200Z    dh_dwz
+2026-10-14T10:31:32.4735491Z    dh_strip
+2026-10-14T10:31:32.5113022Z    dh_makeshlibs
+2026-10-14T10:31:32.5467938Z    dh_shlibdeps
+2026-10-14T10:31:32.5833205Z    dh_installdeb
+2026-10-14T10:31:32.6184767Z    dh_gencontrol
+2026-10-14T10:31:32.7223924Z    dh_md5sums
+2026-10-14T10:31:32.7638729Z    dh_builddeb
+2026-10-14T10:31:32.7929614Z dpkg-deb: building package 'linux-android-xiaomi-lavender-cross-build-deps' in '../linux-android-xiaomi-lavender-cross-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_arm64.deb'.
+2026-10-14T10:31:32.8052280Z  dpkg-genbuildinfo --build=binary -O../linux-android-xiaomi-lavender-cross-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_arm64.buildinfo
+2026-10-14T10:31:32.9162960Z  dpkg-genchanges --build=binary -O../linux-android-xiaomi-lavender-cross-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_arm64.changes
+2026-10-14T10:31:32.9774840Z dpkg-genchanges: info: binary-only upload (no source code included)
+2026-10-14T10:31:32.9793834Z  dpkg-source --after-build .
+2026-10-14T10:31:33.0613855Z dpkg-buildpackage: info: binary-only upload (no source included)
+2026-10-14T10:31:33.0659646Z 
+2026-10-14T10:31:33.0659953Z The package has been created.
+2026-10-14T10:31:33.0660563Z Attention, the package has been created in the current directory,
+2026-10-14T10:31:33.0661102Z not in ".." as indicated by the message above!
+2026-10-14T10:31:33.0775640Z Selecting previously unselected package linux-android-xiaomi-lavender-cross-build-deps:arm64.
+2026-10-14T10:31:33.0874491Z (Reading database ... 21609 files and directories currently installed.)
+2026-10-14T10:31:33.0884426Z Preparing to unpack linux-android-xiaomi-lavender-cross-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_arm64.deb ...
+2026-10-14T10:31:33.0894692Z Unpacking linux-android-xiaomi-lavender-cross-build-deps:arm64 (0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0) ...
+2026-10-14T10:31:36.7521752Z Reading package lists...
+2026-10-14T10:31:37.9536985Z Building dependency tree...
+2026-10-14T10:31:37.9538530Z Reading state information...
+2026-10-14T10:31:39.7150914Z Correcting dependencies... Done
+2026-10-14T10:31:40.7745758Z The following packages were automatically installed and are no longer required:
+2026-10-14T10:31:40.7747039Z   autoconf automake autopoint autotools-dev binutils-common
+2026-10-14T10:31:40.7748302Z   binutils-x86-64-linux-gnu cpp-13 cpp-13-x86-64-linux-gnu
+2026-10-14T10:31:40.7749453Z   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu dh-strip-nondeterminism dirmngr
+2026-10-14T10:31:40.7750698Z   dwz file gcc-13-base gcc-13-x86-64-linux-gnu gcc-14-x86-64-linux-gnu
+2026-10-14T10:31:40.7753258Z   gcc-x86-64-linux-gnu gettext gettext-base git git-lfs git-man gnupg
+2026-10-14T10:31:40.7754468Z   gnupg-l10n gnupg-utils gpg gpg-agent gpg-wks-client gpg-wks-server gpgconf
+2026-10-14T10:31:40.7759336Z   gpgsm groff-base intltool-debian libarchive-zip-perl libasan8 libassuan0
+2026-10-14T10:31:40.7761977Z   libatomic1 libb-hooks-op-check-perl libbinutils libbrotli1 libc-dev-bin
+2026-10-14T10:31:40.7763197Z   libcc1-0 libclass-method-modifiers-perl libclass-xsaccessor-perl
+2026-10-14T10:31:40.7764160Z   libclone-perl libcrypt-dev libctf-nobfd0 libctf0 libcurl3t64-gnutls
+2026-10-14T10:31:40.7765229Z   libdebhelper-perl libdevel-callchecker-perl libdynaloader-functions-perl
+2026-10-14T10:31:40.7766322Z   libelf1t64 libencode-locale-perl liberror-perl libfile-dirlist-perl
+2026-10-14T10:31:40.7767401Z   libfile-homedir-perl libfile-listing-perl libfile-stripnondeterminism-perl
+2026-10-14T10:31:40.7774263Z   libfile-touch-perl libfile-which-perl libgcc-13-dev libgcc-14-dev libgomp1
+2026-10-14T10:31:40.7775339Z   libgprofng0 libhtml-parser-perl libhtml-tagset-perl libhtml-tree-perl
+2026-10-14T10:31:40.7778785Z   libhttp-cookies-perl libhttp-date-perl libhttp-message-perl
+2026-10-14T10:31:40.7779684Z   libhttp-negotiate-perl libhwasan0 libicu72 libimport-into-perl
+2026-10-14T10:31:40.7780580Z   libio-html-perl libio-pty-perl libio-socket-ssl-perl libipc-run-perl
+2026-10-14T10:31:40.7781407Z   libisl23 libitm1 libjansson4 libksba8 libldap-2.5-0 liblsan0
+2026-10-14T10:31:40.7783055Z   liblwp-mediatypes-perl liblwp-protocol-https-perl libmagic-mgc libmagic1t64
+2026-10-14T10:31:40.7784003Z   libmodule-runtime-perl libmoo-perl libmpc3 libmpfr6 libncurses6
+2026-10-14T10:31:40.7784907Z   libnet-http-perl libnet-ssleay-perl libnghttp2-14 libnpth0t64
+2026-10-14T10:31:40.7785764Z   libparams-classify-perl libpipeline1 libpython3.11-minimal
+2026-10-14T10:31:40.7810296Z   libpython3.11-stdlib libquadmath0 librole-tiny-perl librtmp1 libsasl2-2
+2026-10-14T10:31:40.7813139Z   libsasl2-modules-db libsframe1 libssh2-1t64 libsub-override-perl
+2026-10-14T10:31:40.7814203Z   libsub-quote-perl libtimedate-perl libtry-tiny-perl libtsan2 libubsan1
+2026-10-14T10:31:40.7817748Z   libuchardet0 liburi-perl libwww-perl libwww-robotrules-perl libxml2
+2026-10-14T10:31:40.7824295Z   linux-libc-dev m4 make man-db patch patchutils perl-openssl-defaults
+2026-10-14T10:31:40.7829789Z   pinentry-curses po-debconf python3-git python3-gitdb python3-smmap
+2026-10-14T10:31:40.7838626Z   python3.11 python3.11-minimal rpcsvc-proto wdiff
+2026-10-14T10:31:40.7839120Z Use 'apt autoremove' to remove them.
+2026-10-14T10:31:40.7865909Z The following additional packages will be installed:
+2026-10-14T10:31:40.7867249Z   base-files binutils-common binutils-x86-64-linux-gnu cpp-13
+2026-10-14T10:31:40.7871205Z   cpp-13-x86-64-linux-gnu cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu
+2026-10-14T10:31:40.7872409Z   gcc-13-base gcc-13-x86-64-linux-gnu gcc-14-base gcc-14-base:arm64
+2026-10-14T10:31:40.7878581Z   gcc-14-base:i386 gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu libasan8
+2026-10-14T10:31:40.7879588Z   libatomic1 libbinutils libc-bin libc-dev-bin libc6 libc6:arm64 libc6:i386
+2026-10-14T10:31:40.7883749Z   libcc1-0 libcrypt-dev libcrypt1 libctf-nobfd0 libctf0 libgcc-13-dev
+2026-10-14T10:31:40.7889690Z   libgcc-14-dev libgcc-s1 libgcc-s1:arm64 libgcc-s1:i386 libgmp10 libgomp1
+2026-10-14T10:31:40.7893816Z   libgprofng0 libhwasan0 libisl23 libitm1 libjansson4 liblsan0 libmpc3
+2026-10-14T10:31:40.7925373Z   libmpfr6 libncurses6 libncursesw6 libquadmath0 libsframe1 libstdc++6
+2026-10-14T10:31:40.7944078Z   libtinfo6 libtsan2 libubsan1 libzstd1 zlib1g
+2026-10-14T10:31:40.8003859Z Suggested packages:
+2026-10-14T10:31:40.8004467Z   gcc-14-locales cpp-14-doc gcc-14-doc glibc-doc:arm64 libc-l10n:arm64
+2026-10-14T10:31:40.8005181Z   locales:arm64 libnss-nis:arm64 libnss-nisplus:arm64
+2026-10-14T10:31:40.8005695Z Recommended packages:
+2026-10-14T10:31:40.8006085Z   libc6-dev libidn2-0:arm64
+2026-10-14T10:31:41.0731180Z The following packages will be REMOVED:
+2026-10-14T10:31:41.0732707Z   binutils build-essential cpp debhelper devscripts dh-autoreconf dpkg-dev
+2026-10-14T10:31:41.0743730Z   equivs g++ g++-13 g++-13-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-13
+2026-10-14T10:31:41.0789279Z   libc6-dev libncurses-dev libstdc++-13-dev libtool
+2026-10-14T10:31:41.0806567Z   linux-android-xiaomi-lavender-cross-build-deps:arm64 releng-tools
+2026-10-14T10:31:41.0809289Z The following NEW packages will be installed:
+2026-10-14T10:31:41.0819095Z   cpp-14-x86-64-linux-gnu gcc-14-base:arm64 gcc-14-x86-64-linux-gnu
+2026-10-14T10:31:41.0875416Z   libc6:arm64 libgcc-14-dev libgcc-s1:arm64
+2026-10-14T10:31:41.0901820Z The following packages will be upgraded:
+2026-10-14T10:31:41.0903957Z   base-files binutils-common binutils-x86-64-linux-gnu cpp-13
+2026-10-14T10:31:41.0907495Z   cpp-13-x86-64-linux-gnu cpp-x86-64-linux-gnu gcc-13-base
+2026-10-14T10:31:41.0913664Z   gcc-13-x86-64-linux-gnu gcc-14-base gcc-14-base:i386 gcc-x86-64-linux-gnu
+2026-10-14T10:31:41.0915837Z   libasan8 libatomic1 libbinutils libc-bin libc-dev-bin libc6 libc6:i386
+2026-10-14T10:31:41.0918322Z   libcc1-0 libcrypt-dev libcrypt1 libctf-nobfd0 libctf0 libgcc-13-dev
+2026-10-14T10:31:41.0924727Z   libgcc-s1 libgcc-s1:i386 libgmp10 libgomp1 libgprofng0 libhwasan0 libisl23
+2026-10-14T10:31:41.0930620Z   libitm1 libjansson4 liblsan0 libmpc3 libmpfr6 libncurses6 libncursesw6
+2026-10-14T10:31:41.0969863Z   libquadmath0 libsframe1 libstdc++6 libtinfo6 libtsan2 libubsan1 libzstd1
+2026-10-14T10:31:41.0970744Z   zlib1g
+2026-10-14T10:31:41.2238497Z 46 upgraded, 6 newly installed, 20 to remove and 169 not upgraded.
+2026-10-14T10:31:41.2239045Z 1 not fully installed or removed.
+2026-10-14T10:31:41.2239393Z Need to get 94.6 MB of archives.
+2026-10-14T10:31:41.2239839Z After this operation, 46.9 MB of additional disk space will be used.
+2026-10-14T10:31:41.2240572Z Get:1 https://deb.debian.org/debian trixie/main amd64 base-files amd64 13.8+deb13u7 [88.3 kB]
+2026-10-14T10:31:41.2463880Z Get:2 https://deb.debian.org/debian trixie/main i386 gcc-14-base i386 14.2.0-19 [49.4 kB]
+2026-10-14T10:31:41.2479563Z Get:3 https://deb.debian.org/debian trixie/main amd64 gcc-14-base amd64 14.2.0-19 [49.4 kB]
+2026-10-14T10:31:41.2555731Z Get:4 https://deb.debian.org/debian trixie/main amd64 libgcc-s1 amd64 14.2.0-19 [72.8 kB]
+2026-10-14T10:31:41.2580368Z Get:5 https://deb.debian.org/debian trixie/main i386 libgcc-s1 i386 14.2.0-19 [88.2 kB]
+2026-10-14T10:31:41.2744663Z Get:6 https://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+2026-10-14T10:31:41.4384932Z Get:7 https://deb.debian.org/debian trixie/main amd64 gcc-13-x86-64-linux-gnu amd64 13.3.0-16 [19.3 MB]
+2026-10-14T10:31:42.4908338Z Get:8 https://deb.debian.org/debian trixie/main amd64 cpp-13-x86-64-linux-gnu amd64 13.3.0-16 [9966 kB]
+2026-10-14T10:31:42.9484272Z Get:9 https://deb.debian.org/debian trixie/main amd64 cpp-13 amd64 13.3.0-16 [1280 B]
+2026-10-14T10:31:42.9485594Z Get:10 https://deb.debian.org/debian trixie/main amd64 gcc-13-base amd64 13.3.0-16 [49.7 kB]
+2026-10-14T10:31:42.9576800Z Get:11 https://deb.debian.org/debian trixie/main amd64 libgcc-13-dev amd64 13.3.0-16 [2543 kB]
+2026-10-14T10:31:42.9830523Z Get:12 https://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+2026-10-14T10:31:43.0020154Z Get:13 https://deb.debian.org/debian trixie/main amd64 libstdc++6 amd64 14.2.0-19 [714 kB]
+2026-10-14T10:31:43.0135882Z Get:14 https://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+2026-10-14T10:31:43.0234317Z Get:15 https://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+2026-10-14T10:31:43.0299505Z Get:16 https://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+2026-10-14T10:31:43.0304439Z Get:17 https://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+2026-10-14T10:31:43.0443550Z Get:18 https://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+2026-10-14T10:31:43.0453589Z Get:19 https://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+2026-10-14T10:31:43.0456962Z Get:20 https://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+2026-10-14T10:31:43.0541310Z Get:21 https://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+2026-10-14T10:31:43.0648272Z Get:22 https://deb.debian.org/debian trixie/main amd64 zlib1g amd64 1:1.3.dfsg+really1.3.1-1+b1 [88.9 kB]
+2026-10-14T10:31:43.0653907Z Get:23 https://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+2026-10-14T10:31:43.0690084Z Get:24 https://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+2026-10-14T10:31:43.0695966Z Get:25 https://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+2026-10-14T10:31:43.0706180Z Get:26 https://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+2026-10-14T10:31:43.0713670Z Get:27 https://deb.debian.org/debian trixie/main amd64 libzstd1 amd64 1.5.7+dfsg-1 [304 kB]
+2026-10-14T10:31:43.0728269Z Get:28 https://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+2026-10-14T10:31:43.0771964Z Get:29 https://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+2026-10-14T10:31:43.0794165Z Get:30 https://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+2026-10-14T10:31:43.0894543Z Get:31 https://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+2026-10-14T10:31:43.0898916Z Get:32 https://deb.debian.org/debian trixie/main amd64 libgmp10 amd64 2:6.3.0+dfsg-3 [560 kB]
+2026-10-14T10:31:43.0925719Z Get:33 https://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+2026-10-14T10:31:43.0954242Z Get:34 https://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+2026-10-14T10:31:43.0986655Z Get:35 https://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+2026-10-14T10:31:43.0992849Z Get:36 https://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u4 [60.0 kB]
+2026-10-14T10:31:43.1005173Z Get:37 https://deb.debian.org/debian trixie/main i386 libc6 i386 2.41-12+deb13u4 [2722 kB]
+2026-10-14T10:31:43.1105252Z Get:38 https://deb.debian.org/debian trixie/main amd64 libc6 amd64 2.41-12+deb13u4 [2847 kB]
+2026-10-14T10:31:43.1218310Z Get:39 https://deb.debian.org/debian trixie/main amd64 libc-bin amd64 2.41-12+deb13u4 [638 kB]
+2026-10-14T10:31:43.1246573Z Get:40 https://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+2026-10-14T10:31:43.1254452Z Get:41 https://deb.debian.org/debian trixie/main amd64 libcrypt1 amd64 1:4.4.38-1 [90.1 kB]
+2026-10-14T10:31:43.1262114Z Get:42 https://deb.debian.org/debian trixie/main amd64 libncursesw6 amd64 6.5+20250216-2 [135 kB]
+2026-10-14T10:31:43.1271125Z Get:43 https://deb.debian.org/debian trixie/main amd64 libncurses6 amd64 6.5+20250216-2 [105 kB]
+2026-10-14T10:31:43.1277352Z Get:44 https://deb.debian.org/debian trixie/main amd64 libtinfo6 amd64 6.5+20250216-2 [348 kB]
+2026-10-14T10:31:43.1293589Z Get:45 https://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+2026-10-14T10:31:43.1711786Z Get:46 https://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+2026-10-14T10:31:43.1817898Z Get:47 https://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+2026-10-14T10:31:43.2632950Z Get:48 https://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+2026-10-14T10:31:43.2634264Z Get:49 https://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+2026-10-14T10:31:43.2638338Z Get:50 https://deb.debian.org/debian trixie/main arm64 gcc-14-base arm64 14.2.0-19 [49.4 kB]
+2026-10-14T10:31:43.2645409Z Get:51 https://deb.debian.org/debian trixie/main arm64 libgcc-s1 arm64 14.2.0-19 [54.1 kB]
+2026-10-14T10:31:43.2649873Z Get:52 https://deb.debian.org/debian trixie/main arm64 libc6 arm64 2.41-12+deb13u4 [2484 kB]
+2026-10-14T10:31:43.9031203Z Fetched 94.6 MB in 2s (44.7 MB/s)
+2026-10-14T10:31:43.9121092Z (Reading database ... 
+2026-10-14T10:31:43.9121752Z (Reading database ... 5%
+2026-10-14T10:31:43.9122513Z (Reading database ... 10%
+2026-10-14T10:31:43.9140885Z (Reading database ... 15%
+2026-10-14T10:31:43.9142012Z (Reading database ... 20%
+2026-10-14T10:31:43.9142651Z (Reading database ... 25%
+2026-10-14T10:31:43.9143061Z (Reading database ... 30%
+2026-10-14T10:31:43.9143508Z (Reading database ... 35%
+2026-10-14T10:31:43.9143887Z (Reading database ... 40%
+2026-10-14T10:31:43.9144274Z (Reading database ... 45%
+2026-10-14T10:31:43.9144657Z (Reading database ... 50%
+2026-10-14T10:31:43.9145045Z (Reading database ... 55%
+2026-10-14T10:31:43.9145434Z (Reading database ... 60%
+2026-10-14T10:31:43.9145817Z (Reading database ... 65%
+2026-10-14T10:31:43.9146206Z (Reading database ... 70%
+2026-10-14T10:31:43.9161295Z (Reading database ... 75%
+2026-10-14T10:31:43.9177885Z (Reading database ... 80%
+2026-10-14T10:31:43.9190895Z (Reading database ... 85%
+2026-10-14T10:31:43.9204175Z (Reading database ... 90%
+2026-10-14T10:31:43.9217213Z (Reading database ... 95%
+2026-10-14T10:31:43.9217636Z (Reading database ... 100%
+2026-10-14T10:31:43.9218232Z (Reading database ... 21613 files and directories currently installed.)
+2026-10-14T10:31:43.9224627Z Removing linux-android-xiaomi-lavender-cross-build-deps:arm64 (0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0) ...
+2026-10-14T10:31:43.9463640Z (Reading database ... 
+2026-10-14T10:31:43.9464163Z (Reading database ... 5%
+2026-10-14T10:31:43.9464518Z (Reading database ... 10%
+2026-10-14T10:31:43.9464820Z (Reading database ... 15%
+2026-10-14T10:31:43.9465115Z (Reading database ... 20%
+2026-10-14T10:31:43.9465404Z (Reading database ... 25%
+2026-10-14T10:31:43.9465702Z (Reading database ... 30%
+2026-10-14T10:31:43.9465992Z (Reading database ... 35%
+2026-10-14T10:31:43.9466279Z (Reading database ... 40%
+2026-10-14T10:31:43.9466582Z (Reading database ... 45%
+2026-10-14T10:31:43.9466867Z (Reading database ... 50%
+2026-10-14T10:31:43.9467152Z (Reading database ... 55%
+2026-10-14T10:31:43.9467453Z (Reading database ... 60%
+2026-10-14T10:31:43.9467752Z (Reading database ... 65%
+2026-10-14T10:31:43.9481744Z (Reading database ... 70%
+2026-10-14T10:31:43.9499603Z (Reading database ... 75%
+2026-10-14T10:31:43.9515324Z (Reading database ... 80%
+2026-10-14T10:31:43.9528011Z (Reading database ... 85%
+2026-10-14T10:31:43.9540161Z (Reading database ... 90%
+2026-10-14T10:31:43.9552593Z (Reading database ... 95%
+2026-10-14T10:31:43.9553277Z (Reading database ... 100%
+2026-10-14T10:31:43.9553904Z (Reading database ... 21609 files and directories currently installed.)
+2026-10-14T10:31:43.9559572Z Preparing to unpack .../base-files_13.8+deb13u7_amd64.deb ...
+2026-10-14T10:31:43.9761271Z Unpacking base-files (13.8+deb13u7) over (13.1) ...
+2026-10-14T10:31:44.0240010Z Setting up base-files (13.8+deb13u7) ...
+2026-10-14T10:31:44.0247251Z Installing new version of config file /etc/debian_version ...
+2026-10-14T10:31:44.0267389Z Installing new version of config file /etc/issue ...
+2026-10-14T10:31:44.0274828Z Installing new version of config file /etc/issue.net ...
+2026-10-14T10:31:44.0349321Z Updating /etc/profile to current default.
+2026-10-14T10:31:44.0395554Z Updating /root/.profile to current default.
+2026-10-14T10:31:44.0621501Z (Reading database ... 
+2026-10-14T10:31:44.0622254Z (Reading database ... 5%
+2026-10-14T10:31:44.0622723Z (Reading database ... 10%
+2026-10-14T10:31:44.0623384Z (Reading database ... 15%
+2026-10-14T10:31:44.0623818Z (Reading database ... 20%
+2026-10-14T10:31:44.0624248Z (Reading database ... 25%
+2026-10-14T10:31:44.0624668Z (Reading database ... 30%
+2026-10-14T10:31:44.0625096Z (Reading database ... 35%
+2026-10-14T10:31:44.0625514Z (Reading database ... 40%
+2026-10-14T10:31:44.0625951Z (Reading database ... 45%
+2026-10-14T10:31:44.0626369Z (Reading database ... 50%
+2026-10-14T10:31:44.0626818Z (Reading database ... 55%
+2026-10-14T10:31:44.0627250Z (Reading database ... 60%
+2026-10-14T10:31:44.0627670Z (Reading database ... 65%
+2026-10-14T10:31:44.0641706Z (Reading database ... 70%
+2026-10-14T10:31:44.0659679Z (Reading database ... 75%
+2026-10-14T10:31:44.0677489Z (Reading database ... 80%
+2026-10-14T10:31:44.0691470Z (Reading database ... 85%
+2026-10-14T10:31:44.0705435Z (Reading database ... 90%
+2026-10-14T10:31:44.0720323Z (Reading database ... 95%
+2026-10-14T10:31:44.0720713Z (Reading database ... 100%
+2026-10-14T10:31:44.0721237Z (Reading database ... 21629 files and directories currently installed.)
+2026-10-14T10:31:44.0730123Z Preparing to unpack .../gcc-14-base_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:44.0749122Z De-configuring gcc-14-base:i386 (14-20240330-1), to allow configuration of gcc-14-base:amd64 (14.2.0-19) ...
+2026-10-14T10:31:44.0762943Z Unpacking gcc-14-base:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:44.0959701Z Preparing to unpack .../gcc-14-base_14.2.0-19_i386.deb ...
+2026-10-14T10:31:44.0979684Z Unpacking gcc-14-base:i386 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:44.1161439Z Preparing to unpack .../libgcc-s1_14.2.0-19_i386.deb ...
+2026-10-14T10:31:44.1183619Z De-configuring libgcc-s1:amd64 (14-20240330-1), to allow configuration of libgcc-s1:i386 (14.2.0-19) ...
+2026-10-14T10:31:44.1198059Z Unpacking libgcc-s1:i386 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:44.1417409Z Preparing to unpack .../libgcc-s1_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:44.1439209Z Unpacking libgcc-s1:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:44.1636828Z Selecting previously unselected package libgcc-s1:arm64.
+2026-10-14T10:31:44.1657375Z Preparing to unpack .../libgcc-s1_14.2.0-19_arm64.deb ...
+2026-10-14T10:31:44.1664746Z Unpacking libgcc-s1:arm64 (14.2.0-19) ...
+2026-10-14T10:31:44.1889739Z Setting up gcc-14-base:amd64 (14.2.0-19) ...
+2026-10-14T10:31:44.1909447Z Setting up libgcc-s1:amd64 (14.2.0-19) ...
+2026-10-14T10:31:44.2098612Z (Reading database ... 
+2026-10-14T10:31:44.2099073Z (Reading database ... 5%
+2026-10-14T10:31:44.2099497Z (Reading database ... 10%
+2026-10-14T10:31:44.2099909Z (Reading database ... 15%
+2026-10-14T10:31:44.2100335Z (Reading database ... 20%
+2026-10-14T10:31:44.2100722Z (Reading database ... 25%
+2026-10-14T10:31:44.2101111Z (Reading database ... 30%
+2026-10-14T10:31:44.2101505Z (Reading database ... 35%
+2026-10-14T10:31:44.2101895Z (Reading database ... 40%
+2026-10-14T10:31:44.2102520Z (Reading database ... 45%
+2026-10-14T10:31:44.2102920Z (Reading database ... 50%
+2026-10-14T10:31:44.2103317Z (Reading database ... 55%
+2026-10-14T10:31:44.2103713Z (Reading database ... 60%
+2026-10-14T10:31:44.2104099Z (Reading database ... 65%
+2026-10-14T10:31:44.2118846Z (Reading database ... 70%
+2026-10-14T10:31:44.2135672Z (Reading database ... 75%
+2026-10-14T10:31:44.2151715Z (Reading database ... 80%
+2026-10-14T10:31:44.2169387Z (Reading database ... 85%
+2026-10-14T10:31:44.2177350Z (Reading database ... 90%
+2026-10-14T10:31:44.2190560Z (Reading database ... 95%
+2026-10-14T10:31:44.2191013Z (Reading database ... 100%
+2026-10-14T10:31:44.2191527Z (Reading database ... 21631 files and directories currently installed.)
+2026-10-14T10:31:44.2196708Z Preparing to unpack .../libubsan1_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:44.2216594Z Unpacking libubsan1:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:44.3126218Z (Reading database ... 
+2026-10-14T10:31:44.3126754Z (Reading database ... 5%
+2026-10-14T10:31:44.3127073Z (Reading database ... 10%
+2026-10-14T10:31:44.3127540Z (Reading database ... 15%
+2026-10-14T10:31:44.3127848Z (Reading database ... 20%
+2026-10-14T10:31:44.3128141Z (Reading database ... 25%
+2026-10-14T10:31:44.3128427Z (Reading database ... 30%
+2026-10-14T10:31:44.3128708Z (Reading database ... 35%
+2026-10-14T10:31:44.3128995Z (Reading database ... 40%
+2026-10-14T10:31:44.3129451Z (Reading database ... 45%
+2026-10-14T10:31:44.3129760Z (Reading database ... 50%
+2026-10-14T10:31:44.3130084Z (Reading database ... 55%
+2026-10-14T10:31:44.3130414Z (Reading database ... 60%
+2026-10-14T10:31:44.3131031Z (Reading database ... 65%
+2026-10-14T10:31:44.3147771Z (Reading database ... 70%
+2026-10-14T10:31:44.3164301Z (Reading database ... 75%
+2026-10-14T10:31:44.3179622Z (Reading database ... 80%
+2026-10-14T10:31:44.3197158Z (Reading database ... 85%
+2026-10-14T10:31:44.3204610Z (Reading database ... 90%
+2026-10-14T10:31:44.3218091Z (Reading database ... 95%
+2026-10-14T10:31:44.3218579Z (Reading database ... 100%
+2026-10-14T10:31:44.3219270Z (Reading database ... 21631 files and directories currently installed.)
+2026-10-14T10:31:44.3223642Z Removing build-essential (12.10) ...
+2026-10-14T10:31:44.3309143Z Removing g++ (4:13.2.0-7) ...
+2026-10-14T10:31:44.3420644Z Removing g++-13 (13.2.0-24) ...
+2026-10-14T10:31:44.3504217Z Removing releng-tools (51+git20231024210730.05c4f2e.trixie.production) ...
+2026-10-14T10:31:44.4053749Z Removing equivs (2.3.1) ...
+2026-10-14T10:31:44.4175693Z Removing debhelper (13.15.3) ...
+2026-10-14T10:31:44.4580969Z Removing dh-autoreconf (20) ...
+2026-10-14T10:31:44.4692404Z Removing libtool (2.4.7-7) ...
+2026-10-14T10:31:44.4797155Z Removing gcc (4:13.2.0-7) ...
+2026-10-14T10:31:44.4950146Z Removing gcc-13 (13.2.0-24) ...
+2026-10-14T10:31:44.5165398Z dpkg: g++-13-x86-64-linux-gnu: dependency problems, but removing anyway as you requested:
+2026-10-14T10:31:44.5166252Z  g++-x86-64-linux-gnu depends on g++-13-x86-64-linux-gnu (>= 13.2.0-11~).
+2026-10-14T10:31:44.5166693Z 
+2026-10-14T10:31:44.5175645Z Removing g++-13-x86-64-linux-gnu (13.2.0-24) ...
+2026-10-14T10:31:44.5486198Z (Reading database ... 
+2026-10-14T10:31:44.5486726Z (Reading database ... 5%
+2026-10-14T10:31:44.5487193Z (Reading database ... 10%
+2026-10-14T10:31:44.5487644Z (Reading database ... 15%
+2026-10-14T10:31:44.5488229Z (Reading database ... 20%
+2026-10-14T10:31:44.5488765Z (Reading database ... 25%
+2026-10-14T10:31:44.5489286Z (Reading database ... 30%
+2026-10-14T10:31:44.5489822Z (Reading database ... 35%
+2026-10-14T10:31:44.5490335Z (Reading database ... 40%
+2026-10-14T10:31:44.5490857Z (Reading database ... 45%
+2026-10-14T10:31:44.5491374Z (Reading database ... 50%
+2026-10-14T10:31:44.5491891Z (Reading database ... 55%
+2026-10-14T10:31:44.5494160Z (Reading database ... 60%
+2026-10-14T10:31:44.5494636Z (Reading database ... 65%
+2026-10-14T10:31:44.5506285Z (Reading database ... 70%
+2026-10-14T10:31:44.5524483Z (Reading database ... 75%
+2026-10-14T10:31:44.5540153Z (Reading database ... 80%
+2026-10-14T10:31:44.5557665Z (Reading database ... 85%
+2026-10-14T10:31:44.5565180Z (Reading database ... 90%
+2026-10-14T10:31:44.5577890Z (Reading database ... 95%
+2026-10-14T10:31:44.5578365Z (Reading database ... 100%
+2026-10-14T10:31:44.5578876Z (Reading database ... 21095 files and directories currently installed.)
+2026-10-14T10:31:44.5584556Z Preparing to unpack .../gcc-13-x86-64-linux-gnu_13.3.0-16_amd64.deb ...
+2026-10-14T10:31:44.5605477Z Unpacking gcc-13-x86-64-linux-gnu (13.3.0-16) over (13.2.0-24) ...
+2026-10-14T10:31:45.2556520Z Preparing to unpack .../cpp-13-x86-64-linux-gnu_13.3.0-16_amd64.deb ...
+2026-10-14T10:31:45.2574288Z Unpacking cpp-13-x86-64-linux-gnu (13.3.0-16) over (13.2.0-24) ...
+2026-10-14T10:31:45.8040908Z Preparing to unpack .../cpp-13_13.3.0-16_amd64.deb ...
+2026-10-14T10:31:45.8059449Z Unpacking cpp-13 (13.3.0-16) over (13.2.0-24) ...
+2026-10-14T10:31:45.8298340Z (Reading database ... 
+2026-10-14T10:31:45.8298884Z (Reading database ... 5%
+2026-10-14T10:31:45.8299385Z (Reading database ... 10%
+2026-10-14T10:31:45.8299784Z (Reading database ... 15%
+2026-10-14T10:31:45.8300200Z (Reading database ... 20%
+2026-10-14T10:31:45.8300680Z (Reading database ... 25%
+2026-10-14T10:31:45.8301234Z (Reading database ... 30%
+2026-10-14T10:31:45.8301690Z (Reading database ... 35%
+2026-10-14T10:31:45.8302469Z (Reading database ... 40%
+2026-10-14T10:31:45.8302982Z (Reading database ... 45%
+2026-10-14T10:31:45.8303503Z (Reading database ... 50%
+2026-10-14T10:31:45.8304019Z (Reading database ... 55%
+2026-10-14T10:31:45.8304531Z (Reading database ... 60%
+2026-10-14T10:31:45.8305068Z (Reading database ... 65%
+2026-10-14T10:31:45.8317691Z (Reading database ... 70%
+2026-10-14T10:31:45.8334834Z (Reading database ... 75%
+2026-10-14T10:31:45.8352402Z (Reading database ... 80%
+2026-10-14T10:31:45.8367224Z (Reading database ... 85%
+2026-10-14T10:31:45.8375235Z (Reading database ... 90%
+2026-10-14T10:31:45.8388072Z (Reading database ... 95%
+2026-10-14T10:31:45.8388611Z (Reading database ... 100%
+2026-10-14T10:31:45.8389195Z (Reading database ... 21095 files and directories currently installed.)
+2026-10-14T10:31:45.8394856Z Removing libstdc++-13-dev:amd64 (13.2.0-24) ...
+2026-10-14T10:31:45.9398496Z (Reading database ... 
+2026-10-14T10:31:45.9398886Z (Reading database ... 5%
+2026-10-14T10:31:45.9399184Z (Reading database ... 10%
+2026-10-14T10:31:45.9399470Z (Reading database ... 15%
+2026-10-14T10:31:45.9399747Z (Reading database ... 20%
+2026-10-14T10:31:45.9400020Z (Reading database ... 25%
+2026-10-14T10:31:45.9400286Z (Reading database ... 30%
+2026-10-14T10:31:45.9400579Z (Reading database ... 35%
+2026-10-14T10:31:45.9400839Z (Reading database ... 40%
+2026-10-14T10:31:45.9401099Z (Reading database ... 45%
+2026-10-14T10:31:45.9401647Z (Reading database ... 50%
+2026-10-14T10:31:45.9401911Z (Reading database ... 55%
+2026-10-14T10:31:45.9402416Z (Reading database ... 60%
+2026-10-14T10:31:45.9402682Z (Reading database ... 65%
+2026-10-14T10:31:45.9406503Z (Reading database ... 70%
+2026-10-14T10:31:45.9424378Z (Reading database ... 75%
+2026-10-14T10:31:45.9445164Z (Reading database ... 80%
+2026-10-14T10:31:45.9461248Z (Reading database ... 85%
+2026-10-14T10:31:45.9469076Z (Reading database ... 90%
+2026-10-14T10:31:45.9482504Z (Reading database ... 95%
+2026-10-14T10:31:45.9482841Z (Reading database ... 100%
+2026-10-14T10:31:45.9483293Z (Reading database ... 20230 files and directories currently installed.)
+2026-10-14T10:31:45.9489077Z Preparing to unpack .../gcc-13-base_13.3.0-16_amd64.deb ...
+2026-10-14T10:31:45.9508541Z Unpacking gcc-13-base:amd64 (13.3.0-16) over (13.2.0-24) ...
+2026-10-14T10:31:45.9692909Z Preparing to unpack .../libgcc-13-dev_13.3.0-16_amd64.deb ...
+2026-10-14T10:31:45.9713091Z Unpacking libgcc-13-dev:amd64 (13.3.0-16) over (13.2.0-24) ...
+2026-10-14T10:31:46.1731370Z Preparing to unpack .../libtsan2_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.1749676Z Unpacking libtsan2:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.3534134Z Preparing to unpack .../libstdc++6_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.3693957Z Unpacking libstdc++6:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.4378665Z Setting up libstdc++6:amd64 (14.2.0-19) ...
+2026-10-14T10:31:46.4567274Z (Reading database ... 
+2026-10-14T10:31:46.4567776Z (Reading database ... 5%
+2026-10-14T10:31:46.4568197Z (Reading database ... 10%
+2026-10-14T10:31:46.4568507Z (Reading database ... 15%
+2026-10-14T10:31:46.4568816Z (Reading database ... 20%
+2026-10-14T10:31:46.4569103Z (Reading database ... 25%
+2026-10-14T10:31:46.4570786Z (Reading database ... 30%
+2026-10-14T10:31:46.4571609Z (Reading database ... 35%
+2026-10-14T10:31:46.4571933Z (Reading database ... 40%
+2026-10-14T10:31:46.4572516Z (Reading database ... 45%
+2026-10-14T10:31:46.4572918Z (Reading database ... 50%
+2026-10-14T10:31:46.4573203Z (Reading database ... 55%
+2026-10-14T10:31:46.4573483Z (Reading database ... 60%
+2026-10-14T10:31:46.4573762Z (Reading database ... 65%
+2026-10-14T10:31:46.4584320Z (Reading database ... 70%
+2026-10-14T10:31:46.4601936Z (Reading database ... 75%
+2026-10-14T10:31:46.4622841Z (Reading database ... 80%
+2026-10-14T10:31:46.4639337Z (Reading database ... 85%
+2026-10-14T10:31:46.4647312Z (Reading database ... 90%
+2026-10-14T10:31:46.4662036Z (Reading database ... 95%
+2026-10-14T10:31:46.4662457Z (Reading database ... 100%
+2026-10-14T10:31:46.4663136Z (Reading database ... 20231 files and directories currently installed.)
+2026-10-14T10:31:46.4673274Z Preparing to unpack .../0-libquadmath0_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.4695156Z Unpacking libquadmath0:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.4950295Z Preparing to unpack .../1-liblsan0_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.4969633Z Unpacking liblsan0:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.5949555Z Preparing to unpack .../2-libitm1_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.5968989Z Unpacking libitm1:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.6149635Z Preparing to unpack .../3-libhwasan0_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.6175933Z Unpacking libhwasan0:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.7269874Z Preparing to unpack .../4-libgomp1_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.7292479Z Unpacking libgomp1:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.7530402Z Preparing to unpack .../5-libcc1-0_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.7548951Z Unpacking libcc1-0:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.7727066Z Preparing to unpack .../6-libatomic1_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.7747837Z Unpacking libatomic1:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.7922078Z Preparing to unpack .../7-libasan8_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:46.7942541Z Unpacking libasan8:amd64 (14.2.0-19) over (14-20240330-1) ...
+2026-10-14T10:31:46.9926974Z (Reading database ... 
+2026-10-14T10:31:46.9927690Z (Reading database ... 5%
+2026-10-14T10:31:46.9928394Z (Reading database ... 10%
+2026-10-14T10:31:46.9928850Z (Reading database ... 15%
+2026-10-14T10:31:46.9929265Z (Reading database ... 20%
+2026-10-14T10:31:46.9929662Z (Reading database ... 25%
+2026-10-14T10:31:46.9930053Z (Reading database ... 30%
+2026-10-14T10:31:46.9930433Z (Reading database ... 35%
+2026-10-14T10:31:46.9930806Z (Reading database ... 40%
+2026-10-14T10:31:46.9931181Z (Reading database ... 45%
+2026-10-14T10:31:46.9931567Z (Reading database ... 50%
+2026-10-14T10:31:46.9931947Z (Reading database ... 55%
+2026-10-14T10:31:46.9932567Z (Reading database ... 60%
+2026-10-14T10:31:46.9932956Z (Reading database ... 65%
+2026-10-14T10:31:46.9947394Z (Reading database ... 70%
+2026-10-14T10:31:46.9967441Z (Reading database ... 75%
+2026-10-14T10:31:46.9988333Z (Reading database ... 80%
+2026-10-14T10:31:47.0004971Z (Reading database ... 85%
+2026-10-14T10:31:47.0014028Z (Reading database ... 90%
+2026-10-14T10:31:47.0027498Z (Reading database ... 95%
+2026-10-14T10:31:47.0027869Z (Reading database ... 100%
+2026-10-14T10:31:47.0028378Z (Reading database ... 20231 files and directories currently installed.)
+2026-10-14T10:31:47.0037887Z Removing devscripts (2.23.7) ...
+2026-10-14T10:31:47.1307584Z Removing dpkg-dev (1.22.6) ...
+2026-10-14T10:31:47.1673580Z Removing binutils (2.42-4) ...
+2026-10-14T10:31:47.1979556Z (Reading database ... 
+2026-10-14T10:31:47.1980009Z (Reading database ... 5%
+2026-10-14T10:31:47.1980327Z (Reading database ... 10%
+2026-10-14T10:31:47.1980625Z (Reading database ... 15%
+2026-10-14T10:31:47.1980912Z (Reading database ... 20%
+2026-10-14T10:31:47.1981212Z (Reading database ... 25%
+2026-10-14T10:31:47.1981512Z (Reading database ... 30%
+2026-10-14T10:31:47.1982057Z (Reading database ... 35%
+2026-10-14T10:31:47.1982698Z (Reading database ... 40%
+2026-10-14T10:31:47.1982989Z (Reading database ... 45%
+2026-10-14T10:31:47.1983289Z (Reading database ... 50%
+2026-10-14T10:31:47.1983588Z (Reading database ... 55%
+2026-10-14T10:31:47.1983876Z (Reading database ... 60%
+2026-10-14T10:31:47.1984165Z (Reading database ... 65%
+2026-10-14T10:31:47.2000592Z (Reading database ... 70%
+2026-10-14T10:31:47.2017072Z (Reading database ... 75%
+2026-10-14T10:31:47.2033152Z (Reading database ... 80%
+2026-10-14T10:31:47.2047345Z (Reading database ... 85%
+2026-10-14T10:31:47.2056684Z (Reading database ... 90%
+2026-10-14T10:31:47.2067108Z (Reading database ... 95%
+2026-10-14T10:31:47.2067562Z (Reading database ... 100%
+2026-10-14T10:31:47.2068177Z (Reading database ... 19432 files and directories currently installed.)
+2026-10-14T10:31:47.2075495Z Preparing to unpack .../zlib1g_1%3a1.3.dfsg+really1.3.1-1+b1_amd64.deb ...
+2026-10-14T10:31:47.2098060Z Unpacking zlib1g:amd64 (1:1.3.dfsg+really1.3.1-1+b1) over (1:1.3.dfsg-3.1) ...
+2026-10-14T10:31:47.2340306Z Setting up zlib1g:amd64 (1:1.3.dfsg+really1.3.1-1+b1) ...
+2026-10-14T10:31:47.2528190Z (Reading database ... 
+2026-10-14T10:31:47.2528680Z (Reading database ... 5%
+2026-10-14T10:31:47.2529139Z (Reading database ... 10%
+2026-10-14T10:31:47.2529576Z (Reading database ... 15%
+2026-10-14T10:31:47.2529976Z (Reading database ... 20%
+2026-10-14T10:31:47.2530375Z (Reading database ... 25%
+2026-10-14T10:31:47.2530777Z (Reading database ... 30%
+2026-10-14T10:31:47.2531183Z (Reading database ... 35%
+2026-10-14T10:31:47.2531587Z (Reading database ... 40%
+2026-10-14T10:31:47.2531986Z (Reading database ... 45%
+2026-10-14T10:31:47.2532654Z (Reading database ... 50%
+2026-10-14T10:31:47.2533059Z (Reading database ... 55%
+2026-10-14T10:31:47.2533463Z (Reading database ... 60%
+2026-10-14T10:31:47.2533856Z (Reading database ... 65%
+2026-10-14T10:31:47.2545589Z (Reading database ... 70%
+2026-10-14T10:31:47.2561833Z (Reading database ... 75%
+2026-10-14T10:31:47.2579085Z (Reading database ... 80%
+2026-10-14T10:31:47.2594320Z (Reading database ... 85%
+2026-10-14T10:31:47.2603747Z (Reading database ... 90%
+2026-10-14T10:31:47.2615060Z (Reading database ... 95%
+2026-10-14T10:31:47.2615475Z (Reading database ... 100%
+2026-10-14T10:31:47.2616032Z (Reading database ... 19433 files and directories currently installed.)
+2026-10-14T10:31:47.2621197Z Preparing to unpack .../libgprofng0_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.2643196Z Unpacking libgprofng0:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.3330559Z Preparing to unpack .../libctf0_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.3352499Z Unpacking libctf0:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.3564783Z Preparing to unpack .../libctf-nobfd0_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.3590580Z Unpacking libctf-nobfd0:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.3856942Z Preparing to unpack .../libsframe1_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.3882402Z Unpacking libsframe1:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.4090906Z Preparing to unpack .../libzstd1_1.5.7+dfsg-1_amd64.deb ...
+2026-10-14T10:31:47.4112756Z Unpacking libzstd1:amd64 (1.5.7+dfsg-1) over (1.5.5+dfsg2-2) ...
+2026-10-14T10:31:47.4515459Z Setting up libzstd1:amd64 (1.5.7+dfsg-1) ...
+2026-10-14T10:31:47.4725861Z (Reading database ... 
+2026-10-14T10:31:47.4726393Z (Reading database ... 5%
+2026-10-14T10:31:47.4726763Z (Reading database ... 10%
+2026-10-14T10:31:47.4727073Z (Reading database ... 15%
+2026-10-14T10:31:47.4727368Z (Reading database ... 20%
+2026-10-14T10:31:47.4727655Z (Reading database ... 25%
+2026-10-14T10:31:47.4727944Z (Reading database ... 30%
+2026-10-14T10:31:47.4728234Z (Reading database ... 35%
+2026-10-14T10:31:47.4728522Z (Reading database ... 40%
+2026-10-14T10:31:47.4728808Z (Reading database ... 45%
+2026-10-14T10:31:47.4729093Z (Reading database ... 50%
+2026-10-14T10:31:47.4729839Z (Reading database ... 55%
+2026-10-14T10:31:47.4730131Z (Reading database ... 60%
+2026-10-14T10:31:47.4730668Z (Reading database ... 65%
+2026-10-14T10:31:47.4742473Z (Reading database ... 70%
+2026-10-14T10:31:47.4760286Z (Reading database ... 75%
+2026-10-14T10:31:47.4779543Z (Reading database ... 80%
+2026-10-14T10:31:47.4795452Z (Reading database ... 85%
+2026-10-14T10:31:47.4806609Z (Reading database ... 90%
+2026-10-14T10:31:47.4816318Z (Reading database ... 95%
+2026-10-14T10:31:47.4816868Z (Reading database ... 100%
+2026-10-14T10:31:47.4817516Z (Reading database ... 19433 files and directories currently installed.)
+2026-10-14T10:31:47.4827322Z Preparing to unpack .../binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.4849246Z Unpacking binutils-x86-64-linux-gnu (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.6666459Z Preparing to unpack .../libbinutils_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.6687601Z Unpacking libbinutils:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.7175351Z Preparing to unpack .../binutils-common_2.44-3_amd64.deb ...
+2026-10-14T10:31:47.7197236Z Unpacking binutils-common:amd64 (2.44-3) over (2.42-4) ...
+2026-10-14T10:31:47.8965647Z Removing obsolete conffile /etc/gprofng.rc ...
+2026-10-14T10:31:47.9301475Z Preparing to unpack .../libjansson4_2.14-2+b3_amd64.deb ...
+2026-10-14T10:31:47.9321156Z Unpacking libjansson4:amd64 (2.14-2+b3) over (2.14-2+b2) ...
+2026-10-14T10:31:47.9549251Z Preparing to unpack .../libgmp10_2%3a6.3.0+dfsg-3_amd64.deb ...
+2026-10-14T10:31:47.9569589Z Unpacking libgmp10:amd64 (2:6.3.0+dfsg-3) over (2:6.3.0+dfsg-2+b1) ...
+2026-10-14T10:31:47.9954067Z Setting up libgmp10:amd64 (2:6.3.0+dfsg-3) ...
+2026-10-14T10:31:48.0150168Z (Reading database ... 
+2026-10-14T10:31:48.0150560Z (Reading database ... 5%
+2026-10-14T10:31:48.0150908Z (Reading database ... 10%
+2026-10-14T10:31:48.0151281Z (Reading database ... 15%
+2026-10-14T10:31:48.0151672Z (Reading database ... 20%
+2026-10-14T10:31:48.0152019Z (Reading database ... 25%
+2026-10-14T10:31:48.0152607Z (Reading database ... 30%
+2026-10-14T10:31:48.0152958Z (Reading database ... 35%
+2026-10-14T10:31:48.0153326Z (Reading database ... 40%
+2026-10-14T10:31:48.0153732Z (Reading database ... 45%
+2026-10-14T10:31:48.0154250Z (Reading database ... 50%
+2026-10-14T10:31:48.0155011Z (Reading database ... 55%
+2026-10-14T10:31:48.0155438Z (Reading database ... 60%
+2026-10-14T10:31:48.0155840Z (Reading database ... 65%
+2026-10-14T10:31:48.0166345Z (Reading database ... 70%
+2026-10-14T10:31:48.0182074Z (Reading database ... 75%
+2026-10-14T10:31:48.0198374Z (Reading database ... 80%
+2026-10-14T10:31:48.0212525Z (Reading database ... 85%
+2026-10-14T10:31:48.0223131Z (Reading database ... 90%
+2026-10-14T10:31:48.0233370Z (Reading database ... 95%
+2026-10-14T10:31:48.0233785Z (Reading database ... 100%
+2026-10-14T10:31:48.0234343Z (Reading database ... 19433 files and directories currently installed.)
+2026-10-14T10:31:48.0240147Z Preparing to unpack .../libisl23_0.27-1_amd64.deb ...
+2026-10-14T10:31:48.0261144Z Unpacking libisl23:amd64 (0.27-1) over (0.26-3+b2) ...
+2026-10-14T10:31:48.0831894Z Preparing to unpack .../libmpfr6_4.2.2-1_amd64.deb ...
+2026-10-14T10:31:48.0849717Z Unpacking libmpfr6:amd64 (4.2.2-1) over (4.2.1-1+b1) ...
+2026-10-14T10:31:48.1279026Z Preparing to unpack .../libmpc3_1.3.1-1+b3_amd64.deb ...
+2026-10-14T10:31:48.1306265Z Unpacking libmpc3:amd64 (1.3.1-1+b3) over (1.3.1-1+b2) ...
+2026-10-14T10:31:48.1587223Z (Reading database ... 
+2026-10-14T10:31:48.1588389Z (Reading database ... 5%
+2026-10-14T10:31:48.1588864Z (Reading database ... 10%
+2026-10-14T10:31:48.1589310Z (Reading database ... 15%
+2026-10-14T10:31:48.1589724Z (Reading database ... 20%
+2026-10-14T10:31:48.1590169Z (Reading database ... 25%
+2026-10-14T10:31:48.1590625Z (Reading database ... 30%
+2026-10-14T10:31:48.1591058Z (Reading database ... 35%
+2026-10-14T10:31:48.1591508Z (Reading database ... 40%
+2026-10-14T10:31:48.1591955Z (Reading database ... 45%
+2026-10-14T10:31:48.1592611Z (Reading database ... 50%
+2026-10-14T10:31:48.1593072Z (Reading database ... 55%
+2026-10-14T10:31:48.1593532Z (Reading database ... 60%
+2026-10-14T10:31:48.1593986Z (Reading database ... 65%
+2026-10-14T10:31:48.1615401Z (Reading database ... 70%
+2026-10-14T10:31:48.1631781Z (Reading database ... 75%
+2026-10-14T10:31:48.1649113Z (Reading database ... 80%
+2026-10-14T10:31:48.1663170Z (Reading database ... 85%
+2026-10-14T10:31:48.1674582Z (Reading database ... 90%
+2026-10-14T10:31:48.1683854Z (Reading database ... 95%
+2026-10-14T10:31:48.1684417Z (Reading database ... 100%
+2026-10-14T10:31:48.1685008Z (Reading database ... 19431 files and directories currently installed.)
+2026-10-14T10:31:48.1690928Z Removing libncurses-dev:amd64 (6.4+20240414-1) ...
+2026-10-14T10:31:48.1827188Z Removing libc6-dev:amd64 (2.38-7) ...
+2026-10-14T10:31:48.2603514Z (Reading database ... 
+2026-10-14T10:31:48.2604162Z (Reading database ... 5%
+2026-10-14T10:31:48.2604564Z (Reading database ... 10%
+2026-10-14T10:31:48.2604944Z (Reading database ... 15%
+2026-10-14T10:31:48.2605217Z (Reading database ... 20%
+2026-10-14T10:31:48.2605480Z (Reading database ... 25%
+2026-10-14T10:31:48.2605753Z (Reading database ... 30%
+2026-10-14T10:31:48.2606038Z (Reading database ... 35%
+2026-10-14T10:31:48.2606303Z (Reading database ... 40%
+2026-10-14T10:31:48.2606566Z (Reading database ... 45%
+2026-10-14T10:31:48.2606842Z (Reading database ... 50%
+2026-10-14T10:31:48.2607116Z (Reading database ... 55%
+2026-10-14T10:31:48.2607392Z (Reading database ... 60%
+2026-10-14T10:31:48.2622720Z (Reading database ... 65%
+2026-10-14T10:31:48.2637603Z (Reading database ... 70%
+2026-10-14T10:31:48.2657514Z (Reading database ... 75%
+2026-10-14T10:31:48.2669770Z (Reading database ... 80%
+2026-10-14T10:31:48.2683664Z (Reading database ... 85%
+2026-10-14T10:31:48.2695312Z (Reading database ... 90%
+2026-10-14T10:31:48.2704862Z (Reading database ... 95%
+2026-10-14T10:31:48.2705233Z (Reading database ... 100%
+2026-10-14T10:31:48.2705737Z (Reading database ... 18810 files and directories currently installed.)
+2026-10-14T10:31:48.2715462Z Preparing to unpack .../libc-dev-bin_2.41-12+deb13u4_amd64.deb ...
+2026-10-14T10:31:48.2739606Z Unpacking libc-dev-bin (2.41-12+deb13u4) over (2.38-7) ...
+2026-10-14T10:31:48.3005579Z Preparing to unpack .../libc6_2.41-12+deb13u4_amd64.deb ...
+2026-10-14T10:31:48.3018904Z De-configuring libc6:i386 (2.38-7), to allow configuration of libc6:amd64 (2.41-12+deb13u4) ...
+2026-10-14T10:31:48.3750722Z Checking for services that may need to be restarted...
+2026-10-14T10:31:48.3752532Z Checking init scripts...
+2026-10-14T10:31:48.3982631Z Unpacking libc6:amd64 (2.41-12+deb13u4) over (2.38-7) ...
+2026-10-14T10:31:48.6396513Z dpkg: warning: unable to delete old directory '/lib/x86_64-linux-gnu': Directory not empty
+2026-10-14T10:31:48.6871591Z Preparing to unpack .../libc6_2.41-12+deb13u4_i386.deb ...
+2026-10-14T10:31:48.7784308Z Checking for services that may need to be restarted...
+2026-10-14T10:31:48.7784988Z Checking init scripts...
+2026-10-14T10:31:48.7956148Z Unpacking libc6:i386 (2.41-12+deb13u4) over (2.38-7) ...
+2026-10-14T10:31:49.0175280Z dpkg: warning: unable to delete old directory '/lib/i386-linux-gnu': Directory not empty
+2026-10-14T10:31:49.0624752Z Preparing to unpack .../libc-bin_2.41-12+deb13u4_amd64.deb ...
+2026-10-14T10:31:49.0645915Z Unpacking libc-bin (2.41-12+deb13u4) over (2.38-7) ...
+2026-10-14T10:31:49.1362816Z Setting up libc6:amd64 (2.41-12+deb13u4) ...
+2026-10-14T10:31:49.1992448Z Checking for services that may need to be restarted...
+2026-10-14T10:31:49.1993297Z Checking init scripts...
+2026-10-14T10:31:49.2040807Z Nothing to restart.
+2026-10-14T10:31:49.2144900Z Setting up libc-bin (2.41-12+deb13u4) ...
+2026-10-14T10:31:49.2451014Z (Reading database ... 
+2026-10-14T10:31:49.2451407Z (Reading database ... 5%
+2026-10-14T10:31:49.2451749Z (Reading database ... 10%
+2026-10-14T10:31:49.2452345Z (Reading database ... 15%
+2026-10-14T10:31:49.2452689Z (Reading database ... 20%
+2026-10-14T10:31:49.2453009Z (Reading database ... 25%
+2026-10-14T10:31:49.2453322Z (Reading database ... 30%
+2026-10-14T10:31:49.2453634Z (Reading database ... 35%
+2026-10-14T10:31:49.2453949Z (Reading database ... 40%
+2026-10-14T10:31:49.2454527Z (Reading database ... 45%
+2026-10-14T10:31:49.2454841Z (Reading database ... 50%
+2026-10-14T10:31:49.2455150Z (Reading database ... 55%
+2026-10-14T10:31:49.2455483Z (Reading database ... 60%
+2026-10-14T10:31:49.2458303Z (Reading database ... 65%
+2026-10-14T10:31:49.2469725Z (Reading database ... 70%
+2026-10-14T10:31:49.2488947Z (Reading database ... 75%
+2026-10-14T10:31:49.2500599Z (Reading database ... 80%
+2026-10-14T10:31:49.2514529Z (Reading database ... 85%
+2026-10-14T10:31:49.2526880Z (Reading database ... 90%
+2026-10-14T10:31:49.2537818Z (Reading database ... 95%
+2026-10-14T10:31:49.2538198Z (Reading database ... 100%
+2026-10-14T10:31:49.2538725Z (Reading database ... 18812 files and directories currently installed.)
+2026-10-14T10:31:49.2546454Z Removing cpp (4:13.2.0-7) ...
+2026-10-14T10:31:49.2704388Z Removing g++-x86-64-linux-gnu (4:13.2.0-7) ...
+2026-10-14T10:31:49.2963706Z (Reading database ... 
+2026-10-14T10:31:49.2964485Z (Reading database ... 5%
+2026-10-14T10:31:49.2965432Z (Reading database ... 10%
+2026-10-14T10:31:49.2966158Z (Reading database ... 15%
+2026-10-14T10:31:49.2966686Z (Reading database ... 20%
+2026-10-14T10:31:49.2967100Z (Reading database ... 25%
+2026-10-14T10:31:49.2967593Z (Reading database ... 30%
+2026-10-14T10:31:49.2968057Z (Reading database ... 35%
+2026-10-14T10:31:49.2968482Z (Reading database ... 40%
+2026-10-14T10:31:49.2968940Z (Reading database ... 45%
+2026-10-14T10:31:49.2969377Z (Reading database ... 50%
+2026-10-14T10:31:49.2969823Z (Reading database ... 55%
+2026-10-14T10:31:49.2970260Z (Reading database ... 60%
+2026-10-14T10:31:49.2983306Z (Reading database ... 65%
+2026-10-14T10:31:49.2997145Z (Reading database ... 70%
+2026-10-14T10:31:49.3017895Z (Reading database ... 75%
+2026-10-14T10:31:49.3030560Z (Reading database ... 80%
+2026-10-14T10:31:49.3044324Z (Reading database ... 85%
+2026-10-14T10:31:49.3056198Z (Reading database ... 90%
+2026-10-14T10:31:49.3066559Z (Reading database ... 95%
+2026-10-14T10:31:49.3066954Z (Reading database ... 100%
+2026-10-14T10:31:49.3067511Z (Reading database ... 18806 files and directories currently installed.)
+2026-10-14T10:31:49.3077606Z Preparing to unpack .../libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+2026-10-14T10:31:49.3172541Z Unpacking libcrypt-dev:amd64 (1:4.4.38-1) over (1:4.4.36-4) ...
+2026-10-14T10:31:49.3549957Z Preparing to unpack .../libcrypt1_1%3a4.4.38-1_amd64.deb ...
+2026-10-14T10:31:49.3576595Z Unpacking libcrypt1:amd64 (1:4.4.38-1) over (1:4.4.36-4) ...
+2026-10-14T10:31:49.3839322Z Setting up libcrypt1:amd64 (1:4.4.38-1) ...
+2026-10-14T10:31:49.4034627Z (Reading database ... 
+2026-10-14T10:31:49.4035355Z (Reading database ... 5%
+2026-10-14T10:31:49.4035853Z (Reading database ... 10%
+2026-10-14T10:31:49.4036370Z (Reading database ... 15%
+2026-10-14T10:31:49.4036866Z (Reading database ... 20%
+2026-10-14T10:31:49.4037364Z (Reading database ... 25%
+2026-10-14T10:31:49.4037858Z (Reading database ... 30%
+2026-10-14T10:31:49.4038350Z (Reading database ... 35%
+2026-10-14T10:31:49.4038846Z (Reading database ... 40%
+2026-10-14T10:31:49.4039373Z (Reading database ... 45%
+2026-10-14T10:31:49.4039889Z (Reading database ... 50%
+2026-10-14T10:31:49.4040382Z (Reading database ... 55%
+2026-10-14T10:31:49.4040884Z (Reading database ... 60%
+2026-10-14T10:31:49.4055278Z (Reading database ... 65%
+2026-10-14T10:31:49.4068348Z (Reading database ... 70%
+2026-10-14T10:31:49.4088645Z (Reading database ... 75%
+2026-10-14T10:31:49.4100701Z (Reading database ... 80%
+2026-10-14T10:31:49.4114257Z (Reading database ... 85%
+2026-10-14T10:31:49.4125450Z (Reading database ... 90%
+2026-10-14T10:31:49.4136597Z (Reading database ... 95%
+2026-10-14T10:31:49.4137010Z (Reading database ... 100%
+2026-10-14T10:31:49.4137594Z (Reading database ... 18806 files and directories currently installed.)
+2026-10-14T10:31:49.4145575Z Preparing to unpack .../libncursesw6_6.5+20250216-2_amd64.deb ...
+2026-10-14T10:31:49.4166343Z Unpacking libncursesw6:amd64 (6.5+20250216-2) over (6.4+20240414-1) ...
+2026-10-14T10:31:49.4421618Z Preparing to unpack .../libncurses6_6.5+20250216-2_amd64.deb ...
+2026-10-14T10:31:49.4443617Z Unpacking libncurses6:amd64 (6.5+20250216-2) over (6.4+20240414-1) ...
+2026-10-14T10:31:49.4668344Z Preparing to unpack .../libtinfo6_6.5+20250216-2_amd64.deb ...
+2026-10-14T10:31:49.4688279Z Unpacking libtinfo6:amd64 (6.5+20250216-2) over (6.4+20240414-1) ...
+2026-10-14T10:31:49.4999634Z Setting up libtinfo6:amd64 (6.5+20250216-2) ...
+2026-10-14T10:31:49.5163317Z Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+2026-10-14T10:31:49.5175681Z (Reading database ... 
+2026-10-14T10:31:49.5178149Z (Reading database ... 5%
+2026-10-14T10:31:49.5178818Z (Reading database ... 10%
+2026-10-14T10:31:49.5179487Z (Reading database ... 15%
+2026-10-14T10:31:49.5180215Z (Reading database ... 20%
+2026-10-14T10:31:49.5180903Z (Reading database ... 25%
+2026-10-14T10:31:49.5181641Z (Reading database ... 30%
+2026-10-14T10:31:49.5182556Z (Reading database ... 35%
+2026-10-14T10:31:49.5182945Z (Reading database ... 40%
+2026-10-14T10:31:49.5183349Z (Reading database ... 45%
+2026-10-14T10:31:49.5183793Z (Reading database ... 50%
+2026-10-14T10:31:49.5184172Z (Reading database ... 55%
+2026-10-14T10:31:49.5184605Z (Reading database ... 60%
+2026-10-14T10:31:49.5197213Z (Reading database ... 65%
+2026-10-14T10:31:49.5210575Z (Reading database ... 70%
+2026-10-14T10:31:49.5230721Z (Reading database ... 75%
+2026-10-14T10:31:49.5243622Z (Reading database ... 80%
+2026-10-14T10:31:49.5256787Z (Reading database ... 85%
+2026-10-14T10:31:49.5268544Z (Reading database ... 90%
+2026-10-14T10:31:49.5280703Z (Reading database ... 95%
+2026-10-14T10:31:49.5281087Z (Reading database ... 100%
+2026-10-14T10:31:49.5281594Z (Reading database ... 18806 files and directories currently installed.)
+2026-10-14T10:31:49.5291112Z Preparing to unpack .../0-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:49.5298064Z Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+2026-10-14T10:31:50.0751009Z Selecting previously unselected package libgcc-14-dev:amd64.
+2026-10-14T10:31:50.0770664Z Preparing to unpack .../1-libgcc-14-dev_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:50.0779235Z Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+2026-10-14T10:31:50.2414218Z Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+2026-10-14T10:31:50.2426365Z Preparing to unpack .../2-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+2026-10-14T10:31:50.2433586Z Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+2026-10-14T10:31:50.8669090Z Preparing to unpack .../3-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+2026-10-14T10:31:50.8689450Z Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) over (4:13.2.0-7) ...
+2026-10-14T10:31:50.8876025Z Preparing to unpack .../4-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+2026-10-14T10:31:50.8894968Z Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) over (4:13.2.0-7) ...
+2026-10-14T10:31:50.9046795Z Selecting previously unselected package gcc-14-base:arm64.
+2026-10-14T10:31:50.9066918Z Preparing to unpack .../5-gcc-14-base_14.2.0-19_arm64.deb ...
+2026-10-14T10:31:50.9075332Z Unpacking gcc-14-base:arm64 (14.2.0-19) ...
+2026-10-14T10:31:50.9279265Z Selecting previously unselected package libc6:arm64.
+2026-10-14T10:31:50.9299258Z Preparing to unpack .../6-libc6_2.41-12+deb13u4_arm64.deb ...
+2026-10-14T10:31:51.0052388Z Unpacking libc6:arm64 (2.41-12+deb13u4) ...
+2026-10-14T10:31:51.1974770Z Setting up gcc-14-base:arm64 (14.2.0-19) ...
+2026-10-14T10:31:51.1992234Z Setting up gcc-14-base:i386 (14.2.0-19) ...
+2026-10-14T10:31:51.2015445Z Setting up binutils-common:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2036325Z Setting up libctf-nobfd0:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2053957Z Setting up libgomp1:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2075682Z Setting up libsframe1:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2093913Z Setting up libjansson4:amd64 (2.14-2+b3) ...
+2026-10-14T10:31:51.2115323Z Setting up gcc-13-base:amd64 (13.3.0-16) ...
+2026-10-14T10:31:51.2133434Z Setting up libmpfr6:amd64 (4.2.2-1) ...
+2026-10-14T10:31:51.2174708Z Setting up libncurses6:amd64 (6.5+20250216-2) ...
+2026-10-14T10:31:51.2195179Z Setting up libquadmath0:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2214029Z Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+2026-10-14T10:31:51.2232934Z Setting up libatomic1:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2250897Z Setting up libncursesw6:amd64 (6.5+20250216-2) ...
+2026-10-14T10:31:51.2269909Z Setting up libubsan1:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2289381Z Setting up libhwasan0:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2308918Z Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+2026-10-14T10:31:51.2365975Z Setting up libasan8:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2384069Z Setting up libtsan2:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2401957Z Setting up libbinutils:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2420664Z Setting up libisl23:amd64 (0.27-1) ...
+2026-10-14T10:31:51.2439376Z Setting up libc-dev-bin (2.41-12+deb13u4) ...
+2026-10-14T10:31:51.2458197Z Setting up libcc1-0:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2479138Z Setting up liblsan0:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2498383Z Setting up libitm1:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2516486Z Setting up libctf0:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2535073Z Setting up cpp-13-x86-64-linux-gnu (13.3.0-16) ...
+2026-10-14T10:31:51.2555571Z Setting up libgprofng0:amd64 (2.44-3) ...
+2026-10-14T10:31:51.2575201Z Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+2026-10-14T10:31:51.2601038Z Setting up libgcc-13-dev:amd64 (13.3.0-16) ...
+2026-10-14T10:31:51.2611894Z Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+2026-10-14T10:31:51.2631885Z Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+2026-10-14T10:31:51.2650982Z Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+2026-10-14T10:31:51.2668715Z Setting up cpp-13 (13.3.0-16) ...
+2026-10-14T10:31:51.2686784Z Setting up gcc-13-x86-64-linux-gnu (13.3.0-16) ...
+2026-10-14T10:31:51.2705857Z Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+2026-10-14T10:31:51.2725181Z Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+2026-10-14T10:31:51.2746818Z Setting up libgcc-s1:arm64 (14.2.0-19) ...
+2026-10-14T10:31:51.2766527Z Setting up libgcc-s1:i386 (14.2.0-19) ...
+2026-10-14T10:31:51.2786222Z Setting up libc6:arm64 (2.41-12+deb13u4) ...
+2026-10-14T10:31:51.3427617Z Setting up libc6:i386 (2.41-12+deb13u4) ...
+2026-10-14T10:31:51.4083803Z Checking for services that may need to be restarted...
+2026-10-14T10:31:51.4084293Z Checking init scripts...
+2026-10-14T10:31:51.4084939Z Nothing to restart.
+2026-10-14T10:31:51.4193156Z Processing triggers for libc-bin (2.41-12+deb13u4) ...
+2026-10-14T10:31:51.4287726Z Processing triggers for man-db (2.12.1-1) ...
+2026-10-14T10:31:51.9324234Z mk-build-deps: Unable to install linux-android-xiaomi-lavender-cross-build-deps at /usr/bin/mk-build-deps line 460.
+2026-10-14T10:31:51.9325356Z mk-build-deps: Unable to install all build-dep packages
+2026-10-14T10:31:51.9669934Z Build failed (1); partial outputs collected, no success marker
+2026-10-14T10:31:52.6846249Z ##[error]Process completed with exit code 1.
+2026-10-14T10:31:52.6926836Z ##[group]Run sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/buildd"
+2026-10-14T10:31:52.6927378Z [36;1msudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/buildd"[0m
+2026-10-14T10:31:52.6927845Z [36;1mpython3 scripts/finalize-info.py "$RUNNER_TEMP/buildd/artifacts"[0m
+2026-10-14T10:31:52.6928393Z [36;1mcat "$RUNNER_TEMP/buildd/artifacts/build-info.txt" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-14T10:31:52.6990747Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:31:52.6991030Z env:
+2026-10-14T10:31:52.6991247Z   BUILD_OUTCOME: failure
+2026-10-14T10:31:52.6991572Z   KERNEL_SOURCE_DIR: /home/runner/work/_temp/buildd/sources
+2026-10-14T10:31:52.6992331Z   RUN_URL: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38549986563
+2026-10-14T10:31:52.6992851Z ##[endgroup]
+2026-10-14T10:31:53.0737095Z Build status: FAILED / INCOMPLETE
+2026-10-14T10:31:53.0737758Z Completed UTC: 2026-10-14T10:31:53.071043+00:00
+2026-10-14T10:31:53.0738283Z Architecture: arm64 (AArch64)
+2026-10-14T10:31:53.0738760Z Makefile base version: 4.4.156
+2026-10-14T10:31:53.0739179Z Upstream Debian package version label: 4.4.192
+2026-10-14T10:31:53.0739753Z Actual kernelrelease: recorded below if compilation completed
+2026-10-14T10:31:53.0740584Z GitHub run: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38549986563
+2026-10-14T10:31:53.0741387Z Project commit: 9597f83de37ee957bbb1e22d4fdf1e2d08c3c7c1
+2026-10-14T10:31:53.0741873Z Source/environment lock:
+2026-10-14T10:31:53.0742900Z SOURCE_URL=https://github.com/droidian-devices/linux-android-xiaomi-lavender.git
+2026-10-14T10:31:53.0743559Z SOURCE_BRANCH=droidian
+2026-10-14T10:31:53.0743936Z SOURCE_SHA=9a2af00e9e2790ed12df6218236267e9bc7cf01e
+2026-10-14T10:31:53.0744806Z BUILD_IMAGE=quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:31:53.0745510Z 
+2026-10-14T10:31:53.0869406Z ##[group]Run actions/upload-artifact@v4
+2026-10-14T10:31:53.0869712Z with:
+2026-10-14T10:31:53.0869942Z   name: lavender-droidian-docker-kernel-3
+2026-10-14T10:31:53.0870274Z   path: /home/runner/work/_temp/buildd/artifacts/
+2026-10-14T10:31:53.0870577Z   if-no-files-found: warn
+2026-10-14T10:31:53.0870805Z   retention-days: 30
+2026-10-14T10:31:53.0871029Z   compression-level: 6
+2026-10-14T10:31:53.0871237Z   overwrite: false
+2026-10-14T10:31:53.0871451Z   include-hidden-files: false
+2026-10-14T10:31:53.0871684Z ##[endgroup]
+2026-10-14T10:31:53.2523250Z (node:4584) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T10:31:53.2524071Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T10:31:53.2647513Z With the provided path, there will be 14 files uploaded
+2026-10-14T10:31:53.2655136Z Artifact name is valid!
+2026-10-14T10:31:53.2655573Z Root directory input is valid!
+2026-10-14T10:31:53.5988612Z Beginning upload of artifact content to blob storage
+2026-10-14T10:31:53.6424237Z (node:4584) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-14T10:31:53.9315246Z Uploaded bytes 53740
+2026-10-14T10:31:53.9892695Z Finished uploading artifact content to blob storage!
+2026-10-14T10:31:53.9894274Z SHA256 digest of uploaded artifact zip is 70ffbf29495bdfa5cae03a2567a38d2a46e73bbdd57aa04075394382412ede6a
+2026-10-14T10:31:53.9895940Z Finalizing artifact upload
+2026-10-14T10:31:54.2663094Z Artifact lavender-droidian-docker-kernel-3.zip successfully finalized. Artifact ID 11885644548
+2026-10-14T10:31:54.2664665Z Artifact lavender-droidian-docker-kernel-3 has been successfully uploaded! Final size is 53740 bytes. Artifact ID is 11885644548
+2026-10-14T10:31:54.2671670Z Artifact download URL: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38549986563/artifacts/11885644548
+2026-10-14T10:31:54.2896980Z Post job cleanup.
+2026-10-14T10:31:54.3768035Z [command]/usr/bin/git version
+2026-10-14T10:31:54.3812780Z git version 2.55.0
+2026-10-14T10:31:54.3850398Z Temporarily overriding HOME='/home/runner/work/_temp/e3e7fa6d-60ec-471d-beec-13c8a435c0cb' before making global git config changes
+2026-10-14T10:31:54.3851748Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T10:31:54.3856246Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:31:54.3895712Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T10:31:54.3931156Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T10:31:54.4263431Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T10:31:54.4312913Z http.https://github.com/.extraheader
+2026-10-14T10:31:54.4344144Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T10:31:54.4367944Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T10:31:54.4684630Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T10:31:54.4751326Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T10:31:54.5256001Z Cleaning up orphan processes
+2026-10-14T10:31:54.5729571Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
