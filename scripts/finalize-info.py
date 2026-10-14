@@ -45,7 +45,11 @@ info.append("SHA256 (build-info.txt and SHA256SUMS excluded to avoid self-refere
 hashes = []
 for path in sorted(artifacts.rglob("*")):
     if path.is_file() and path.name not in {"build-info.txt", "SHA256SUMS", "release-notes.md"}:
-        digest = hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
+        hasher = hashlib.sha256()
+        with path.open("rb") as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                hasher.update(chunk)
+        digest = hasher.hexdigest()
         hashes.append(digest + "  " + path.relative_to(artifacts).as_posix())
 info.extend(hashes)
 (artifacts / "SHA256SUMS").write_text("\n".join(hashes) + "\n")

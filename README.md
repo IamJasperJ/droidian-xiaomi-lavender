@@ -57,7 +57,7 @@ Ubuntu 24.04 是 runner；内核打包在官方 Trixie 容器中完成，避免�
 
 ## Linux VM 构建
 
-按用户后续要求，也可在 vm130 等 amd64 Linux 主机上实际编译。需要 Git、Python 3.11+、Docker，以及可用的 Docker 权限或免密码 sudo，至少 20 GB 空闲空间。主机时钟必须正确，不能通过关闭签名或时间检查绕过 APT 验证。
+按用户后续要求，也可在 vm130 等 amd64 Linux 主机上实际编译。需要 Git、Python 3.8+、Docker，以及可用的 Docker 权限或免密码 sudo，至少 20 GB 空闲空间。主机时钟必须正确，不能通过关闭签名或时间检查绕过 APT 验证。
 
 ```bash
 BUILD_JOBS=2 bash scripts/build-on-linux.sh /absolute/path/to/fresh-buildd
