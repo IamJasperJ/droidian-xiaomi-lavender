@@ -50,7 +50,7 @@ CI 先做 `git apply --check`，再用真实内核 Kconfig 解析原配置与修
 5. 在 `/buildd/sources` 执行 `RELENG_HOST_ARCH=arm64 releng-build-package`。不替换为新 GCC/Clang，不隐藏依赖安装或编译错误。
 6. 构建和静态检查都成功才写入 `BUILD_SUCCESS`。命令失败会让 Actions 失败，尽可能保留诊断文件。
 
-Ubuntu 24.04 是 runner；内核打包在官方 Trixie 容器中完成，避免直接用 Ubuntu 工具链编译旧 Android 内核。依赖不存在、官方镜像不可用或旧源码与新宿主工具不兼容时，工作流明确失败；需要针对日志修复后重跑。
+Ubuntu 24.04 是 runner；内核打包在官方 Trixie 容器中完成，避免直接用 Ubuntu 工具链编译旧 Android 内核。首次 CI 已发现固定官方镜像中的 Droidian 仓库公钥过旧，以及一个可选 Mobian 源的签名过期。`prepare-apt.sh` 用官方 keyring 仓库的固定提交更新容器密钥，并仅在构建容器内停用过期的可选 Mobian 源；保留 APT 签名验证。密钥来源、SHA256 和 fingerprint 见 `config/keyring-provenance.txt`，原始与有效源列表随 artifact 保存。依赖不存在、官方镜像不可用或旧源码与新宿主工具不兼容时，工作流明确失败；需要针对日志修复后重跑。
 
 `release=true` 时，只有 build job 成功，独立 release job 才获得 `contents: write` 权限，创建带 run 编号的 **prerelease**，避免覆盖旧版本。Release 列出源码/打包版本、功能、时间及安装风险；下载文件位于该版本的 **Assets**。默认运行不发布 Release。
 

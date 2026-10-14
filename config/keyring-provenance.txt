@@ -1,0 +1,9 @@
+Official source: https://github.com/droidian/droidian-archive-keyring
+Commit: b4c3a11b88d0aa5b11b92daedbb02e34df99ab02
+Original path: droidian/droidian.gpg
+SHA256: 0f8014a75ed6ef25ee00fa8f6142290ee1679fe0c701b48b71ed6e9c57b32f60
+Current production signing primary fingerprint: B03DFCE15F8CCC2B3F4B65945E775B2A27AB0C94
+The .asc file is an ASCII-armored encoding of the identical .gpg keyring,
+including CRC24. No private keys are present.
+Used only to refresh the stale keyring of the pinned CI container.
+APT signature verification remains required. No trusted=yes or unauthenticated install.

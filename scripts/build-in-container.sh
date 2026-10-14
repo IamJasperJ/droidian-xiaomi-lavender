@@ -22,7 +22,8 @@ date -u +%FT%TZ > "$artifacts/build-started.txt"
 df -h /buildd
 test "$(dpkg --print-architecture)" = amd64
 command -v releng-build-package
-apt-get update
+bash /project/scripts/prepare-apt.sh
+apt-get update --error-on=any
 apt-get install -y --no-install-recommends linux-packaging-snippets python3 file
 cp debian/control "$artifacts/original-debian-control"
 rm debian/control
