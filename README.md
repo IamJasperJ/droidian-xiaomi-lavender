@@ -46,7 +46,7 @@ CI 先做 `git apply --check`，再用真实内核 Kconfig 解析原配置与修
 1. 打开本仓库 **Actions → Build lavender Droidian Docker kernel → Run workflow**。
 2. 第一次运行保持 `release=false`，默认并行任务为 2。可选择 1–4，内存不足时降低并行度。
 3. 工作流使用 `ubuntu-24.04`，要求至少 20 GB 可用空间，最长 180 分钟。
-4. CI 获取锁定的源码、检查补丁、拉取官方 digest 镜像、按设备配置生成 `debian/control` 并安装真实 Build-Depends。
+4. CI 获取锁定的源码、检查补丁、拉取官方 digest 镜像、按设备配置生成 `debian/control` 并按官方 releng 方式安装 amd64 宿主 Build-Depends，以及显式标记 `:arm64` 的目标 initramfs。Android GCC/Python 工具包本身是 amd64，不能把它们误当成 arm64 包安装。
 5. 在 `/buildd/sources` 执行 `RELENG_HOST_ARCH=arm64 releng-build-package`。不替换为新 GCC/Clang，不隐藏依赖安装或编译错误。
 6. 构建和静态检查都成功才写入 `BUILD_SUCCESS`。命令失败会让 Actions 失败，尽可能保留诊断文件。
 

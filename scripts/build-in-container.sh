@@ -29,9 +29,12 @@ cp debian/control "$artifacts/original-debian-control"
 rm debian/control
 debian/rules debian/control
 cp debian/control "$artifacts/generated-debian-control"
-mk-build-deps --install --remove --host-arch arm64 --build-arch amd64 \
+# Match official releng: install amd64 host tools, with the ARM64 initramfs
+# explicitly qualified by :arm64 in the device's DEB_TOOLCHAIN. Android
+# cross-compiler packages are amd64 and do not declare Multi-Arch: foreign.
+mk-build-deps --install --remove \
     --tool 'apt-get -y --no-install-recommends' debian/control
-dpkg-checkbuilddeps -a arm64
+dpkg-checkbuilddeps
 aarch64-linux-android-gcc-4.9 --version > "$artifacts/toolchain-version.txt"
 cp /usr/share/linux-packaging-snippets/kernel-snippet.mk "$artifacts/kernel-snippet.mk"
 cp "$(command -v releng-build-package)" "$artifacts/releng-build-package"
