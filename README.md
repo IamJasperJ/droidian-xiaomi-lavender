@@ -4,6 +4,12 @@
 
 本项目保留 Android 厂商内核、Qualcomm WLAN 驱动、设备树、固件路径和原有硬件配置。未使用 postmarketOS 的主线 ath10k 方案。配置保留不等于已经证明 Wi-Fi 重连稳定。
 
+## 当前构建结果
+
+2026-10-14 已在 `vm130_complie` 完成 ARM64 内核编译及六个 Debian 包的打包。原始 run1 因两处产物校验器误判返回 1：无 second payload 时，AOSP mkbootimg 的 second 地址为 0；Debian control/md5sums 中的 flash-bootimage 字样属于元数据而非安装脚本。修复校验器后，对**同一批未修改的二进制产物**重新执行完整静态校验通过。原始退出状态与完整日志保留在 `reports/`，没有将失败记录改成成功，也没有再次触发 GitHub Actions。
+
+编译使用项目提交 `709446d41a1a4653459c10f11d2ec77704d3a01a`，修正后的校验器为 `a1b6b519771736c464fb25c73c1cfca55c13f9ec`。boot.img SHA256：`b21e362941e7d75c1c600de3c9e7c96039c0aa728e84083e3910733d9dd6e771`。产物附带 BUILD_SUCCESS、build-info、SHA256SUMS 和 revalidation.log；成功仅指编译和静态验证，手机启动、Docker 运行及 Wi-Fi 重连仍需真机验证。
+
 ## 源码和可复现性
 
 - 上游：<https://github.com/droidian-devices/linux-android-xiaomi-lavender>
@@ -17,7 +23,7 @@
 
 每次构建从指定分支获取源码，再检出固定 SHA。更新上游时必须重新检查补丁、Kconfig、设备打包配置和原配置校验，不能只修改 SHA。容器 digest 和源码固定；APT 仓库内容仍可变化，所以产物包含 `dependency-versions.txt`、实际编译器版本、构建容器信息和打包规则副本。当前尚不能保证不同日期得到逐字节一致的二进制文件。
 
-参考：[Droidian 官方内核编译文档](https://docs.droidian.org/porting-guide/kernel-compilation/)、[官方打包工具](https://github.com/droidian/linux-packaging-snippets)。镜像 registry 已核对为 amd64；实际工具链安装和完整编译由 Actions 验证。
+参考：[Droidian 官方内核编译文档](https://docs.droidian.org/porting-guide/kernel-compilation/)、[官方打包工具](https://github.com/droidian/linux-packaging-snippets)。镜像 registry 已核对为 amd64；实际工具链安装和完整编译已在 VM 使用同一套官方流程验证；历史 Actions 运行状态见 reports/checks.md。
 
 ## 配置补丁
 

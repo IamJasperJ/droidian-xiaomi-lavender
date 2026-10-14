@@ -1,0 +1,40 @@
+{
+  "target_thread": "01a139cd-4a29-7581-ba6c-8b96887d6292",
+  "status": "COMPLETED_FAILURE",
+  "ssh_exit_code": 1,
+  "result_details": {
+    "attempt": "run1",
+    "host": "vm130_complie",
+    "project_sha": "709446d41a1a4653459c10f11d2ec77704d3a01a",
+    "started_utc": "2026-10-14T11:03:55.165015+00:00",
+    "finished_utc": "2026-10-14T11:29:22.429329+00:00",
+    "ssh_exit_code": 1,
+    "console_log": "/workspace/lavender-vm-monitor/run1-console.log",
+    "vm_artifacts": "/home/jasper/droidian-xiaomi-lavender-build/run1-buildd/artifacts",
+    "real_device_tested": false
+  },
+  "timestamp": "2026-10-14T11:29:26.657934+00:00",
+  "elapsed_total_seconds": 842.981231212616,
+  "log_file": "/workspace/lavender-vm-monitor/run1-console.log",
+  "log_sha256": "934e12b7cfd50fb8afc2abcae0f55b3452befae94d925bfa27112e29b1f09aa8",
+  "total_lines": 6570,
+  "artifacts_evidence": [
+    "dpkg-deb: building package 'linux-android-xiaomi-lavender-build-deps' in '../linux-android-xiaomi-lavender-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_amd64.deb'.",
+    "dpkg-genchanges --build=binary -O../linux-android-xiaomi-lavender-build-deps_0.0.0+git20220816140854.c4094db.halium.9.0+git20230214135329.207aca7.halium.9.0_amd64.changes",
+    "dpkg-genchanges: info: binary-only upload (no source code included)",
+    "dpkg-deb: building package 'linux-android-xiaomi-lavender-build-deps' in '../linux-android-xiaomi-lavender-build-deps_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_amd64.deb'.",
+    "dpkg-genchanges --build=binary -O../linux-android-xiaomi-lavender-build-deps_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_amd64.changes",
+    "dpkg-genchanges: info: binary-only upload (no source code included)",
+    "dpkg-deb: building package 'linux-image-xiaomi-lavender' in '../linux-image-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-deb: building package 'linux-image-4.4.192-xiaomi-lavender' in '../linux-image-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-deb: building package 'linux-bootimage-xiaomi-lavender' in '../linux-bootimage-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-deb: building package 'linux-headers-xiaomi-lavender' in '../linux-headers-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-deb: building package 'linux-bootimage-4.4.192-xiaomi-lavender' in '../linux-bootimage-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-deb: building package 'linux-headers-4.4.192-xiaomi-lavender' in '../linux-headers-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb'.",
+    "dpkg-genchanges -sa --build=any -O../linux-android-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.changes",
+    "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)"
+  ],
+  "static_artifact_summary": "Observed 14 packaging/artifact references.",
+  "disclaimer": "Note: Static compilation success does not equate to phone boot, WiFi functionality, or Docker runtime success.",
+  "error_block": "CONFIG_VETH=y\nCONFIG_BRIDGE=y\nCONFIG_BRIDGE_NETFILTER=m\nCONFIG_NETFILTER=y\nCONFIG_NETFILTER_XTABLES=y\nCONFIG_NF_CONNTRACK=y\nCONFIG_NF_CONNTRACK_IPV4=y\nCONFIG_NF_NAT=y\nCONFIG_NF_NAT_IPV4=y\nCONFIG_NF_NAT_MASQUERADE_IPV4=y\nCONFIG_IP_NF_IPTABLES=y\nCONFIG_IP_NF_NAT=y\nCONFIG_IP_NF_FILTER=y\nCONFIG_IP_NF_TARGET_MASQUERADE=y\nCONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y\nCONFIG_NETFILTER_XT_MATCH_CONNTRACK=y\nCONFIG_SECCOMP=y\nCONFIG_SECCOMP_FILTER=y\nCONFIG_KEYS=y\nCONFIG_POSIX_MQUEUE=y\nCONFIG_UNIX=y\nCONFIG_PACKET=y\nCONFIG_MODULES=y\nDIFF CONFIG_CFS_BANDWIDTH: n -> y\nDIFF CONFIG_CGROUP_NET_PRIO: n -> y\nDIFF CONFIG_CGROUP_WRITEBACK: n -> y\nDIFF CONFIG_MEMCG: n -> y\nDIFF CONFIG_MEMCG_SWAP: n -> y\nDIFF CONFIG_MEMCG_SWAP_ENABLED: n -> y\nDIFF CONFIG_PAGE_COUNTER: n -> y\nPASS: all Docker requirements resolved; unrelated config preserved\nTraceback (most recent call last):\n  File \"/project/scripts/collect-artifacts.py\", line 148, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"/project/scripts/collect-artifacts.py\", line 118, in main\n    check_boot(boots[0])\n    ~~~~~~~~~~^^^^^^^^^^\n  File \"/project/scripts/collect-artifacts.py\", line 25, in check_boot\n    raise ValueError(\"Boot layout does not match pinned lavender kernel-info.mk\")\nValueError: Boot layout does not match pinned lavender kernel-info.mk\nBuild status: FAILED / INCOMPLETE\nCompleted UTC: 2026-10-14T11:29:15.936105+00:00\nArchitecture: arm64 (AArch64)\nMakefile base version: 4.4.156\nUpstream Debian package version label: 4.4.192\nActual kernelrelease: recorded below if compilation completed\nRun reference: vm130_complie:/home/jasper/droidian-xiaomi-lavender-build/run1\nBuild location: Linux VM\nProject commit: 709446d41a1a4653459c10f11d2ec77704d3a01a\n"
+}
