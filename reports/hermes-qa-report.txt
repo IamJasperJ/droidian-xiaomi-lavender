@@ -1,0 +1,162 @@
+================================================================================
+BOUNDED POST-IMPLEMENTATION QA REPORT: PROJECT9597f83 (LAVENDER DROIDIAN KERNEL)
+================================================================================
+Target: /workspace/lavender-ci-qa/latest-project (project9597f83)
+Mode: test_and_verify (read-only source, bounded execution, no full kernel rebuild)
+Date: 2026-10-14 UTC
+
+--------------------------------------------------------------------------------
+1. VERIFY-CONFIG.PY RUN (RESOLVED CONFIG VS BASELINE)
+--------------------------------------------------------------------------------
+Command:
+  python3 /workspace/lavender-ci-qa/latest-project/scripts/verify-config.py \
+    /workspace/lavender-ci-qa/latest-project/reports/vm-kconfig-resolved.config \
+    --baseline /workspace/lavender-ci-qa/latest-project/reports/vm-kconfig-baseline.config \
+    --source /workspace/lavender-ci-qa/qa-source
+
+Execution Result:
+  Exit Code: 0 (PASS)
+  Stdout:
+    CONFIG_CGROUPS=y
+    CONFIG_CGROUP_FREEZER=y
+    CONFIG_CGROUP_PIDS=y
+    CONFIG_CGROUP_DEVICE=y
+    CONFIG_CGROUP_CPUACCT=y
+    CONFIG_CGROUP_SCHED=y
+    CONFIG_FAIR_GROUP_SCHED=y
+    CONFIG_CPUSETS=y
+    CONFIG_MEMCG=y
+    CONFIG_MEMCG_SWAP=y
+    CONFIG_MEMCG_SWAP_ENABLED=y
+    CONFIG_CFS_BANDWIDTH=y
+    CONFIG_CGROUP_NET_PRIO=y
+    CONFIG_NAMESPACES=y
+    CONFIG_UTS_NS=y
+    CONFIG_IPC_NS=y
+    CONFIG_PID_NS=y
+    CONFIG_NET_NS=y
+    CONFIG_USER_NS=y
+    CONFIG_SYSVIPC=y
+    CONFIG_OVERLAY_FS=y
+    CONFIG_EXT4_FS=y
+    CONFIG_TMPFS=y
+    CONFIG_TMPFS_POSIX_ACL=y
+    CONFIG_TMPFS_XATTR=y
+    CONFIG_DEVTMPFS=y
+    CONFIG_VETH=y
+    CONFIG_BRIDGE=y
+    CONFIG_BRIDGE_NETFILTER=m
+    CONFIG_NETFILTER=y
+    CONFIG_NETFILTER_XTABLES=y
+    CONFIG_NF_CONNTRACK=y
+    CONFIG_NF_CONNTRACK_IPV4=y
+    CONFIG_NF_NAT=y
+    CONFIG_NF_NAT_IPV4=y
+    CONFIG_NF_NAT_MASQUERADE_IPV4=y
+    CONFIG_IP_NF_IPTABLES=y
+    CONFIG_IP_NF_NAT=y
+    CONFIG_IP_NF_FILTER=y
+    CONFIG_IP_NF_TARGET_MASQUERADE=y
+    CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+    CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+    CONFIG_SECCOMP=y
+    CONFIG_SECCOMP_FILTER=y
+    CONFIG_KEYS=y
+    CONFIG_POSIX_MQUEUE=y
+    CONFIG_UNIX=y
+    CONFIG_PACKET=y
+    CONFIG_MODULES=y
+    DIFF CONFIG_CFS_BANDWIDTH: n -> y
+    DIFF CONFIG_CGROUP_NET_PRIO: n -> y
+    DIFF CONFIG_CGROUP_WRITEBACK: n -> y
+    DIFF CONFIG_MEMCG: n -> y
+    DIFF CONFIG_MEMCG_SWAP: n -> y
+    DIFF CONFIG_MEMCG_SWAP_ENABLED: n -> y
+    DIFF CONFIG_PAGE_COUNTER: n -> y
+    PASS: all Docker requirements resolved; unrelated config preserved
+
+Findings:
+  - All 49 required Docker symbols resolve as expected (48 built-in 'y', 1 module 'm').
+  - All symbols are verified to exist in kernel source Kconfig.
+  - Allowed symbol changes between baseline and resolved configurations:
+    * Intentionally enabled: CFS_BANDWIDTH, CGROUP_NET_PRIO, MEMCG, MEMCG_SWAP, MEMCG_SWAP_ENABLED
+    * Automatically selected by Kconfig: PAGE_COUNTER (selected by MEMCG), CGROUP_WRITEBACK (depends on MEMCG && BLK_CGROUP, default y)
+  - Driver Preservation:
+    * Total baseline symbols: 4440
+    * Total resolved symbols: 4445
+    * Differences: exactly the 7 cgroup/memory management symbols above.
+    * WLAN (CONFIG_WLAN, CONFIG_QCA_CLD_WLAN, etc.) and all peripheral/hardware driver symbols are 100% preserved.
+
+--------------------------------------------------------------------------------
+2. NEGATIVE TESTS ON TEMP COPIES (CHECK NONZERO EXIT)
+--------------------------------------------------------------------------------
+Negative Test 1: Disabled MEMCG
+  Temp Copy: /opt/data/cache/scratch/temp_nomemcg.config
+  Modification: Replaced CONFIG_MEMCG=y with # CONFIG_MEMCG is not set
+  Command:
+    python3 /workspace/lavender-ci-qa/latest-project/scripts/verify-config.py \
+      /opt/data/cache/scratch/temp_nomemcg.config \
+      --baseline /workspace/lavender-ci-qa/latest-project/reports/vm-kconfig-baseline.config
+  Actual Result:
+    Exit Code: 1 (PASS: Nonzero)
+    Stderr: CONFIG_MEMCG: expected ['y'], got n
+
+Negative Test 2: Flipped Existing WLAN Driver Config
+  Temp Copy: /opt/data/cache/scratch/temp_flipwlan.config
+  Modification: Replaced CONFIG_WLAN=y with # CONFIG_WLAN is not set
+  Command:
+    python3 /workspace/lavender-ci-qa/latest-project/scripts/verify-config.py \
+      /opt/data/cache/scratch/temp_flipwlan.config \
+      --baseline /workspace/lavender-ci-qa/latest-project/reports/vm-kconfig-baseline.config
+  Actual Result:
+    Exit Code: 1 (PASS: Nonzero)
+    Stderr: Unexpected config change: CONFIG_WLAN
+
+--------------------------------------------------------------------------------
+3. SCRIPT SYNTAX AND COMPILATION CHECKS
+--------------------------------------------------------------------------------
+Shell Scripts (bash -n):
+  - scripts/build-in-container.sh: PASS (exit code 0)
+  - scripts/prepare-apt.sh: PASS (exit code 0)
+  - scripts/prepare-source.sh: PASS (exit code 0)
+  - scripts/test-docker.sh: PASS (exit code 0)
+
+Python Compilation (python3 -m py_compile):
+  - scripts/collect-artifacts.py: PASS (exit code 0)
+  - scripts/finalize-info.py: PASS (exit code 0)
+  - scripts/verify-config.py: PASS (exit code 0)
+
+GitHub Actions Workflow YAML Parsing (PyYAML BaseLoader):
+  - File: .github/workflows/build-kernel.yml
+  - Method: yaml.load(f, Loader=yaml.BaseLoader)
+  - Result: PASS (exit code 0)
+  - Top-level keys: ['name', 'on', 'permissions', 'concurrency', 'jobs']
+  - Workflow Name: "Build lavender Droidian Docker kernel"
+  - Jobs: ['build', 'release']
+  - Verified no YAML 1.1 'on' -> boolean conversion error under BaseLoader.
+
+--------------------------------------------------------------------------------
+4. REVIEW OF PREPARE-APT.SH
+--------------------------------------------------------------------------------
+File: /workspace/lavender-ci-qa/latest-project/scripts/prepare-apt.sh
+Findings:
+  - Cryptographic key integrity:
+    * Enforces SHA256 verification of /project/config/droidian-archive-keyring.gpg
+      (hash 0f8014a75ed6ef25ee00fa8f6142290ee1679fe0c701b48b71ed6e9c57b32f60).
+    * Properly installs refreshed keyring into /usr/share/archive-keyrings/droidian.gpg,
+      /etc/apt/trusted.gpg.d/droidian.gpg, and /etc/apt/droidian-gpg.d/hybris-mobian.asc.
+  - Coverage of APT source formats:
+    * .list files: Iterates /etc/apt/sources.list.d/*.list, prepends comment header to lines referencing repo.mobian-project.org.
+    * deb822 .sources files: Iterates /etc/apt/sources.list.d/*.sources, checks each stanza for repo.mobian-project.org, and safely appends 'Enabled: no'.
+  - Security posture:
+    * Signature checks are NOT bypassed. No '--allow-unauthenticated' or 'Acquire::AllowInsecureRepositories' directives used.
+    * Only the expired optional Mobian repository is disabled; valid official Droidian repositories retain full GPG signature verification.
+
+--------------------------------------------------------------------------------
+5. SUMMARY AND STATUS
+--------------------------------------------------------------------------------
+- All bounded post-implementation QA checks for project9597f83 succeeded.
+- verify-config.py properly enforces required Docker symbols, permits known legal Kconfig side effects (CGROUP_WRITEBACK, PAGE_COUNTER), and strictly catches regressions / driver modifications.
+- apt preparation script addresses both legacy and deb822 source definitions without compromising APT signature checks.
+- Full ARM64 kernel compilation and hardware packaging remain delegated to dedicated CI runs.
+================================================================================
