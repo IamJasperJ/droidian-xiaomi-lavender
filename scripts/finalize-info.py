@@ -27,6 +27,9 @@ info = ["Build status: " + ("SUCCESS (static validation only)" if passed else "F
         "Source/environment lock:\n" + (project / "config/source.lock").read_text(),
         "APT dependencies are recorded in dependency-versions.txt; repositories are not snapshot-pinned.",
         "Boot / real-device Docker / Wi-Fi stability: NOT TESTED"]
+if os.environ.get("KERNEL_BUILD_PROJECT_SHA"):
+    info.append("Kernel build project commit: " + os.environ["KERNEL_BUILD_PROJECT_SHA"])
+    info.append("Post-build validation rerun; original compilation result/log retained in provenance files.")
 source_dir = pathlib.Path(os.environ.get("KERNEL_SOURCE_DIR", "/buildd/sources"))
 release_header = source_dir / "out/KERNEL_OBJ/include/config/kernel.release"
 if release_header.exists():

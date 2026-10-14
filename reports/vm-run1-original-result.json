@@ -1,0 +1,11 @@
+{
+  "attempt": "run1",
+  "host": "vm130_complie",
+  "project_sha": "709446d41a1a4653459c10f11d2ec77704d3a01a",
+  "started_utc": "2026-10-14T11:03:55.165015+00:00",
+  "finished_utc": "2026-10-14T11:29:22.429329+00:00",
+  "ssh_exit_code": 1,
+  "console_log": "/workspace/lavender-vm-monitor/run1-console.log",
+  "vm_artifacts": "/home/jasper/droidian-xiaomi-lavender-build/run1-buildd/artifacts",
+  "real_device_tested": false
+}

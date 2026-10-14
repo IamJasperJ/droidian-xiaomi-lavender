@@ -21,8 +21,13 @@ def check_boot(path):
     if data[:8] != b"ANDROID!" or len(data) < 1648:
         raise ValueError("Invalid Android boot header")
     kernel_size, kernel_addr, ramdisk_size, ramdisk_addr, second_size, second_addr, tags_addr, page, version = struct.unpack_from("<9I", data, 8)
-    if (kernel_addr, ramdisk_addr, second_addr, tags_addr, page, version) != (0x8000, 0x1000000, 0xf00000, 0x100, 4096, 1):
+    if (kernel_addr, ramdisk_addr, tags_addr, page, version) != (0x8000, 0x1000000, 0x100, 4096, 1):
         raise ValueError("Boot layout does not match pinned lavender kernel-info.mk")
+    # AOSP mkbootimg writes zero for second_addr when no --second payload is
+    # supplied, even if --second_offset is set. Official lavender packaging
+    # does not supply a second-stage bootloader; require both fields to be zero.
+    if second_size != 0 or second_addr != 0:
+        raise ValueError("Unexpected second-stage bootloader in lavender boot image")
     round_page = lambda size: (size + page - 1) // page * page
     recovery_size = struct.unpack_from("<I", data, 1632)[0]
     recovery_offset = struct.unpack_from("<Q", data, 1636)[0]
@@ -121,7 +126,9 @@ def main():
                 configs = list((extract / "lib/flash-bootimage").glob("*.conf"))
                 if not configs or any("FLASH_ENABLED=no" not in p.read_text() for p in configs):
                     raise ValueError("Package auto-flashing is not disabled")
-                for hook in control.glob("*"):
+                # control dependencies and md5sums legitimately name the
+                # flash-bootimage package/config; only maintainer scripts run.
+                for hook in (control / name for name in ("preinst", "postinst", "prerm", "postrm", "config")):
                     if hook.is_file() and "flash-bootimage" in hook.read_text(errors="replace"):
                         raise ValueError("Package control hook can invoke flashing")
                 if list(extract.rglob("vbmeta.img*")):
