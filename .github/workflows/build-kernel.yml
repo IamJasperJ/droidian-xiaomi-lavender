@@ -1,0 +1,97 @@
+name: Build lavender Droidian Docker kernel
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Publish an experimental release only after all build checks pass
+        type: boolean
+        default: false
+      jobs:
+        description: Parallel compile jobs (1-4)
+        type: choice
+        options: ['2', '1', '3', '4']
+        default: '2'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lavender-kernel-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - name: Initialize persistent diagnostics
+        run: |
+          mkdir -p "$RUNNER_TEMP/buildd/artifacts"
+          touch "$RUNNER_TEMP/buildd/artifacts/build.log"
+          df -h | tee "$RUNNER_TEMP/buildd/artifacts/runner-disk.txt"
+          test "$(df -PB1 "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 20000000000
+      - name: Fetch pinned droidian source and check patches
+        run: |
+          set -o pipefail
+          bash scripts/prepare-source.sh "$RUNNER_TEMP/buildd/sources" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"
+      - name: Compile and package with official Droidian environment
+        id: compile
+        env:
+          BUILD_JOBS: ${{ inputs.jobs }}
+        run: |
+          set -o pipefail
+          source config/source.lock
+          docker pull "$BUILD_IMAGE" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"
+          docker image inspect "$BUILD_IMAGE" > "$RUNNER_TEMP/buildd/artifacts/container-inspect.json"
+          docker run --rm --name lavender-kernel-build \
+            -e BUILD_JOBS \
+            -v "$GITHUB_WORKSPACE:/project:ro" \
+            -v "$RUNNER_TEMP/buildd:/buildd" \
+            -w /buildd/sources "$BUILD_IMAGE" \
+            bash /project/scripts/build-in-container.sh 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"
+          test -f "$RUNNER_TEMP/buildd/artifacts/BUILD_SUCCESS"
+      - name: Finalize build status and checksums
+        if: always()
+        env:
+          BUILD_OUTCOME: ${{ steps.compile.outcome }}
+          KERNEL_SOURCE_DIR: ${{ runner.temp }}/buildd/sources
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/buildd"
+          python3 scripts/finalize-info.py "$RUNNER_TEMP/buildd/artifacts"
+          cat "$RUNNER_TEMP/buildd/artifacts/build-info.txt" >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload build outputs and failure logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lavender-droidian-docker-kernel-${{ github.run_number }}
+          path: ${{ runner.temp }}/buildd/artifacts/
+          if-no-files-found: warn
+          retention-days: 30
+  release:
+    if: ${{ inputs.release && needs.build.result == 'success' }}
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: lavender-droidian-docker-kernel-${{ github.run_number }}
+          path: artifacts
+      - name: Publish validated experimental artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: lavender-droidian-docker-kernel-${{ github.run_number }}
+          TARGET: ${{ github.sha }}
+        run: |
+          test -f artifacts/BUILD_SUCCESS
+          (cd artifacts && sha256sum --check SHA256SUMS)
+          gh release create "$TAG" artifacts/*.deb artifacts/boot.img artifacts/Image.gz \
+            artifacts/final.config artifacts/*.patch artifacts/build.log \
+            artifacts/build-info.txt artifacts/SHA256SUMS artifacts/dependency-versions.txt \
+            --target "$TARGET" --title "$TAG (package 4.4.192, source 4.4.156)" \
+            --notes-file artifacts/release-notes.md --prerelease

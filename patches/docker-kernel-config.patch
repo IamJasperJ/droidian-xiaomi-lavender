@@ -1,0 +1,29 @@
+diff --git a/arch/arm64/configs/lavender_halium_defconfig b/arch/arm64/configs/lavender_halium_defconfig
+index 1be9a39e..ef8a101e 100644
+--- a/arch/arm64/configs/lavender_halium_defconfig
++++ b/arch/arm64/configs/lavender_halium_defconfig
+@@ -148,11 +148,13 @@ CONFIG_CPUSETS=y
+ CONFIG_PROC_PID_CPUSET=y
+ CONFIG_CGROUP_CPUACCT=y
+ CONFIG_CGROUP_SCHEDTUNE=y
+-# CONFIG_MEMCG is not set
++CONFIG_MEMCG=y
++CONFIG_MEMCG_SWAP=y
++CONFIG_MEMCG_SWAP_ENABLED=y
+ CONFIG_CGROUP_PERF=y
+ CONFIG_CGROUP_SCHED=y
+ CONFIG_FAIR_GROUP_SCHED=y
+-# CONFIG_CFS_BANDWIDTH is not set
++CONFIG_CFS_BANDWIDTH=y
+ # CONFIG_RT_GROUP_SCHED is not set
+ CONFIG_BLK_CGROUP=y
+ # CONFIG_DEBUG_BLK_CGROUP is not set
+@@ -1056,7 +1058,7 @@ CONFIG_RMNET_DATA_FC=y
+ CONFIG_RPS=y
+ CONFIG_RFS_ACCEL=y
+ CONFIG_XPS=y
+-# CONFIG_CGROUP_NET_PRIO is not set
++CONFIG_CGROUP_NET_PRIO=y
+ CONFIG_CGROUP_NET_CLASSID=y
+ CONFIG_NET_RX_BUSY_POLL=y
+ CONFIG_BQL=y

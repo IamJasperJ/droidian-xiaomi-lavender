@@ -1,0 +1,32 @@
+diff --git a/debian/kernel-info.mk b/debian/kernel-info.mk
+index 0ef9328e..ce026b48 100644
+--- a/debian/kernel-info.mk
++++ b/debian/kernel-info.mk
+@@ -81,7 +81,7 @@ KERNEL_BOOTIMAGE_VERSION = 1
+ # Whether to build a flashable vbmeta.img. Please note that currently
+ # only empty vbmeta images (disabling verified boot) can be generated.
+ # Use 0 (no) or 1 (default).
+-DEVICE_VBMETA_REQUIRED = 1
++DEVICE_VBMETA_REQUIRED = 0
+ 
+ # Samsung devices require a special flag. Enable the following if your
+ # device is a Samsung device that requires flag 0 to be present
+@@ -93,7 +93,7 @@ DEVICE_VBMETA_IS_SAMSUNG = 0
+ ########################################################################
+ 
+ # Whether to enable kernel upgrades on package upgrades. Use 0 (no) or 1.
+-FLASH_ENABLED = 1
++FLASH_ENABLED = 0
+ 
+ # If your device is treble-ized, but aonly, you should set the following to
+ # 1 (yes).
+@@ -145,6 +145,9 @@ BUILD_CLANG_TRIPLET = aarch64-linux-gnu-
+ # The compiler to use. Recent Android kernels are built with clang.
+ BUILD_CC = aarch64-linux-android-gcc-4.9
+ 
++# Required by current official packaging snippets when generating debian/control
++CLANG_VERSION = 6.0-4691093
++
+ # Extra paths to prepend to the PATH variable. You'll probably want
+ # to specify the clang path here (the default).
+ BUILD_PATH = /usr/lib/llvm-android-6.0-4691093/bin

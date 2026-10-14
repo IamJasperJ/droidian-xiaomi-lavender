@@ -1,0 +1,4 @@
+SOURCE_URL=https://github.com/droidian-devices/linux-android-xiaomi-lavender.git
+SOURCE_BRANCH=droidian
+SOURCE_SHA=9a2af00e9e2790ed12df6218236267e9bc7cf01e
+BUILD_IMAGE=quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
