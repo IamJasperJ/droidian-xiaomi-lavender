@@ -55,7 +55,17 @@ python3 /project/scripts/verify-config.py out/KERNEL_OBJ/.config \
     --baseline "$artifacts/baseline.config" --source "$PWD" | tee "$artifacts/config-verification.log"
 cp out/KERNEL_OBJ/.config "$artifacts/prebuild.config"
 export DEB_BUILD_OPTIONS="parallel=${BUILD_JOBS:-2}"
-RELENG_HOST_ARCH=arm64 releng-build-package
+# The official releng script passes --jobs=$(nproc) to debuild. Limit its
+# CPU affinity so the selected workflow job count is actually respected.
+cpus=$(python3 - <<'PY'
+import os
+jobs = int(os.environ.get('BUILD_JOBS', '2'))
+if jobs not in range(1, 5):
+    raise SystemExit('BUILD_JOBS must be 1-4')
+print(','.join(map(str, sorted(os.sched_getaffinity(0))[:jobs])))
+PY
+)
+RELENG_HOST_ARCH=arm64 taskset -c "$cpus" releng-build-package
 python3 /project/scripts/verify-config.py out/KERNEL_OBJ/.config \
     --baseline "$artifacts/baseline.config" | tee "$artifacts/final-config-verification.log"
 cmp out/KERNEL_OBJ/.config "$artifacts/prebuild.config"

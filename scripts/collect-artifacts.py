@@ -130,6 +130,15 @@ def main():
     if not (packaged_image and packaged_boot and packaged_modules):
         raise ValueError("Required kernel, boot or module package payload missing")
     check_boot(dest / "boot.img")
+    boot = (dest / "boot.img").read_bytes()
+    kernel_size = struct.unpack_from("<I", boot, 8)[0]
+    ramdisk_size = struct.unpack_from("<I", boot, 16)[0]
+    expected_kernel = image.read_bytes() + (obj / "dtb-merged").read_bytes()
+    if boot[4096:4096 + kernel_size] != expected_kernel:
+        raise ValueError("Boot payload differs from compiled Image.gz plus device merged DTB")
+    ramdisk_offset = 4096 + (kernel_size + 4095) // 4096 * 4096
+    if boot[ramdisk_offset:ramdisk_offset + ramdisk_size] != (obj / "initramfs.default").read_bytes():
+        raise ValueError("Boot initramfs differs from official packaged initramfs")
     (dest / "BUILD_SUCCESS").write_text("Kernel, config, modules, .deb and boot image static validation passed.\nDevice boot/Wi-Fi/Docker not tested.\n")
     print("PASS: all required build artifacts validated")
     return 0

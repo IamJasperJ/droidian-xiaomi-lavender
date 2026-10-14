@@ -19,5 +19,16 @@ for path in Path('/etc/apt/sources.list.d').glob('*.list'):
               if not line.lstrip().startswith('#') and 'repo.mobian-project.org' in line else line
               for line in lines]
     path.write_text('\n'.join(output) + '\n')
+for path in Path('/etc/apt/sources.list.d').glob('*.sources'):
+    blocks = path.read_text().strip().split('\n\n')
+    output = []
+    for block in blocks:
+        if 'repo.mobian-project.org' in block:
+            lines = [line for line in block.splitlines() if not line.startswith('Enabled:')]
+            lines.append('Enabled: no')
+            block = '\n'.join(lines)
+            print('Disabled optional expired Mobian deb822 source:', path.name)
+        output.append(block)
+    path.write_text('\n\n'.join(output) + '\n')
 PY
 cp -a /etc/apt/sources.list.d /buildd/artifacts/apt-sources-effective

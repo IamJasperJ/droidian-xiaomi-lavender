@@ -9,6 +9,8 @@ if ! git -C "$source_dir" cat-file -e "$SOURCE_SHA^{commit}" 2>/dev/null; then
 fi
 git -C "$source_dir" checkout --detach "$SOURCE_SHA"
 test "$(git -C "$source_dir" rev-parse HEAD)" = "$SOURCE_SHA"
+# A named local feature branch gives releng its supported changelog context.
+git -C "$source_dir" checkout -b feature/docker-kernel
 cmp "$source_dir/arch/arm64/configs/lavender_halium_defconfig" \
     "$project/config/original-lavender_halium_defconfig"
 for patch in docker-kernel-config.patch packaging-safety.patch; do

@@ -42,10 +42,10 @@ if (artifacts / "final.config").exists():
             info.append("CONFIG_" + symbol + "=" + (match[1] if match else "n"))
 info.append("SHA256 (build-info.txt and SHA256SUMS excluded to avoid self-reference):")
 hashes = []
-for path in sorted(artifacts.iterdir()):
+for path in sorted(artifacts.rglob("*")):
     if path.is_file() and path.name not in {"build-info.txt", "SHA256SUMS", "release-notes.md"}:
         digest = hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
-        hashes.append(digest + "  " + path.name)
+        hashes.append(digest + "  " + path.relative_to(artifacts).as_posix())
 info.extend(hashes)
 (artifacts / "SHA256SUMS").write_text("\n".join(hashes) + "\n")
 (artifacts / "build-info.txt").write_text("\n".join(info) + "\n")

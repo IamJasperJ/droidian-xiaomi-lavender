@@ -39,7 +39,7 @@ CI 先做 `git apply --check`，再用真实内核 Kconfig 解析原配置与修
 
 - `FLASH_ENABLED=0`：生成的包不自动刷写手机。
 - `DEVICE_VBMETA_REQUIRED=0`：不生成原规则中关闭验证的 vbmeta 镜像，不改变手机现有验证设置。
-- 显式设置 `CLANG_VERSION=6.0-4691093`，供当前官方 snippets 生成控制文件；内核编译器仍是设备指定的 Android GCC 4.9。
+- 设置 `CLANG_CUSTOM=1` 并从 Build-Depends 去除未使用的 Android Clang 6；当前 snippets 不再自动加入未指定版本的 Clang 包。该设备始终使用原有 Android GCC 4.9，避免未使用的旧 Clang 引入 Trixie 已移除的 libtinfo5 依赖。
 
 ## 使用 GitHub Actions
 

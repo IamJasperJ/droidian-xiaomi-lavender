@@ -1,5 +1,5 @@
 diff --git a/debian/kernel-info.mk b/debian/kernel-info.mk
-index 0ef9328e..ce026b48 100644
+index 0ef9328e..135ab1de 100644
 --- a/debian/kernel-info.mk
 +++ b/debian/kernel-info.mk
 @@ -81,7 +81,7 @@ KERNEL_BOOTIMAGE_VERSION = 1
@@ -24,9 +24,18 @@ index 0ef9328e..ce026b48 100644
  # The compiler to use. Recent Android kernels are built with clang.
  BUILD_CC = aarch64-linux-android-gcc-4.9
  
-+# Required by current official packaging snippets when generating debian/control
-+CLANG_VERSION = 6.0-4691093
++# This device uses Android GCC 4.9; skip the unused Clang dependency
++CLANG_CUSTOM = 1
 +
  # Extra paths to prepend to the PATH variable. You'll probably want
  # to specify the clang path here (the default).
  BUILD_PATH = /usr/lib/llvm-android-6.0-4691093/bin
+@@ -152,7 +155,7 @@ BUILD_PATH = /usr/lib/llvm-android-6.0-4691093/bin
+ # Extra packages to add to the Build-Depends section. Mainline builds
+ # can have this section empty, unless cross-building.
+ # The default is enough to install the Android toolchain, including clang.
+-DEB_TOOLCHAIN = linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, clang-android-6.0-4691093, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
++DEB_TOOLCHAIN = linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
+ 
+ # Where we're building on
+ DEB_BUILD_ON = amd64

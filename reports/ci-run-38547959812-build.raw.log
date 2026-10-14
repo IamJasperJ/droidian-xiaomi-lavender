@@ -1,0 +1,350 @@
+﻿2026-10-14T10:12:45.1358915Z Current runner version: '2.337.0'
+2026-10-14T10:12:45.1378311Z ##[group]Runner Image Provisioner
+2026-10-14T10:12:45.1378866Z Hosted Compute Agent
+2026-10-14T10:12:45.1379331Z Version: 20261002.596
+2026-10-14T10:12:45.1379716Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-14T10:12:45.1380173Z Build Date: 2026-10-02T22:28:27Z
+2026-10-14T10:12:45.1380637Z Worker ID: {56a34d12-089c-46d7-a5a3-0c234771aade}
+2026-10-14T10:12:45.1381066Z Region: southcentralus
+2026-10-14T10:12:45.1381443Z Cloud: Azure
+2026-10-14T10:12:45.1381789Z ##[endgroup]
+2026-10-14T10:12:45.1382681Z ##[group]Operating System
+2026-10-14T10:12:45.1383091Z Ubuntu
+2026-10-14T10:12:45.1383412Z 24.04.5
+2026-10-14T10:12:45.1383939Z LTS
+2026-10-14T10:12:45.1384268Z ##[endgroup]
+2026-10-14T10:12:45.1384636Z ##[group]Runner Image
+2026-10-14T10:12:45.1385043Z Image: ubuntu-24.04
+2026-10-14T10:12:45.1385392Z Version: 20261004.327.1
+2026-10-14T10:12:45.1386210Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-14T10:12:45.1387123Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-14T10:12:45.1387717Z ##[endgroup]
+2026-10-14T10:12:45.1388422Z ##[group]GITHUB_TOKEN Permissions
+2026-10-14T10:12:45.1389874Z Contents: read
+2026-10-14T10:12:45.1390255Z Metadata: read
+2026-10-14T10:12:45.1390865Z ##[endgroup]
+2026-10-14T10:12:45.1392291Z Secret source: Actions
+2026-10-14T10:12:45.1392905Z Cache mode: write
+2026-10-14T10:12:45.1393393Z Prepare workflow directory
+2026-10-14T10:12:45.1612142Z Prepare all required actions
+2026-10-14T10:12:45.1646806Z Getting action download info
+2026-10-14T10:12:45.4251922Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-14T10:12:45.5061922Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-14T10:12:45.6981853Z Complete job name: build
+2026-10-14T10:12:45.7467382Z ##[group]Run actions/checkout@v4
+2026-10-14T10:12:45.7467829Z with:
+2026-10-14T10:12:45.7468107Z   repository: IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:12:45.7470358Z   token: ***
+2026-10-14T10:12:45.7470595Z   ssh-strict: true
+2026-10-14T10:12:45.7470835Z   ssh-user: git
+2026-10-14T10:12:45.7471084Z   persist-credentials: true
+2026-10-14T10:12:45.7471353Z   clean: true
+2026-10-14T10:12:45.7471601Z   sparse-checkout-cone-mode: true
+2026-10-14T10:12:45.7471886Z   fetch-depth: 1
+2026-10-14T10:12:45.7472122Z   fetch-tags: false
+2026-10-14T10:12:45.7472367Z   show-progress: true
+2026-10-14T10:12:45.7472612Z   lfs: false
+2026-10-14T10:12:45.7472839Z   submodules: false
+2026-10-14T10:12:45.7473087Z   set-safe-directory: true
+2026-10-14T10:12:45.7473404Z   allow-unsafe-pr-checkout: false
+2026-10-14T10:12:45.7473908Z ##[endgroup]
+2026-10-14T10:12:45.8158760Z Syncing repository: IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:12:45.8160395Z ##[group]Getting Git version info
+2026-10-14T10:12:45.8161237Z Working directory is '/home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender'
+2026-10-14T10:12:45.8162345Z [command]/usr/bin/git version
+2026-10-14T10:12:45.8200154Z git version 2.55.0
+2026-10-14T10:12:45.8215302Z ##[endgroup]
+2026-10-14T10:12:45.8227680Z Temporarily overriding HOME='/home/runner/work/_temp/3317de3d-7b58-4ed6-8de9-fb060c02206d' before making global git config changes
+2026-10-14T10:12:45.8229047Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T10:12:45.8232102Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:12:45.8281529Z Deleting the contents of '/home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender'
+2026-10-14T10:12:45.8287985Z ##[group]Initializing the repository
+2026-10-14T10:12:45.8288803Z [command]/usr/bin/git init /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:12:45.8378266Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-14T10:12:45.8380500Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-14T10:12:45.8381527Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-14T10:12:45.8382754Z hint: call:
+2026-10-14T10:12:45.8383257Z hint:
+2026-10-14T10:12:45.8383995Z hint: 	git config --global init.defaultBranch <name>
+2026-10-14T10:12:45.8384690Z hint:
+2026-10-14T10:12:45.8385338Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-14T10:12:45.8386322Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-14T10:12:45.8387140Z hint:
+2026-10-14T10:12:45.8387652Z hint: 	git branch -m <name>
+2026-10-14T10:12:45.8388216Z hint:
+2026-10-14T10:12:45.8388896Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-14T10:12:45.8389902Z Initialized empty Git repository in /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender/.git/
+2026-10-14T10:12:45.8392460Z [command]/usr/bin/git remote add origin https://github.com/IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:12:45.8432182Z ##[endgroup]
+2026-10-14T10:12:45.8432736Z ##[group]Disabling automatic garbage collection
+2026-10-14T10:12:45.8436635Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-14T10:12:45.8469300Z ##[endgroup]
+2026-10-14T10:12:45.8469728Z ##[group]Setting up auth
+2026-10-14T10:12:45.8476099Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T10:12:45.8512705Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T10:12:45.8803472Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T10:12:45.8836407Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T10:12:45.9023219Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T10:12:45.9054774Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T10:12:45.9236343Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-14T10:12:45.9272375Z ##[endgroup]
+2026-10-14T10:12:45.9272871Z ##[group]Fetching the repository
+2026-10-14T10:12:45.9278870Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +658d72450c44d3ac1c43efe06af49ba6eafa11ed:refs/remotes/origin/main
+2026-10-14T10:12:46.2991349Z From https://github.com/IamJasperJ/droidian-xiaomi-lavender
+2026-10-14T10:12:46.2992115Z  * [new ref]         658d72450c44d3ac1c43efe06af49ba6eafa11ed -> origin/main
+2026-10-14T10:12:46.2995038Z ##[endgroup]
+2026-10-14T10:12:46.2995600Z ##[group]Determining the checkout info
+2026-10-14T10:12:46.2996898Z ##[endgroup]
+2026-10-14T10:12:46.3001241Z [command]/usr/bin/git sparse-checkout disable
+2026-10-14T10:12:46.3044285Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-14T10:12:46.3073137Z ##[group]Checking out the ref
+2026-10-14T10:12:46.3077031Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-14T10:12:46.3144557Z Switched to a new branch 'main'
+2026-10-14T10:12:46.3147853Z branch 'main' set up to track 'origin/main'.
+2026-10-14T10:12:46.3152027Z ##[endgroup]
+2026-10-14T10:12:46.3187000Z [command]/usr/bin/git log -1 --format=%H
+2026-10-14T10:12:46.3208763Z 658d72450c44d3ac1c43efe06af49ba6eafa11ed
+2026-10-14T10:12:46.3390560Z ##[group]Run mkdir -p "$RUNNER_TEMP/buildd/artifacts"
+2026-10-14T10:12:46.3391086Z [36;1mmkdir -p "$RUNNER_TEMP/buildd/artifacts"[0m
+2026-10-14T10:12:46.3391505Z [36;1mtouch "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:12:46.3392129Z [36;1mdf -h | tee "$RUNNER_TEMP/buildd/artifacts/runner-disk.txt"[0m
+2026-10-14T10:12:46.3392632Z [36;1mtest "$(df -PB1 "$RUNNER_TEMP" | awk 'NR==2 {print $4}')" -ge 20000000000[0m
+2026-10-14T10:12:46.3612098Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:12:46.3612660Z ##[endgroup]
+2026-10-14T10:12:46.3831984Z Filesystem       Size  Used Avail Use% Mounted on
+2026-10-14T10:12:46.3832484Z /dev/root        145G   60G   86G  41% /
+2026-10-14T10:12:46.3833044Z tmpfs            7.9G   84K  7.9G   1% /dev/shm
+2026-10-14T10:12:46.3833478Z tmpfs            3.2G 1008K  3.2G   1% /run
+2026-10-14T10:12:46.3834183Z tmpfs            5.0M     0  5.0M   0% /run/lock
+2026-10-14T10:12:46.3834826Z /dev/nvme0n1p16  881M   64M  756M   8% /boot
+2026-10-14T10:12:46.3835556Z /dev/nvme0n1p15  105M  6.2M   99M   6% /boot/efi
+2026-10-14T10:12:46.3836190Z tmpfs            1.6G   12K  1.6G   1% /run/user/1001
+2026-10-14T10:12:46.3894532Z ##[group]Run set -o pipefail
+2026-10-14T10:12:46.3894961Z [36;1mset -o pipefail[0m
+2026-10-14T10:12:46.3895533Z [36;1mbash scripts/prepare-source.sh "$RUNNER_TEMP/buildd/sources" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:12:46.3949601Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:12:46.3949909Z ##[endgroup]
+2026-10-14T10:12:46.4056050Z Cloning into '/home/runner/work/_temp/buildd/sources'...
+2026-10-14T10:13:17.2907612Z HEAD is now at 9a2af00e debian: add initramfs hooks
+2026-10-14T10:13:17.6369720Z  arch/arm64/configs/lavender_halium_defconfig | 8 +++++---
+2026-10-14T10:13:17.6370232Z  debian/kernel-info.mk                        | 7 +++++--
+2026-10-14T10:13:17.6370712Z  2 files changed, 10 insertions(+), 5 deletions(-)
+2026-10-14T10:13:17.6480714Z ##[group]Run set -o pipefail
+2026-10-14T10:13:17.6480970Z [36;1mset -o pipefail[0m
+2026-10-14T10:13:17.6481140Z [36;1msource config/source.lock[0m
+2026-10-14T10:13:17.6481401Z [36;1mdocker pull "$BUILD_IMAGE" 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:13:17.6481777Z [36;1mdocker image inspect "$BUILD_IMAGE" > "$RUNNER_TEMP/buildd/artifacts/container-inspect.json"[0m
+2026-10-14T10:13:17.6482093Z [36;1mdocker run --rm --name lavender-kernel-build \[0m
+2026-10-14T10:13:17.6482305Z [36;1m  -e BUILD_JOBS \[0m
+2026-10-14T10:13:17.6482501Z [36;1m  -v "$GITHUB_WORKSPACE:/project:ro" \[0m
+2026-10-14T10:13:17.6482716Z [36;1m  -v "$RUNNER_TEMP/buildd:/buildd" \[0m
+2026-10-14T10:13:17.6482915Z [36;1m  -w /buildd/sources "$BUILD_IMAGE" \[0m
+2026-10-14T10:13:17.6483241Z [36;1m  bash /project/scripts/build-in-container.sh 2>&1 | tee -a "$RUNNER_TEMP/buildd/artifacts/build.log"[0m
+2026-10-14T10:13:17.6483627Z [36;1mtest -f "$RUNNER_TEMP/buildd/artifacts/BUILD_SUCCESS"[0m
+2026-10-14T10:13:17.6539201Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:13:17.6539385Z env:
+2026-10-14T10:13:17.6539529Z   BUILD_JOBS: 2
+2026-10-14T10:13:17.6539678Z ##[endgroup]
+2026-10-14T10:13:18.3057362Z quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49: Pulling from droidian/build-essential
+2026-10-14T10:13:18.3064290Z 0e07e2723f97: Pulling fs layer
+2026-10-14T10:13:18.3064846Z ce9e9d6c6ffc: Pulling fs layer
+2026-10-14T10:13:18.3065229Z af9978e4e2dc: Pulling fs layer
+2026-10-14T10:13:18.3065505Z 4f4fb700ef54: Pulling fs layer
+2026-10-14T10:13:18.3065729Z 2a4bc7b89995: Pulling fs layer
+2026-10-14T10:13:18.3065956Z 9082a80d1b91: Pulling fs layer
+2026-10-14T10:13:18.3066178Z 46a09269e8cc: Pulling fs layer
+2026-10-14T10:13:18.3066401Z 8bad49ffa11f: Pulling fs layer
+2026-10-14T10:13:18.3066662Z 3399423e70cc: Pulling fs layer
+2026-10-14T10:13:18.3066964Z 2b9c05b75be9: Pulling fs layer
+2026-10-14T10:13:18.3067217Z 225aee35e6ad: Pulling fs layer
+2026-10-14T10:13:18.3067447Z 3a1e89ee1205: Pulling fs layer
+2026-10-14T10:13:18.3067666Z 39d06586c438: Pulling fs layer
+2026-10-14T10:13:18.3067874Z 4f4fb700ef54: Waiting
+2026-10-14T10:13:18.3068069Z 2a4bc7b89995: Waiting
+2026-10-14T10:13:18.3068261Z 9082a80d1b91: Waiting
+2026-10-14T10:13:18.3068782Z 46a09269e8cc: Waiting
+2026-10-14T10:13:18.3068994Z 8bad49ffa11f: Waiting
+2026-10-14T10:13:18.3069179Z 3399423e70cc: Waiting
+2026-10-14T10:13:18.3069358Z 2b9c05b75be9: Waiting
+2026-10-14T10:13:18.3069539Z 225aee35e6ad: Waiting
+2026-10-14T10:13:18.3069720Z 3a1e89ee1205: Waiting
+2026-10-14T10:13:18.3069897Z 39d06586c438: Waiting
+2026-10-14T10:13:18.8164675Z af9978e4e2dc: Verifying Checksum
+2026-10-14T10:13:18.8165109Z af9978e4e2dc: Download complete
+2026-10-14T10:13:19.0975389Z 4f4fb700ef54: Download complete
+2026-10-14T10:13:19.3413559Z 2a4bc7b89995: Download complete
+2026-10-14T10:13:19.6018988Z 9082a80d1b91: Verifying Checksum
+2026-10-14T10:13:19.6019305Z 9082a80d1b91: Download complete
+2026-10-14T10:13:19.8738530Z 46a09269e8cc: Verifying Checksum
+2026-10-14T10:13:19.8738873Z 46a09269e8cc: Download complete
+2026-10-14T10:13:19.9334968Z ce9e9d6c6ffc: Verifying Checksum
+2026-10-14T10:13:19.9335241Z ce9e9d6c6ffc: Download complete
+2026-10-14T10:13:20.2123524Z 3399423e70cc: Verifying Checksum
+2026-10-14T10:13:20.2124087Z 3399423e70cc: Download complete
+2026-10-14T10:13:20.2561866Z 8bad49ffa11f: Verifying Checksum
+2026-10-14T10:13:20.2562138Z 8bad49ffa11f: Download complete
+2026-10-14T10:13:20.6088412Z 2b9c05b75be9: Verifying Checksum
+2026-10-14T10:13:20.6088974Z 2b9c05b75be9: Download complete
+2026-10-14T10:13:21.3369358Z 3a1e89ee1205: Verifying Checksum
+2026-10-14T10:13:21.3369711Z 3a1e89ee1205: Download complete
+2026-10-14T10:13:21.8570622Z 39d06586c438: Download complete
+2026-10-14T10:13:24.3354565Z 225aee35e6ad: Verifying Checksum
+2026-10-14T10:13:24.3354917Z 225aee35e6ad: Download complete
+2026-10-14T10:13:24.5384532Z 0e07e2723f97: Verifying Checksum
+2026-10-14T10:13:24.5385171Z 0e07e2723f97: Download complete
+2026-10-14T10:13:25.5826726Z 0e07e2723f97: Pull complete
+2026-10-14T10:13:32.7976607Z ce9e9d6c6ffc: Pull complete
+2026-10-14T10:13:32.8060553Z af9978e4e2dc: Pull complete
+2026-10-14T10:13:32.8149789Z 4f4fb700ef54: Pull complete
+2026-10-14T10:13:32.8232663Z 2a4bc7b89995: Pull complete
+2026-10-14T10:13:32.8301973Z 9082a80d1b91: Pull complete
+2026-10-14T10:13:32.8436568Z 46a09269e8cc: Pull complete
+2026-10-14T10:13:32.8500403Z 8bad49ffa11f: Pull complete
+2026-10-14T10:13:32.8570518Z 3399423e70cc: Pull complete
+2026-10-14T10:13:32.8646543Z 2b9c05b75be9: Pull complete
+2026-10-14T10:13:41.7674821Z 225aee35e6ad: Pull complete
+2026-10-14T10:13:41.9549193Z 3a1e89ee1205: Pull complete
+2026-10-14T10:13:41.9702062Z 39d06586c438: Pull complete
+2026-10-14T10:13:41.9734517Z Digest: sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:13:41.9749346Z Status: Downloaded newer image for quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:13:41.9750148Z quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:13:42.1428341Z Filesystem      Size  Used Avail Use% Mounted on
+2026-10-14T10:13:42.1428605Z /dev/root       145G   61G   84G  43% /buildd
+2026-10-14T10:13:42.1444718Z /usr/bin/releng-build-package
+2026-10-14T10:13:42.1499459Z /project/config/droidian-archive-keyring.gpg: OK
+2026-10-14T10:13:42.3844838Z Get:1 http://deb.debian.org/debian unstable InRelease [193 kB]
+2026-10-14T10:13:42.4639617Z Get:2 http://security.debian.org/debian-security trixie-security InRelease [43.4 kB]
+2026-10-14T10:13:42.4798303Z Get:3 http://deb.debian.org/debian unstable/main amd64 Packages [10.8 MB]
+2026-10-14T10:13:42.4844935Z Get:4 https://deb.debian.org/debian trixie InRelease [140 kB]
+2026-10-14T10:13:42.5127074Z Get:5 https://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+2026-10-14T10:13:42.5367466Z Get:6 http://security.debian.org/debian-security trixie-security/contrib armhf Packages [3148 B]
+2026-10-14T10:13:42.5566202Z Get:7 http://security.debian.org/debian-security trixie-security/non-free-firmware amd64 Packages [544 B]
+2026-10-14T10:13:42.5691124Z Get:8 http://security.debian.org/debian-security trixie-security/main amd64 Packages [267 kB]
+2026-10-14T10:13:42.5871832Z Get:9 https://deb.debian.org/debian trixie/main amd64 Packages [9678 kB]
+2026-10-14T10:13:42.5983510Z Get:10 http://security.debian.org/debian-security trixie-security/main armhf Packages [248 kB]
+2026-10-14T10:13:42.6062243Z Get:11 http://deb.debian.org/debian unstable/main arm64 Packages [10.7 MB]
+2026-10-14T10:13:42.6236957Z Get:12 http://security.debian.org/debian-security trixie-security/contrib arm64 Packages [3152 B]
+2026-10-14T10:13:42.6239147Z Get:13 http://security.debian.org/debian-security trixie-security/non-free-firmware i386 Packages [540 B]
+2026-10-14T10:13:42.6248629Z Get:14 http://security.debian.org/debian-security trixie-security/contrib i386 Packages [3156 B]
+2026-10-14T10:13:42.6249486Z Get:15 http://security.debian.org/debian-security trixie-security/contrib amd64 Packages [3152 B]
+2026-10-14T10:13:42.6452758Z Get:16 http://security.debian.org/debian-security trixie-security/main i386 Packages [241 kB]
+2026-10-14T10:13:42.6549732Z Get:17 http://security.debian.org/debian-security trixie-security/main arm64 Packages [268 kB]
+2026-10-14T10:13:42.6602647Z Get:18 http://deb.debian.org/debian unstable/main i386 Packages [10.4 MB]
+2026-10-14T10:13:42.6950398Z Get:19 https://deb.debian.org/debian trixie/contrib amd64 Packages [53.9 kB]
+2026-10-14T10:13:42.6964840Z Get:20 https://deb.debian.org/debian trixie/non-free amd64 Packages [100 kB]
+2026-10-14T10:13:42.6985347Z Get:21 https://deb.debian.org/debian trixie/contrib arm64 Packages [48.4 kB]
+2026-10-14T10:13:42.6986162Z Get:22 https://deb.debian.org/debian trixie/main arm64 Packages [9614 kB]
+2026-10-14T10:13:42.8094056Z Get:23 https://deb.debian.org/debian trixie/non-free i386 Packages [72.6 kB]
+2026-10-14T10:13:42.8094984Z Get:24 https://deb.debian.org/debian trixie/non-free-firmware armhf Packages [6132 B]
+2026-10-14T10:13:42.8095447Z Get:25 https://deb.debian.org/debian trixie/contrib armhf Packages [42.6 kB]
+2026-10-14T10:13:42.8095876Z Get:26 https://deb.debian.org/debian trixie/non-free armhf Packages [57.1 kB]
+2026-10-14T10:13:42.8096331Z Get:27 https://deb.debian.org/debian trixie/contrib i386 Packages [44.1 kB]
+2026-10-14T10:13:42.8096752Z Get:28 https://deb.debian.org/debian trixie/main i386 Packages [9437 kB]
+2026-10-14T10:13:42.8097173Z Get:29 http://deb.debian.org/debian unstable/main armhf Packages [10.2 MB]
+2026-10-14T10:13:42.8355361Z Get:30 https://deb.debian.org/debian trixie/non-free-firmware amd64 Packages [6884 B]
+2026-10-14T10:13:42.8355930Z Get:31 https://deb.debian.org/debian trixie/non-free-firmware i386 Packages [6548 B]
+2026-10-14T10:13:42.8356423Z Get:32 https://deb.debian.org/debian trixie/non-free-firmware arm64 Packages [6484 B]
+2026-10-14T10:13:42.8376266Z Get:33 https://deb.debian.org/debian trixie/main armhf Packages [9246 kB]
+2026-10-14T10:13:42.9258615Z Get:34 https://deb.debian.org/debian trixie/non-free arm64 Packages [74.4 kB]
+2026-10-14T10:13:42.9264336Z Get:35 https://deb.debian.org/debian trixie-updates/main arm64 Packages [4424 B]
+2026-10-14T10:13:42.9265565Z Get:36 https://deb.debian.org/debian trixie-updates/main armhf Packages [4408 B]
+2026-10-14T10:13:42.9266887Z Get:37 https://deb.debian.org/debian trixie-updates/main amd64 Packages [4412 B]
+2026-10-14T10:13:42.9267636Z Get:38 https://deb.debian.org/debian trixie-updates/main i386 Packages [4412 B]
+2026-10-14T10:13:46.4301680Z Get:39 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie InRelease [14.1 kB]
+2026-10-14T10:13:46.7510657Z Get:40 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main amd64 Packages [13.0 kB]
+2026-10-14T10:13:46.8752812Z Get:41 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main armhf Packages [13.0 kB]
+2026-10-14T10:13:46.8776940Z Get:42 http://droidian-gst-plugins-bad1.0.repo.droidian.org/trixie-workaround-disable-uvch264 trixie/main arm64 Packages [13.0 kB]
+2026-10-14T10:13:46.8957822Z Get:43 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie InRelease [15.6 kB]
+2026-10-14T10:13:46.9083688Z Get:44 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie InRelease [14.1 kB]
+2026-10-14T10:13:47.2120797Z Get:45 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main amd64 Packages [1823 B]
+2026-10-14T10:13:47.2931896Z Get:46 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main amd64 Packages [1881 B]
+2026-10-14T10:13:47.3328276Z Get:47 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main armhf Packages [1836 B]
+2026-10-14T10:13:47.3345463Z Get:48 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main i386 Packages [764 B]
+2026-10-14T10:13:47.3366334Z Get:49 http://droidian-gnome-calls.repo.droidian.org/trixie-emergency-call-hotfix trixie/main arm64 Packages [1814 B]
+2026-10-14T10:13:47.4212590Z Get:50 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main armhf Packages [1891 B]
+2026-10-14T10:13:47.4231011Z Get:51 http://droidian-squeekboard.repo.droidian.org/trixie-upgrade-1-24-0 trixie/main arm64 Packages [1906 B]
+2026-10-14T10:13:49.8756379Z Get:52 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie InRelease [12.5 kB]
+2026-10-14T10:13:49.9660600Z Get:53 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie InRelease [14.1 kB]
+2026-10-14T10:13:50.0723187Z Get:54 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie/main armhf Packages [2459 B]
+2026-10-14T10:13:50.1954718Z Get:55 http://droidian-callaudiod.repo.droidian.org/trixie-droid-0-1-4 trixie/main arm64 Packages [2466 B]
+2026-10-14T10:13:50.2839177Z Get:56 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main armhf Packages [1274 B]
+2026-10-14T10:13:50.2996359Z Get:57 https://production.repo.droidian.org trixie InRelease [28.2 kB]
+2026-10-14T10:13:50.4087517Z Get:58 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main amd64 Packages [1280 B]
+2026-10-14T10:13:50.4107544Z Get:59 http://droidian-gnome-clocks.repo.droidian.org/trixie-pureosfork trixie/main arm64 Packages [1274 B]
+2026-10-14T10:13:50.4348275Z Get:60 http://repo.mobian-project.org trixie InRelease [28.6 kB]
+2026-10-14T10:13:50.4626893Z Get:61 https://production.repo.droidian.org trixie/main amd64 Packages [427 kB]
+2026-10-14T10:13:50.5902965Z Err:60 http://repo.mobian-project.org trixie InRelease
+2026-10-14T10:13:50.5903371Z   The following signatures were invalid: EXPKEYSIG 951D61F2BC232697 Mobian Project <admin@mobian-project.org>
+2026-10-14T10:13:51.0833194Z Get:62 https://production.repo.droidian.org trixie/main armhf Packages [436 kB]
+2026-10-14T10:13:51.3267514Z Get:63 https://production.repo.droidian.org trixie/main arm64 Packages [527 kB]
+2026-10-14T10:13:51.9036458Z Fetched 83.6 MB in 9s (8980 kB/s)
+2026-10-14T10:13:55.2837788Z Reading package lists...
+2026-10-14T10:13:55.2995767Z W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: http://repo.mobian-project.org trixie InRelease: The following signatures were invalid: EXPKEYSIG 951D61F2BC232697 Mobian Project <admin@mobian-project.org>
+2026-10-14T10:13:55.2996912Z E: Failed to fetch http://repo.mobian-project.org/dists/trixie/InRelease  The following signatures were invalid: EXPKEYSIG 951D61F2BC232697 Mobian Project <admin@mobian-project.org>
+2026-10-14T10:13:55.2997504Z E: Some index files failed to download. They have been ignored, or old ones used instead.
+2026-10-14T10:13:55.3249325Z Build failed (100); partial outputs collected, no success marker
+2026-10-14T10:13:55.8932358Z ##[error]Process completed with exit code 100.
+2026-10-14T10:13:55.8993409Z ##[group]Run sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/buildd"
+2026-10-14T10:13:55.8993958Z [36;1msudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/buildd"[0m
+2026-10-14T10:13:55.8994364Z [36;1mpython3 scripts/finalize-info.py "$RUNNER_TEMP/buildd/artifacts"[0m
+2026-10-14T10:13:55.8994812Z [36;1mcat "$RUNNER_TEMP/buildd/artifacts/build-info.txt" >> "$GITHUB_STEP_SUMMARY"[0m
+2026-10-14T10:13:55.9050580Z shell: /usr/bin/bash -e {0}
+2026-10-14T10:13:55.9050743Z env:
+2026-10-14T10:13:55.9050872Z   BUILD_OUTCOME: failure
+2026-10-14T10:13:55.9051041Z   KERNEL_SOURCE_DIR: /home/runner/work/_temp/buildd/sources
+2026-10-14T10:13:55.9051360Z   RUN_URL: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38547959812
+2026-10-14T10:13:55.9051614Z ##[endgroup]
+2026-10-14T10:13:56.2182070Z Build status: FAILED / INCOMPLETE
+2026-10-14T10:13:56.2182468Z Completed UTC: 2026-10-14T10:13:56.217114+00:00
+2026-10-14T10:13:56.2182759Z Architecture: arm64 (AArch64)
+2026-10-14T10:13:56.2183142Z Makefile base version: 4.4.156
+2026-10-14T10:13:56.2183444Z Upstream Debian package version label: 4.4.192
+2026-10-14T10:13:56.2184027Z Actual kernelrelease: recorded below if compilation completed
+2026-10-14T10:13:56.2184588Z GitHub run: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38547959812
+2026-10-14T10:13:56.2185146Z Project commit: 658d72450c44d3ac1c43efe06af49ba6eafa11ed
+2026-10-14T10:13:56.2185491Z Source/environment lock:
+2026-10-14T10:13:56.2185894Z SOURCE_URL=https://github.com/droidian-devices/linux-android-xiaomi-lavender.git
+2026-10-14T10:13:56.2186331Z SOURCE_BRANCH=droidian
+2026-10-14T10:13:56.2186595Z SOURCE_SHA=9a2af00e9e2790ed12df6218236267e9bc7cf01e
+2026-10-14T10:13:56.2187177Z BUILD_IMAGE=quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+2026-10-14T10:13:56.2187635Z 
+2026-10-14T10:13:56.2296601Z ##[group]Run actions/upload-artifact@v4
+2026-10-14T10:13:56.2296773Z with:
+2026-10-14T10:13:56.2296907Z   name: lavender-droidian-docker-kernel-2
+2026-10-14T10:13:56.2297097Z   path: /home/runner/work/_temp/buildd/artifacts/
+2026-10-14T10:13:56.2297270Z   if-no-files-found: warn
+2026-10-14T10:13:56.2297406Z   retention-days: 30
+2026-10-14T10:13:56.2297535Z   compression-level: 6
+2026-10-14T10:13:56.2297659Z   overwrite: false
+2026-10-14T10:13:56.2297802Z   include-hidden-files: false
+2026-10-14T10:13:56.2297943Z ##[endgroup]
+2026-10-14T10:13:56.3515846Z (node:3117) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-14T10:13:56.3516335Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-14T10:13:56.3596291Z With the provided path, there will be 12 files uploaded
+2026-10-14T10:13:56.3601591Z Artifact name is valid!
+2026-10-14T10:13:56.3601955Z Root directory input is valid!
+2026-10-14T10:13:56.6643984Z Beginning upload of artifact content to blob storage
+2026-10-14T10:13:56.6882633Z (node:3117) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-14T10:13:56.9201700Z Uploaded bytes 44903
+2026-10-14T10:13:56.9669992Z Finished uploading artifact content to blob storage!
+2026-10-14T10:13:56.9670578Z SHA256 digest of uploaded artifact zip is c0f1e88b02cd877dbf3e082b88fd2dd2fbde0bbb8a0dff2ded4237afb398d561
+2026-10-14T10:13:56.9671021Z Finalizing artifact upload
+2026-10-14T10:13:57.2260319Z Artifact lavender-droidian-docker-kernel-2.zip successfully finalized. Artifact ID 11885491920
+2026-10-14T10:13:57.2261324Z Artifact lavender-droidian-docker-kernel-2 has been successfully uploaded! Final size is 44903 bytes. Artifact ID is 11885491920
+2026-10-14T10:13:57.2266468Z Artifact download URL: https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38547959812/artifacts/11885491920
+2026-10-14T10:13:57.2438801Z Post job cleanup.
+2026-10-14T10:13:57.3045615Z [command]/usr/bin/git version
+2026-10-14T10:13:57.3084132Z git version 2.55.0
+2026-10-14T10:13:57.3117756Z Temporarily overriding HOME='/home/runner/work/_temp/d6fa2280-c9b5-4cc4-b1a1-bc2632472341' before making global git config changes
+2026-10-14T10:13:57.3118363Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-14T10:13:57.3119280Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/droidian-xiaomi-lavender/droidian-xiaomi-lavender
+2026-10-14T10:13:57.3158483Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-14T10:13:57.3193246Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-14T10:13:57.3413628Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-14T10:13:57.3439825Z http.https://github.com/.extraheader
+2026-10-14T10:13:57.3450778Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-14T10:13:57.3493338Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-14T10:13:57.3708854Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-14T10:13:57.3742084Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-14T10:13:57.4055494Z Cleaning up orphan processes
+2026-10-14T10:13:57.4286156Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
