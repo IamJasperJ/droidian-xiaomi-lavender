@@ -39,9 +39,11 @@ debian/rules path-override-prepare
 # Resolve both configs with the exact same compiler and source. Fail if
 # any driver or other unrelated symbol changes after dependency resolution.
 mkdir -p /buildd/baseline-config
+cp /project/config/original-lavender_halium_defconfig arch/arm64/configs/lavender_original_qa_defconfig
 make ARCH=arm64 O=/buildd/baseline-config CROSS_COMPILE=aarch64-linux-android- \
     CC=aarch64-linux-android-gcc-4.9 defconfig \
-    KBUILD_DEFCONFIG=/project/config/original-lavender_halium_defconfig
+    KBUILD_DEFCONFIG=lavender_original_qa_defconfig
+rm arch/arm64/configs/lavender_original_qa_defconfig
 make ARCH=arm64 O=/buildd/baseline-config CROSS_COMPILE=aarch64-linux-android- \
     CC=aarch64-linux-android-gcc-4.9 olddefconfig
 cp /buildd/baseline-config/.config "$artifacts/baseline.config"
