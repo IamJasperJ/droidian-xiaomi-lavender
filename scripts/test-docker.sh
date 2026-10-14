@@ -13,6 +13,7 @@ failures=0
 run_id="lavender-test-$$"
 alpine=${ALPINE_IMAGE:-alpine:latest}
 hello=${HELLO_IMAGE:-hello-world:latest}
+http=${HTTP_IMAGE:-busybox:1.36}
 started=$(date -u +%FT%TZ)
 check() {
     local label=$1
@@ -87,16 +88,32 @@ case "$driver" in
        failures=$((failures + 1)) ;;
 esac
 check 'launch local-only port mapping' docker run -d --name "$run_id-port" \
-    -p 127.0.0.1::8080 "$alpine" sh -ec \
+    -p 127.0.0.1::8080 "$http" sh -ec \
     'mkdir -p /www; echo lavender-port-ok >/www/index.html; exec httpd -f -p 8080 -h /www'
 port=$(docker inspect --format '{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' "$run_id-port" 2>/dev/null || true)
 if [[ "$port" =~ ^[0-9]+$ ]]; then
-    check 'published port HTTP response' bash -c \
-        'curl -fsS --retry 5 --retry-connrefused --retry-delay 1 "http://127.0.0.1:$1/" | grep -qx lavender-port-ok' _ "$port"
+    check 'published port HTTP response' python3 - "$port" <<'PYHTTP'
+import sys
+import time
+import urllib.error
+import urllib.request
+
+for attempt in range(6):
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{sys.argv[1]}/", timeout=5) as response:
+            body = response.read()
+        if body.strip() != b"lavender-port-ok":
+            raise RuntimeError(f"Unexpected published-port response: {body!r}")
+        break
+    except urllib.error.URLError:
+        if attempt == 5:
+            raise
+        time.sleep(1)
+PYHTTP
 else
     echo 'FAIL: no mapped port'; failures=$((failures + 1))
 fi
-docker image inspect "$hello" "$alpine" > "$log_dir/test-image-inspect.json" 2>&1 || true
+docker image inspect "$hello" "$alpine" "$http" > "$log_dir/test-image-inspect.json" 2>&1 || true
 echo "Failures: $failures"
 echo "Logs: $log_dir"
 echo 'Wi-Fi switching is a separate manual device test; follow README.md and keep dmesg/journal logs.'

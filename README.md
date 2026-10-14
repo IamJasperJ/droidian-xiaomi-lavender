@@ -8,7 +8,7 @@
 
 2026-10-14 已在 `vm130_complie` 完成 ARM64 内核编译及六个 Debian 包的打包。原始 run1 因两处产物校验器误判返回 1：无 second payload 时，AOSP mkbootimg 的 second 地址为 0；Debian control/md5sums 中的 flash-bootimage 字样属于元数据而非安装脚本。修复校验器后，对**同一批未修改的二进制产物**重新执行完整静态校验通过。原始退出状态与完整日志保留在 `reports/`，没有将失败记录改成成功，也没有再次触发 GitHub Actions。
 
-编译使用项目提交 `709446d41a1a4653459c10f11d2ec77704d3a01a`，修正后的校验器为 `a1b6b519771736c464fb25c73c1cfca55c13f9ec`。boot.img SHA256：`b21e362941e7d75c1c600de3c9e7c96039c0aa728e84083e3910733d9dd6e771`。产物附带 BUILD_SUCCESS、build-info、SHA256SUMS 和 revalidation.log；成功仅指编译和静态验证，手机启动、Docker 运行及 Wi-Fi 重连仍需真机验证。
+编译使用项目提交 `709446d41a1a4653459c10f11d2ec77704d3a01a`，修正后的校验器为 `a1b6b519771736c464fb25c73c1cfca55c13f9ec`。boot.img SHA256：`b21e362941e7d75c1c600de3c9e7c96039c0aa728e84083e3910733d9dd6e771`。产物附带 BUILD_SUCCESS、build-info、SHA256SUMS 和 revalidation.log；原始构建记录仅指编译和静态验证。2026-10-14 已完成真机刷入及首次启动，Docker 20.10.24 的容器、网络、存储、端口和资源配额测试全部通过；运行配置与构建配置逐字节一致。Wi-Fi 已连接并恢复 SSH，长时间休眠与反复重连尚未验证。详情见 [真机验证报告](reports/phone-runtime-2026-10-14.md)。
 
 ## 源码和可复现性
 
