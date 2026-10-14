@@ -25,7 +25,7 @@
 
 | 配置 | 用途 / 依赖 |
 | --- | --- |
-| `CONFIG_MEMCG=y` | 内存限制，处于 CGROUPS 菜单下，自动选择 PAGE_COUNTER 和 EVENTFD |
+| `CONFIG_MEMCG=y` | 内存限制，处于 CGROUPS 菜单下，自动选择 PAGE_COUNTER 和 EVENTFD；与原有 BLK_CGROUP 共同使隐藏的 CGROUP_WRITEBACK 默认启用 |
 | `CONFIG_MEMCG_SWAP=y` | 内存加 swap 限制，需要 MEMCG 和原有 SWAP |
 | `CONFIG_MEMCG_SWAP_ENABLED=y` | 默认启动 swap 记账；原启动参数没有关闭它 |
 | `CONFIG_CFS_BANDWIDTH=y` | CPU quota，需要原有 FAIR_GROUP_SCHED / CGROUP_SCHED |

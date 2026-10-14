@@ -45,10 +45,12 @@ def main():
             errors.append(f"CONFIG_{symbol}: absent from source Kconfig")
     if args.baseline:
         baseline = read_config(args.baseline)
-        # PAGE_COUNTER/EVENTFD are selected by MEMCG; MEMCG options appear
+        # PAGE_COUNTER/EVENTFD are selected by MEMCG. CGROUP_WRITEBACK is
+        # hidden, depends on MEMCG && the existing BLK_CGROUP, and defaults y.
+        # MEMCG options appear
         # only when their parent is enabled. No driver changes are allowed.
         allowed_changes = {"MEMCG", "MEMCG_SWAP", "MEMCG_SWAP_ENABLED", "MEMCG_KMEM",
-                           "PAGE_COUNTER", "EVENTFD", "CFS_BANDWIDTH", "CGROUP_NET_PRIO"}
+                           "PAGE_COUNTER", "EVENTFD", "CGROUP_WRITEBACK", "CFS_BANDWIDTH", "CGROUP_NET_PRIO"}
         for symbol in sorted(set(baseline) | set(config)):
             before, after = baseline.get(symbol, "n"), config.get(symbol, "n")
             if before != after:

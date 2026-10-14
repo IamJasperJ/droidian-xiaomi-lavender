@@ -11,4 +11,6 @@ Source pinned to 9a2af00e9e2790ed12df6218236267e9bc7cf01e.
 - Full original CI #2 job log: ci-run-38547959812-build.raw.log. SHA256 a3332e8da3c322efd89f0ca0bacef0c7850d9b3e10903d0fdd91986cd9704a45. Downloaded unchanged via GitHub View raw logs and supplied to Hermes for read-only verification.
 - Follow-up fixes: handle optional Mobian .sources entries, remove unused Android Clang dependency while keeping Android GCC 4.9, preserve chosen job count through CPU affinity, compare actual boot payload against compiled Image.gz + original merged DTB and official initramfs.
 
+Linux vm130_complie has resolved baseline and modified defconfigs with ARCH=arm64 Kconfig using host GCC. All required Docker symbols resolved as intended. Effective differences: CFS_BANDWIDTH, CGROUP_NET_PRIO, MEMCG, MEMCG_SWAP, MEMCG_SWAP_ENABLED, PAGE_COUNTER, CGROUP_WRITEBACK. CGROUP_WRITEBACK is a hidden default-y symbol requiring MEMCG && the original BLK_CGROUP; the allowlist was corrected after inspecting init/Kconfig:1213. No wireless driver configuration difference was observed in this comparison. Exact official Android GCC resolution remains a separate CI check.
+
 No successful ARM64 kernel build, .deb or boot.img has been reported yet. Real phone boot, Docker runtime and Wi-Fi switching remain untested.
