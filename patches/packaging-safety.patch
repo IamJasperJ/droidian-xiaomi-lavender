@@ -1,3 +1,10 @@
+diff --git a/debian/compat b/debian/compat
+deleted file mode 100644
+index b1bd38b6..00000000
+--- a/debian/compat
++++ /dev/null
+@@ -1 +0,0 @@
+-13
 diff --git a/debian/kernel-info.mk b/debian/kernel-info.mk
 index 0ef9328e..135ab1de 100644
 --- a/debian/kernel-info.mk

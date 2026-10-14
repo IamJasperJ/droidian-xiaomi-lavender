@@ -1,6 +1,6 @@
 # Droidian Docker kernel · Xiaomi lavender
 
-为 Xiaomi Redmi Note 7（`lavender`、Snapdragon 660、ARM64）启用真正 Docker Engine 所需的内核配置。完整编译只在 **GitHub Actions / Ubuntu 24.04** 中运行，使用官方 Droidian amd64 构建容器、Android GCC 4.9 和 Debian 打包流程。
+为 Xiaomi Redmi Note 7（`lavender`、Snapdragon 660、ARM64）启用真正 Docker Engine 所需的内核配置。默认提供 **GitHub Actions / Ubuntu 24.04** 构建流程；也支持在 amd64 Linux VM 上运行同一个官方 Droidian 容器、Android GCC 4.9 和 Debian 打包流程。
 
 本项目保留 Android 厂商内核、Qualcomm WLAN 驱动、设备树、固件路径和原有硬件配置。未使用 postmarketOS 的主线 ath10k 方案。配置保留不等于已经证明 Wi-Fi 重连稳定。
 
@@ -37,6 +37,7 @@ CI 先做 `git apply --check`，再用真实内核 Kconfig 解析原配置与修
 
 `patches/packaging-safety.patch` 独立处理打包：
 
+- 删除旧 `debian/compat`，由当前官方工具生成的 `debhelper-compat (= 13)` 唯一指定打包兼容级别，避免双重声明。
 - `FLASH_ENABLED=0`：生成的包不自动刷写手机。
 - `DEVICE_VBMETA_REQUIRED=0`：不生成原规则中关闭验证的 vbmeta 镜像，不改变手机现有验证设置。
 - 设置 `CLANG_CUSTOM=1` 并从 Build-Depends 去除未使用的 Android Clang 6；当前 snippets 不再自动加入未指定版本的 Clang 包。该设备始终使用原有 Android GCC 4.9，避免未使用的旧 Clang 引入 Trixie 已移除的 libtinfo5 依赖。
@@ -53,6 +54,16 @@ CI 先做 `git apply --check`，再用真实内核 Kconfig 解析原配置与修
 Ubuntu 24.04 是 runner；内核打包在官方 Trixie 容器中完成，避免直接用 Ubuntu 工具链编译旧 Android 内核。首次 CI 已发现固定官方镜像中的 Droidian 仓库公钥过旧，以及一个可选 Mobian 源的签名过期。`prepare-apt.sh` 用官方 keyring 仓库的固定提交更新容器密钥，并仅在构建容器内停用过期的可选 Mobian 源；保留 APT 签名验证。密钥来源、SHA256 和 fingerprint 见 `config/keyring-provenance.txt`，原始与有效源列表随 artifact 保存。依赖不存在、官方镜像不可用或旧源码与新宿主工具不兼容时，工作流明确失败；需要针对日志修复后重跑。
 
 `release=true` 时，只有 build job 成功，独立 release job 才获得 `contents: write` 权限，创建带 run 编号的 **prerelease**，避免覆盖旧版本。Release 列出源码/打包版本、功能、时间及安装风险；下载文件位于该版本的 **Assets**。默认运行不发布 Release。
+
+## Linux VM 构建
+
+按用户后续要求，也可在 vm130 等 amd64 Linux 主机上实际编译。需要 Git、Python 3.11+、Docker，以及可用的 Docker 权限或免密码 sudo，至少 20 GB 空闲空间。主机时钟必须正确，不能通过关闭签名或时间检查绕过 APT 验证。
+
+```bash
+BUILD_JOBS=2 bash scripts/build-on-linux.sh /absolute/path/to/fresh-buildd
+```
+
+必须指定一个新的绝对构建目录。脚本保存完整日志、原始失败退出码、产物和校验值，不刷写手机。只有实际包、镜像、模块及配置验证全部通过才生成 BUILD_SUCCESS。GitHub Actions 工作流继续保留，VM 构建成功不等于 CI 已成功。
 
 ## 构建产物
 

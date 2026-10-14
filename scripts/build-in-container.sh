@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Only invoked by the GitHub Actions runner in the official amd64 container.
+# Invoked by GitHub Actions or the Linux VM runner in the official container.
 set -Eeuo pipefail
 cd /buildd/sources
 artifacts=/buildd/artifacts
