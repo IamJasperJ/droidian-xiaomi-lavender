@@ -1,0 +1,74 @@
+{
+  "report_generated_at": "2026-10-14T10:48:30+00:00",
+  "run_id": 38551094126,
+  "workflow_name": "Build lavender Droidian Docker kernel",
+  "status": "completed",
+  "conclusion": "failure",
+  "success": false,
+  "html_url": "https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38551094126",
+  "head_branch": "main",
+  "head_sha": "6ec2df1eff7b5fbc9eee815b83877d0377e1a353",
+  "created_at": "2026-10-14T10:39:00Z",
+  "run_started_at": "2026-10-14T10:39:00Z",
+  "total_duration": "2m 33s",
+  "thread_id": "01a139cd-4a29-7581-ba6c-8b96887d6292",
+  "failing_steps": [
+    {
+      "job_name": "build",
+      "job_id": 115808959881,
+      "step_number": 5,
+      "step_name": "Compile and package with official Droidian environment",
+      "exit_code": 29,
+      "error_annotation": "Process completed with exit code 29. (ref #annotation:5:842)"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 115808959881,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "failure",
+      "duration": "2m 29s",
+      "html_url": "https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38551094126/job/115808959881",
+      "failing_step": {
+        "step_number": 5,
+        "step_name": "Compile and package with official Droidian environment",
+        "exit_code": 29,
+        "annotation": "Process completed with exit code 29. (ref #annotation:5:842)"
+      },
+      "logs_endpoint": {
+        "url": "https://api.github.com/repos/IamJasperJ/droidian-xiaomi-lavender/actions/jobs/115808959881/logs",
+        "status_code": 403,
+        "access_status": "Unauthorized / Forbidden",
+        "details": "Public unauthenticated REST access to GitHub Actions run/job logs returns 403 Forbidden. Public raw download requires sign-in."
+      }
+    },
+    {
+      "id": 115809915326,
+      "name": "release",
+      "status": "completed",
+      "conclusion": "skipped",
+      "duration": "0s",
+      "html_url": "https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38551094126/job/115809915326",
+      "logs_endpoint": {
+        "url": "https://api.github.com/repos/IamJasperJ/droidian-xiaomi-lavender/actions/jobs/115809915326/logs",
+        "status_code": 403,
+        "access_status": "Unauthorized / Forbidden"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "lavender-droidian-docker-kernel-4",
+      "size_human": "162 KB",
+      "digest": "sha256:a2c8aa1a744c13682f1815e098c2c1059c836f3264aef862dabb101fd398e198",
+      "url": "https://github.com/IamJasperJ/droidian-xiaomi-lavender/actions/runs/38551094126#artifacts"
+    }
+  ],
+  "logs_status": {
+    "status_code": 403,
+    "access_status": "Forbidden (public raw 403)",
+    "details": "GitHub API and raw logs endpoint return 403 without authorization. Web interface requires login for full logs.",
+    "action_required": "Codex fetch via signed-in Chrome"
+  }
+}
