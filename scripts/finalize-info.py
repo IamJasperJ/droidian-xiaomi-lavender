@@ -31,9 +31,14 @@ if os.environ.get("KERNEL_BUILD_PROJECT_SHA"):
     info.append("Kernel build project commit: " + os.environ["KERNEL_BUILD_PROJECT_SHA"])
     info.append("Post-build validation rerun; original compilation result/log retained in provenance files.")
 source_dir = pathlib.Path(os.environ.get("KERNEL_SOURCE_DIR", "/buildd/sources"))
-release_header = source_dir / "out/KERNEL_OBJ/include/config/kernel.release"
+release_header = source_dir / "out/KERNEL_OBJ/include/generated/utsrelease.h"
 if release_header.exists():
-    info.append("Actual kernelrelease: " + release_header.read_text().strip())
+    release = re.search(r'^#define UTS_RELEASE "([^"]+)"', release_header.read_text(), re.M)
+    if release:
+        info.append("Actual kernelrelease (compiled UTS_RELEASE): " + release[1])
+computed_release = source_dir / "out/KERNEL_OBJ/include/config/kernel.release"
+if computed_release.exists():
+    info.append("Kbuild computed release (before packaging override): " + computed_release.read_text().strip())
 if (artifacts / "toolchain-version.txt").exists():
     info.append("Compiler:\n" + (artifacts / "toolchain-version.txt").read_text())
 if (artifacts / "final.config").exists():

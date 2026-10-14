@@ -1,0 +1,285 @@
+================================================================================
+POST-IMPLEMENTATION QA REPORT: LAVENDER DROIDIAN DOCKER KERNEL (VM RUN1)
+================================================================================
+Target Workspace: /workspace/lavender-vm-qa
+Mode: test_and_verify (read-only verification, no code changes, no recompilation, no phone operations)
+Verification Date: 2026-10-14 UTC
+Overall Status: PASS (Static Artifact & Script Verification)
+Device Runtime Status: UNTESTED (Real Phone / Docker Runtime / Wi-Fi Switching)
+
+================================================================================
+1. PROVENANCE & EXECUTION RECORD VERIFICATION
+================================================================================
+- ARTIFACTS_READY marker:
+  * Path: /workspace/lavender-vm-qa/ARTIFACTS_READY
+  * Status: CONFIRMED PRESENT (0 bytes, created 2026-10-14 11:36 UTC)
+- Git Commits & Provenance Traceability:
+  * Kernel compilation project commit: 709446d41a1a4653459c10f11d2ec77704d3a01a
+  * Corrected validation commit: a1b6b519771736c464fb25c73c1cfca55c13f9ec
+  * Upstream Kernel Source URL: https://github.com/droidian-devices/linux-android-xiaomi-lavender.git
+  * Upstream Branch: droidian
+  * Upstream Pinned Commit: 9a2af00e9e2790ed12df6218236267e9bc7cf01e
+  * Build Container: quay.io/droidian/build-essential@sha256:53a9ebae9787b2d74c56974ae9b0727aae81409fdff612aca1f97b1083c9fd49
+  * Target Architecture: arm64 (AArch64)
+  * Makefile base version: 4.4.156
+  * Debian package version label: 4.4.192
+  * Actual compiled kernelrelease: 4.4.156-xiaomi-lavender+
+- Run 1 Original Exit Code & Preserved Provenance:
+  * Original run 1 record: project/reports/vm-run1-original-result.json
+    - Recorded ssh_exit_code: 1
+    - Host: vm130_complie
+    - Project SHA: 709446d41a1a4653459c10f11d2ec77704d3a01a
+    - Started UTC: 2026-10-14T11:03:55.165015+00:00
+    - Finished UTC: 2026-10-14T11:29:22.429329+00:00
+    - real_device_tested: false
+  * Raw Log Verification:
+    - Path: project/reports/vm-run1-console.raw.log
+    - SHA256: 934e12b7cfd50fb8afc2abcae0f55b3452befae94d925bfa27112e29b1f09aa8
+    - Verification: PASS (Exact match confirmed)
+    - Also matched /workspace/lavender-vm-monitor/run1-console.log
+  * Root Cause of Original Run 1 Exit 1:
+    1) Line 25 in check_boot expected second_addr == 0x00f00000 (from kernel-info.mk),
+       whereas AOSP mkbootimg sets second_addr = 0 when --second is absent.
+    2) Package maintainer script check scanned entire control directory (including
+       control and md5sums which mention flash-bootimage as a dependency and file path)
+       instead of only actual maintainer scripts (preinst, postinst, prerm, postrm, config).
+  * Subsequent Validation:
+    - The compiled kernel binaries were unchanged.
+    - Validator logic corrected in commit a1b6b519771736c464fb25c73c1cfca55c13f9ec.
+    - Revalidation passed completely (revalidation.log, BUILD_SUCCESS produced).
+
+================================================================================
+2. PROJECT SCRIPTS & SYNTAX VERIFICATION
+================================================================================
+- Shell Script Syntax Check (bash -n):
+  * scripts/build-in-container.sh: PASS (exit 0)
+  * scripts/build-on-linux.sh: PASS (exit 0)
+  * scripts/prepare-apt.sh: PASS (exit 0)
+  * scripts/prepare-source.sh: PASS (exit 0)
+  * scripts/test-docker.sh: PASS (exit 0)
+- Python Script Compilation Check (py_compile):
+  * scripts/collect-artifacts.py: PASS (exit 0)
+  * scripts/finalize-info.py: PASS (exit 0)
+  * scripts/verify-config.py: PASS (exit 0)
+
+================================================================================
+3. SHA256SUMS VERIFICATION
+================================================================================
+Command: sha256sum --check SHA256SUMS (in artifacts/)
+Results:
+  BUILD_SUCCESS: OK
+  Image.gz: OK
+  apt-sources-before/.dummy: OK
+  apt-sources-effective/.dummy: OK
+  baseline.config: OK
+  boot.img: OK
+  build-started.txt: OK
+  build.log: OK
+  config-verification.log: OK
+  container-inspect.json: OK
+  dependency-versions.txt: OK
+  docker-kernel-config.patch: OK
+  final-config-verification.log: OK
+  final.config: OK
+  generated-debian-control: OK
+  kernel-snippet.mk: OK
+  linux-bootimage-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  linux-bootimage-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  linux-headers-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  linux-headers-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  linux-image-4.4.192-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  linux-image-xiaomi-lavender_4.4.192+droidian9+git20231222064942.9a2af00.docker.kernel_arm64.deb: OK
+  original-debian-control: OK
+  original-defconfig: OK
+  original-failed-build-info.txt: OK
+  packaging-safety.patch: OK
+  prebuild.config: OK
+  releng-build-package: OK
+  revalidation.log: OK
+  source.lock: OK
+  toolchain-version.txt: OK
+  vmlinux: NOT FOUND (Intentionally excluded from cloud copy)
+Verification Summary:
+  - 31 of 31 included files match their SHA256 checksums exactly (100% PASS).
+  - Explicit Limitation: Uncompressed vmlinux (expected SHA256 935a796c9a9e45b71ddac7b015064bd40776e2dc2c9eb9f91ffe57570b11d908)
+    is intentionally excluded from the cloud copy due to size constraints.
+
+================================================================================
+4. DEBIAN PACKAGE ARCHITECTURE & MODULE INSPECTION
+================================================================================
+- All Six Debian Packages Checked for Architecture:
+  1. linux-bootimage-4.4.192-xiaomi-lavender: Architecture = arm64 [PASS]
+  2. linux-bootimage-xiaomi-lavender: Architecture = arm64 [PASS]
+  3. linux-headers-4.4.192-xiaomi-lavender: Architecture = arm64 [PASS]
+  4. linux-headers-xiaomi-lavender: Architecture = arm64 [PASS]
+  5. linux-image-4.4.192-xiaomi-lavender: Architecture = arm64 [PASS]
+  6. linux-image-xiaomi-lavender: Architecture = arm64 [PASS]
+
+- Unpack Real Image Package (linux-image-4.4.192-xiaomi-lavender):
+  * Total kernel modules (.ko) found: 9
+  * All 9 modules verified for Little-Endian 64-bit ELF (EM_AARCH64, e_machine=183):
+    - ansi_cprng.ko: AArch64 ELF [PASS]
+    - br_netfilter.ko: AArch64 ELF [PASS]
+    - gspca_main.ko: AArch64 ELF [PASS]
+    - qcrypto.ko: AArch64 ELF [PASS]
+    - qcedev.ko: AArch64 ELF [PASS]
+    - test-iosched.ko: AArch64 ELF [PASS]
+    - v4l2loopback.ko: AArch64 ELF [PASS]
+    - wlan.ko: AArch64 ELF [PASS]
+    - zram.ko: AArch64 ELF [PASS]
+  * br_netfilter Module Check:
+    - Path: lib/modules/4.4.192-xiaomi-lavender/kernel/net/bridge/br_netfilter.ko
+    - Size: 26,336 bytes
+    - Architecture: AArch64 ELF confirmed [PASS]
+
+================================================================================
+5. BOOT PACKAGE UNPACK & FLASH SAFETY VERIFICATION
+================================================================================
+- Unpack Real Boot Package (linux-bootimage-4.4.192-xiaomi-lavender):
+  * Packaged boot image: boot/boot.img-4.4.192-xiaomi-lavender
+  * Size: 32,043,008 bytes
+  * Comparison against artifact boot.img:
+    - cmp boot.img boot.img-4.4.192-xiaomi-lavender -> IDENTICAL (byte-for-byte match, 0 diff) [PASS]
+  * Flash Configuration (lib/flash-bootimage/4.4.192-xiaomi-lavender.conf):
+    - FLASH_ENABLED=no confirmed [PASS]
+    - DEVICE_HAS_VBMETA_PARTITION=no confirmed [PASS]
+    - DEVICE_HAS_DTBO_PARTITION=no confirmed [PASS]
+  * Vbmeta Check:
+    - Zero vbmeta files in package payload [PASS]
+  * Maintainer Script Inspection:
+    - Scripts checked: preinst, postinst, prerm, postrm, config
+    - Result: No maintainer scripts exist in the package control archive.
+    - No flash-bootimage, fastboot, flash_image, or dd invocation exists.
+    - control and md5sums files are present solely as Debian package metadata (dependency declaration and file checksums). [PASS]
+
+================================================================================
+6. INDEPENDENT BOOT HEADER INSPECTION
+================================================================================
+Independent Binary Inspection of boot.img (Header v1):
+  * Magic: b"ANDROID!" (offset 0..8) [PASS]
+  * header_version: 1 (offset 40..44) [PASS]
+  * page_size: 4096 bytes (0x1000, offset 36..40) [PASS]
+  * kernel_size: 15,186,077 bytes (0xe7b89d, offset 8..12) [PASS]
+  * kernel_addr: 0x8000 (offset 12..16) [PASS]
+  * ramdisk_size: 16,849,396 bytes (0x10119f4, offset 16..20) [PASS]
+  * ramdisk_addr: 0x1000000 (offset 20..24) [PASS]
+  * second_size: 0 (offset 24..28) [PASS]
+  * second_addr: 0x0 (offset 28..32) [PASS]
+    Note: Per AOSP mkbootimg specification, when no --second payload is supplied,
+    mkbootimg writes 0 for both second_size and second_addr.
+  * tags_addr: 0x100 (offset 32..36) [PASS]
+  * header_size: 1648 bytes (offset 1644..1648) [PASS]
+  * cmdline contains: systemd.unified_cgroup_hierarchy=0 [PASS]
+  * Payload verification:
+    - Kernel payload contains ARM64 gzip image followed by appended device DTB (0xd00dfeed).
+    - Ramdisk payload decompresses to valid newc cpio archive (Halium initramfs).
+
+================================================================================
+7. CORRECTED CHECK_BOOT EXECUTION & MUTATION REJECTION TESTS
+================================================================================
+- Baseline Real Boot Image:
+  * check_boot(boot.img): PASS (exit 0)
+- Mutation Rejection Suite (All 9 negative tests verified to reject with ValueError):
+  1. Mutated kernel address (0x9000 instead of 0x8000):
+     -> REJECTED: "Boot layout does not match pinned lavender kernel-info.mk" [PASS]
+  2. Mutated page size (2048 instead of 4096):
+     -> REJECTED: "Boot layout does not match pinned lavender kernel-info.mk" [PASS]
+  3. Mutated header version (2 instead of 1):
+     -> REJECTED: "Boot layout does not match pinned lavender kernel-info.mk" [PASS]
+  4. Mutated header size (2048 instead of 1648):
+     -> REJECTED: "Missing kernel/initramfs or invalid v1 header size" [PASS]
+  5. Mutated magic (BADMAGIC instead of ANDROID!):
+     -> REJECTED: "Invalid Android boot header" [PASS]
+  6. Nonzero absent-second address (second_size=0, second_addr=0x00f00000):
+     -> REJECTED: "Unexpected second-stage bootloader in lavender boot image" [PASS]
+  7. Unexpected second payload (second_size=4096):
+     -> REJECTED: "Unexpected second-stage bootloader in lavender boot image" [PASS]
+  8. Truncated image (100,000 bytes):
+     -> REJECTED: "Truncated Android boot image" [PASS]
+  9. Minimal boundary truncation (size = min_required - 1 byte = 32043007 bytes):
+     -> REJECTED: "Truncated Android boot image" [PASS]
+
+================================================================================
+8. 49 REQUIRED DOCKER CONFIG SYMBOLS & BASELINE COMPARISON
+================================================================================
+Command: python3 scripts/verify-config.py final.config --baseline baseline.config
+Output:
+  CONFIG_CGROUPS=y
+  CONFIG_CGROUP_FREEZER=y
+  CONFIG_CGROUP_PIDS=y
+  CONFIG_CGROUP_DEVICE=y
+  CONFIG_CGROUP_CPUACCT=y
+  CONFIG_CGROUP_SCHED=y
+  CONFIG_FAIR_GROUP_SCHED=y
+  CONFIG_CPUSETS=y
+  CONFIG_MEMCG=y
+  CONFIG_MEMCG_SWAP=y
+  CONFIG_MEMCG_SWAP_ENABLED=y
+  CONFIG_CFS_BANDWIDTH=y
+  CONFIG_CGROUP_NET_PRIO=y
+  CONFIG_NAMESPACES=y
+  CONFIG_UTS_NS=y
+  CONFIG_IPC_NS=y
+  CONFIG_PID_NS=y
+  CONFIG_NET_NS=y
+  CONFIG_USER_NS=y
+  CONFIG_SYSVIPC=y
+  CONFIG_OVERLAY_FS=y
+  CONFIG_EXT4_FS=y
+  CONFIG_TMPFS=y
+  CONFIG_TMPFS_POSIX_ACL=y
+  CONFIG_TMPFS_XATTR=y
+  CONFIG_DEVTMPFS=y
+  CONFIG_VETH=y
+  CONFIG_BRIDGE=y
+  CONFIG_BRIDGE_NETFILTER=m
+  CONFIG_NETFILTER=y
+  CONFIG_NETFILTER_XTABLES=y
+  CONFIG_NF_CONNTRACK=y
+  CONFIG_NF_CONNTRACK_IPV4=y
+  CONFIG_NF_NAT=y
+  CONFIG_NF_NAT_IPV4=y
+  CONFIG_NF_NAT_MASQUERADE_IPV4=y
+  CONFIG_IP_NF_IPTABLES=y
+  CONFIG_IP_NF_NAT=y
+  CONFIG_IP_NF_FILTER=y
+  CONFIG_IP_NF_TARGET_MASQUERADE=y
+  CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+  CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+  CONFIG_SECCOMP=y
+  CONFIG_SECCOMP_FILTER=y
+  CONFIG_KEYS=y
+  CONFIG_POSIX_MQUEUE=y
+  CONFIG_UNIX=y
+  CONFIG_PACKET=y
+  CONFIG_MODULES=y
+
+Config Symbol Verification:
+  - Required symbols count: 49
+  - 48 symbols resolved to built-in 'y'
+  - 1 symbol resolved to module 'm' (BRIDGE_NETFILTER)
+  - Result: PASS
+
+Baseline Diff Comparison:
+  DIFF CONFIG_CFS_BANDWIDTH: n -> y
+  DIFF CONFIG_CGROUP_NET_PRIO: n -> y
+  DIFF CONFIG_CGROUP_WRITEBACK: n -> y (auto-enabled via MEMCG && BLK_CGROUP)
+  DIFF CONFIG_MEMCG: n -> y
+  DIFF CONFIG_MEMCG_SWAP: n -> y
+  DIFF CONFIG_MEMCG_SWAP_ENABLED: n -> y
+  DIFF CONFIG_PAGE_COUNTER: n -> y (auto-selected by MEMCG)
+  Result: PASS ("all Docker requirements resolved; unrelated config preserved")
+  - All hardware peripheral drivers, Qualcomm WLAN (ath/qca), and platform configs
+    are 100% preserved without modification.
+
+================================================================================
+9. EXPLICIT DISCLAIMERS & BOUNDARIES
+================================================================================
+- Real Phone Boot: UNTESTED. Static boot.img format validation does not prove
+  successful bootloader execution or kernel initialization on physical hardware.
+- Docker Engine Runtime: UNTESTED. Static kernel symbol enablement does not prove
+  Docker daemon, containerd, runc, or overlay2 compatibility on Linux 4.4.
+- Wi-Fi Reconnection Stability: UNTESTED. Vendor Wi-Fi drivers and configs are
+  preserved, but live network associations or reconnection stability are unverified.
+- NO RUNTIME SUCCESS IS CLAIMED OR IMPLIED.
+================================================================================

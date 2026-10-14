@@ -2,6 +2,7 @@
 """Collect actual Droidian outputs; successful build requires all validations."""
 import gzip
 import pathlib
+import re
 import shutil
 import struct
 import subprocess
@@ -14,6 +15,12 @@ def check_elf(path):
     data = path.read_bytes()[:20]
     if data[:4] != b"\x7fELF" or data[4:6] != b"\x02\x01" or struct.unpack_from("<H", data, 18)[0] != 183:
         raise ValueError(f"Not little-endian AArch64 ELF: {path}")
+
+
+def check_module(path, release):
+    check_elf(path)
+    if b"vermagic=" + release.encode() + b" " not in path.read_bytes():
+        raise ValueError(f"Module vermagic differs from compiled kernel release: {path}")
 
 
 def check_boot(path):
@@ -87,13 +94,20 @@ def main():
     subprocess.run([sys.executable, str(project / "scripts/verify-config.py"), str(dest / "final.config"),
                     "--baseline", str(dest / "baseline.config")], check=True)
     check_elf(obj / "vmlinux")
+    release_match = re.search(r'^#define UTS_RELEASE "([^"]+)"',
+                              (obj / "include/generated/utsrelease.h").read_text(), re.M)
+    if not release_match or release_match[1] != "4.4.192-xiaomi-lavender":
+        raise ValueError("Compiled kernel release differs from pinned packaging label")
+    release = release_match[1]
+    if b"Linux version " + release.encode() + b" " not in (obj / "vmlinux").read_bytes():
+        raise ValueError("Compiled kernel banner differs from UTS_RELEASE")
     if gzip.decompress(image.read_bytes())[56:60] != b"ARM\x64":
         raise ValueError("Image.gz is not ARM64")
     modules = list(obj.rglob("*.ko"))
     if not modules:
         raise ValueError("BRIDGE_NETFILTER=m but no modules generated")
     for module in modules:
-        check_elf(module)
+        check_module(module, release)
     packaged_image = packaged_boot = packaged_modules = False
     for deb in packages:
         arch = subprocess.check_output(["dpkg-deb", "-f", str(deb), "Architecture"], text=True).strip()
@@ -112,7 +126,9 @@ def main():
                 if not ko:
                     raise ValueError("Kernel package contains no modules")
                 for module in ko:
-                    check_elf(module)
+                    check_module(module, release)
+                    if extract / "lib/modules" / release not in module.parents:
+                        raise ValueError("Packaged module directory differs from compiled release")
                 if not any(p.name == "br_netfilter.ko" for p in ko):
                     raise ValueError("br_netfilter module missing from package")
                 packaged_image = packaged_modules = True
